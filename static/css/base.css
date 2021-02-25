@@ -63,6 +63,10 @@ body {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background-color: black !important;
+}
+
 /* Colours */
 
 bg-dark {
