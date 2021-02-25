@@ -67,6 +67,16 @@ body {
     background-color: black !important;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #2F363D;
+    z-index: -1;
+}
+
 /* Colours */
 
 bg-dark {
@@ -111,17 +121,17 @@ bg-dark {
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
+  .fixed-top-desktop-only {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  
+  .header-container {
+    padding-top: 164px;
+  }
 }
 
 @media (max-width: 1670px) {
@@ -130,4 +140,15 @@ bg-dark {
     position: absolute;
     left: 6rem;
     top: -23px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
 }
