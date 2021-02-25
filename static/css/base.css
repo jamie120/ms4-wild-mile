@@ -10,6 +10,13 @@ body {
     font-family: 'Lato';
 }
 
+#logo-img {
+    width: 11%;
+    position: absolute;
+    left: 6rem;
+    top: -1.5rem;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -56,6 +63,24 @@ body {
     border: 1px solid black !important;
 }
 
+/* Colours */
+
+bg-dark {
+    background-color: #2F363D !important;
+}
+
+/* Navbar */
+
+#nav-bars {
+    color: white !important;
+    font-size: 1.5rem;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: white;
+}
+
 /* Home Page */
 
 #home-title {
@@ -93,4 +118,12 @@ body {
     .header-container {
         padding-top: 164px;
     }
+}
+
+@media (max-width: 1670px) {
+#logo-img {
+    width: 16%;
+    position: absolute;
+    left: 6rem;
+    top: -23px;
 }
