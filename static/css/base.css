@@ -56,6 +56,21 @@ body {
     border: 1px solid black !important;
 }
 
+/* Home Page */
+
+#home-title {
+    font-size: 5rem;
+    color: white !important;
+}
+
+#title-column {
+    margin-top: 21rem;
+}
+
+.scratched-font {
+    font-family: pwscratchedfont;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
