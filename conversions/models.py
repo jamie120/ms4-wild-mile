@@ -44,11 +44,20 @@ class CamperConversion(models.Model):
     berths = models.IntegerField()
     belted_seats = models.IntegerField()
     max_weight = models.IntegerField()
-    unladen_weight_verified = models.BooleanField(default=False)
-    unladen_weight = models.IntegerField(blank=True)
+    unladen_weight_verified = models.BooleanField(default=False, blank=True)
+    unladen_weight = models.IntegerField(blank=True, null=True)
     electrics = models.ManyToManyField(Electric)
     main_image_url = models.URLField(max_length=1024, null=True, blank=True)
-    images = models.ImageField(null=True, blank=True)
+    main_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+
+class ConversionImage(models.Model):
+    conversion = models.ForeignKey(
+        CamperConversion, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.conversion.name
