@@ -13,61 +13,67 @@
 <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font text-white">Conversions</h2>
-                <hr class="w-50 text-white mb-1">
+            <div class="col mt-3">
+                <h2 class="logo-font page-header text-white">Conversions</h2>
+                <hr class="page-header-hr text-white mb-1">
             </div>
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for conversion in conversions %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                {% if conversion.image %}
-                                <a href="{% url 'conversion_detail' conversion.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ conversion.image.url }}" alt="{{ conversion.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'conversion_detail' conversion.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
-                                </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ conversion.name }}</p>
+                {% for conversion in conversions %}
+                    <div class="row mt-1 mb-2"></div>
+                        <div class="row conversion-listing">
+                            <div class="col-12 col-md-5 {% if forloop.counter|divisibleby:2 %}order-md-last{% endif %}">
+                                <div class="card h-100 border-0">
+                                    {% if conversion.main_image %}
+                                    <a href="{% url 'conversion_detail' conversion.id %}">
+                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'conversion_detail' conversion.id %}">
+                                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
+                                    </a>
+                                    {% endif %}
                                 </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">£{{ conversion.price }}</p>
+                            </div>
+                            <div class="col-12 col-md-7">
+                                <div class="card">
+                                    <div class="card-body bg-white pb-0">
+                                        <a href="{% url 'conversion_detail' conversion.id %}">
+                                            <h3 class="mb-0">{{ conversion.name }}</h3>
+                                            <h4 class="mb-2 text-left font-weight-bold">£{{ conversion.price }}</h4>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="mt-2 small mb-0 text-left font-weight-bold">£{{ conversion.vehicle_description }}</p>
+                                                <p class="mt-2 mb-0 text-left font-weight-bold"><strong>Berths</strong></p>
+                                                <p>{{ conversion.berths }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="mt-1 mb-0 text-left font-weight-bold"><strong>Vehicle Make & Model</strong></p>
+                                                <p>tbc</p>
+                                            </div>
+                                            <div class="col">
+                                                <p class="mt-1 mb-0 text-left font-weight-bold"><strong>Vehicle Year</strong></p>
+                                                <p>tbc</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="mt-1 mb-0 text-left font-weight-bold"><strong>Location</strong></p>
+                                                <p>tbc</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                        <hr class="text-white mb-1">
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -21,6 +21,15 @@ hr {
     border-top: 1px solid white;
 }
 
+.page-header {
+    padding-left: 9%;
+    font-size: 1.7rem;
+}
+
+.page-header-hr {
+    width: 83%;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -87,6 +96,10 @@ bg-dark {
     background-color: #2F363D !important;
 }
 
+a {
+    color: unset;
+}
+
 /* Navbar */
 
 #nav-bars {
@@ -112,6 +125,12 @@ bg-dark {
 
 .scratched-font {
     font-family: pwscratchedfont;
+}
+
+/* ------- All Conversion Listings Page ------- */
+
+.card {
+    background-color: unset;
 }
 
 /* ------- Conversion Detail Page ------- */
