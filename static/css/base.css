@@ -96,6 +96,10 @@ bg-dark {
     background-color: #2F363D !important;
 }
 
+bg-light {
+    background-color: bisque !important;
+}
+
 a {
     color: unset;
 }
@@ -153,6 +157,31 @@ a.category-badge > span.badge:hover {
 }
 
 /* ------- Conversion Detail Page ------- */
+
+@media (min-width: 992px) {
+       .col-border-col-1 {
+        border: 1px solid white;
+        border-right: unset;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+        .col-border-col-2 {
+        border: 1px solid white;
+        border-left: unset;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+        .col-border {
+        border: 1px solid white;
+        border-radius: 20px;
+    }
+}
+
+#conversion-main-image {
+    align-self: center;
+    border-radius: 20px;
+}
 
 
 /* Conversion Detail Square Gallery 
