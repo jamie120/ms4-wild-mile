@@ -127,6 +127,25 @@ a {
     font-family: pwscratchedfont;
 }
 
+/* ------ All products page ------ */
+
+a.category-badge > span.badge:hover {
+    background: white !important;
+    color: black !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* ------- All Conversion Listings Page ------- */
 
 .card {
