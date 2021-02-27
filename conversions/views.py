@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import CamperConversion
+from .models import CamperConversion, Category
 
 # Create your views here.
 
@@ -12,6 +12,7 @@ def all_conversions(request):
 
     conversions = CamperConversion.objects.all()
     query = None
+    categories = None
 
     if request.GET:
         if 'q' in request.GET:
@@ -24,9 +25,15 @@ def all_conversions(request):
             queries = Q(name__icontains=query) | Q(conversion_description__icontains=query)
             conversions = conversions.filter(queries)
 
+        if 'category' in request.GET:
+                categories = request.GET['category'].split(',')
+                conversions = conversions.filter(category__name__in=categories)
+                categories = Category.objects.filter(name__in=categories)
+
     context = {
         'conversions': conversions,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'conversions/conversions.html', context)

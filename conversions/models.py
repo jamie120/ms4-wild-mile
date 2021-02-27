@@ -32,6 +32,7 @@ class CamperConversion(models.Model):
     TRANSMISSION_TYPES = [
         ('MT', 'Manual'), ('AT', 'Automatic')
     ]
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     vehicle_description = models.TextField()
     conversion_description = models.TextField()
