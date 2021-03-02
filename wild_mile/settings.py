@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'conversions',
     'bag',
     'checkout',
+
+    # Other
+    'crispy-forms',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
