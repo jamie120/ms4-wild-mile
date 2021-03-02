@@ -30,6 +30,16 @@ hr {
     width: 83%;
 }
 
+/* --- Larger fonts ---- */
+
+.larger-font {
+    font-size: larger;
+}
+
+.large-font {
+    font-size: large;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -104,6 +114,14 @@ a {
     color: unset;
 }
 
+.light-border {
+    border: 4px solid rgba(194,208,194);
+}
+
+.light-color {
+    background-color: rgb(194,208,194);
+}
+
 /* Navbar */
 
 #nav-bars {
@@ -158,22 +176,33 @@ a.category-badge > span.badge:hover {
 
 /* ------- Conversion Detail Page ------- */
 
+.fa-check-circle:before {
+    content: "\f058";
+    color: green;
+    font-size: 2rem;
+}
+
 @media (min-width: 992px) {
        .col-border-col-1 {
-        border: 1px solid white;
+        border: 4px solid rgba(194,208,194);
         border-right: unset;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
         .col-border-col-2 {
-        border: 1px solid white;
+        border: 4px solid rgba(194,208,194);
         border-left: unset;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
 
+        .top-bottom-large-border {
+        border-top-width: 50px;
+        border-bottom-width: 50px;
+    }
+
         .col-border {
-        border: 1px solid white;
+        border: 4px solid rgba(194,208,194);
         border-radius: 20px;
     }
 }
@@ -183,6 +212,22 @@ a.category-badge > span.badge:hover {
     border-radius: 20px;
 }
 
+.card-footer:last-child {
+    border-radius: unset;
+}
+
+.card {
+    border: 4px solid rgba(194,208,194);
+}
+
+.card-body {
+    flex: 0.3 1 auto;
+}
+
+
+.card-footer {
+    flex: 1 1 auto;
+}
 
 /* Conversion Detail Square Gallery 
 https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/ */
