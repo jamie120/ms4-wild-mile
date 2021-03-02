@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
+
 from .models import CamperConversion, Category
+from .forms import CamperConversionForm
 
 # Create your views here.
 
@@ -86,3 +88,14 @@ def conversion_detail(request, conversion_id):
     }
 
     return render(request, 'conversions/conversion_detail.html', context)
+
+
+def add_conversion(request):
+    """ Add a converions to the store """
+    form = CamperConversionForm()
+    template = 'conversions/add_conversion.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
