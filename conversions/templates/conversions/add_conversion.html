@@ -12,8 +12,8 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 bg-white mt-4">
                 <hr>
                 <h2 class="logo-font mb-4">Add Conversion</h2>
                 <h5 class="text-muted">Add a Conversion</h5>
@@ -21,14 +21,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 bg-white mb-4">
                 <form method="POST" action="{% url 'add_conversion' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <div class="text-right">
+                    {{ formset | crispy }}
+                    <div class="text-left">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'conversions' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Conversion</button>
+                        <button class="btn btn-black rounded-0" type="submit">Save</button>
                     </div>
                 </form>
             </div>

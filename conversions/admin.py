@@ -1,17 +1,17 @@
 from django.contrib import admin
-from .models import CamperConversion, Category, Electric, ConversionImage
+from .models import CamperConversion, Category, Electric, PostImage
 
 # Register your models here.
 
 
 class ConversionImageInline(admin.TabularInline):
-    model = ConversionImage
+    model = PostImage
     extra = 3
 
 
 class CamperConversionAdmin(admin.ModelAdmin):
     list_display = (
-        'name',
+        'listing_title',
         'price',
         'registered_vehicle_type',
     )

@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
+from django import forms
+from django.forms import modelformset_factory
 
-from .models import CamperConversion, Category
-from .forms import CamperConversionForm
+from .models import CamperConversion, Category, PostImage
+from .forms import ConversionForm, ImageForm
 
 # Create your views here.
 
@@ -91,11 +93,35 @@ def conversion_detail(request, conversion_id):
 
 
 def add_conversion(request):
-    """ Add a converions to the store """
-    form = CamperConversionForm()
+    """ Add a conversion request to the admin """
+    ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
+
+    if request.method == 'POST':
+        print("POST REQUEST INTITATED")
+        form = ConversionForm(request.POST, request.FILES)
+        formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
+
+        if form.is_valid() and formset.is_valid():
+            post_form = form.save(commit=False)
+            post_form.save()
+
+            for form in formset.cleaned_data:
+                image = form['image']
+                photo = PostImage(conversion=post_form, image=image)
+                photo.save()
+            messages.success(request,
+                             "Posted!")
+            return redirect(reverse('add_conversion'))
+        else:
+            messages.error(request, 'Failed to submit form.')
+
+    else:
+        form = ConversionForm()
+        formset = ImageFormSet(queryset=PostImage.objects.none())
+
     template = 'conversions/add_conversion.html'
     context = {
         'form': form,
+        'formset': formset,
     }
-
     return render(request, template, context)
