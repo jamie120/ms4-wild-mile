@@ -59,17 +59,18 @@
                 </div>
 
                 {% for conversion in conversions %}
+                    {% if conversion.is_active %}
                     <div class="row mt-1 mb-2"></div>
                         <div class="row conversion-listing">
                             <div class="col-12 col-md-5 {% if forloop.counter|divisibleby:2 %}order-md-last{% endif %}">
                                 <div class="card h-100 border-0">
                                     {% if conversion.main_image %}
                                     <a href="{% url 'conversion_detail' conversion.id %}">
-                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.name }}">
+                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
                                     </a>
                                     {% else %}
                                     <a href="{% url 'conversion_detail' conversion.id %}">
-                                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
+                                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.listing_title">
                                     </a>
                                     {% endif %}
                                 </div>
@@ -78,7 +79,7 @@
                                 <div class="card">
                                     <div class="card-body bg-white pb-0">
                                         <a href="{% url 'conversion_detail' conversion.id %}">
-                                            <h3 class="mb-0 p-2">{{ conversion.name }}</h3>
+                                            <h3 class="mb-0 p-2">{{ conversion.listing_title }}</h3>
                                             <h4 class="mb-2 p-2 text-left font-weight-bold">£{{ conversion.price }}</h4>
                                         </a>
                                         <p class="mt-2 p-2 mb-0 text-left font-weight-bold">£{{ conversion.vehicle_description }}</p>
@@ -111,6 +112,7 @@
                             </div>
                         </div>
                         <hr class="text-white mb-1">
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

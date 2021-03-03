@@ -9,6 +9,9 @@ class ConversionForm(forms.ModelForm):
         model = CamperConversion
         fields = '__all__'
 
+        # Hidden field, which defines if the listing is active on the site
+        widgets = {'is_active': forms.HiddenInput()}
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()

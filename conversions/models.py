@@ -76,6 +76,9 @@ class CamperConversion(models.Model):
     main_image = models.ImageField(
         null=True, blank=True)
 
+    # Field which defines if the listing is active on the site, default set to 'False', awaiting admin approval.
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.listing_title
 

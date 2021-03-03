@@ -16,6 +16,7 @@ def all_conversions(request):
     including sorting and search queries """
 
     conversions = CamperConversion.objects.all()
+    print(conversions)
     query = None
     sort = None
     direction = None

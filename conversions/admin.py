@@ -1,8 +1,6 @@
 from django.contrib import admin
 from .models import CamperConversion, Category, Electric, PostImage
 
-# Register your models here.
-
 
 class ConversionImageInline(admin.TabularInline):
     model = PostImage
