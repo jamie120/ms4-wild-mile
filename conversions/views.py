@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
-from django import forms
 from django.forms import modelformset_factory
 
 from .models import CamperConversion, Category, PostImage
@@ -98,7 +97,6 @@ def add_conversion(request):
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
 
     if request.method == 'POST':
-        print("POST REQUEST INTITATED")
         form = ConversionForm(request.POST, request.FILES)
         formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
 
@@ -126,3 +124,28 @@ def add_conversion(request):
         'formset': formset,
     }
     return render(request, template, context)
+
+
+def approve_conversions(request):
+    conversions = CamperConversion.objects.all()
+    require_approval = conversions.filter(is_active=False).exists()
+    print(require_approval)
+    template = 'conversions/approve_conversions.html'
+    context = {
+        'conversions': conversions,
+        'require_approval': require_approval,
+    }
+    return render(request, template, context)
+
+
+def approve_conversion(request, conversion_id):
+    """ Edit a conversion listing in the store """
+    print(conversion_id)
+    try:
+        conversion = get_object_or_404(CamperConversion, pk=conversion_id)
+        conversion.is_active = True
+        conversion.save()
+        return redirect(reverse('approve_conversions'))
+    except UnboundLocalError:
+        messages.error(request, 'Failed to approve listing')
+        return redirect(reverse('approve_conversions'))
