@@ -187,6 +187,17 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* ------- Coming Soon Page ------- */
+
+#coming-soon-image {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border: 4px solid #6c757d;
+    border-radius: 20px;
+}
+
+
 /* ------- All Conversion Listings Page ------- */
 
 .card {
