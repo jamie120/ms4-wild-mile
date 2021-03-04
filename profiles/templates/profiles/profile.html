@@ -23,15 +23,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-5">
+            <div class="col-12 col-lg-6">
                 <a href="{% url 'order_history' %}"><p class="text-white mt-3 mb-3">Order History</p></a>
                 <a href="{% url 'my_listings' %}"><p class="text-white mt-3 mb-3">View My Listings</p></a>
                 <a href="{% url 'saved_listings' %}"><p class="text-white mt-3 mb-3">Saved Listings</p></a>
                 <a href="{% url 'add_conversion' %}"><p class="text-white mt-3 mb-3">Add a Conversion</p></a>
                 <a href="{% url 'message_portal' %}"><p class="text-white mt-3 mb-3">Go To Message Portal (coming soon)</p></a>
             </div>
-            <div class="col-12 col-lg-7">
-
+            <div class="col-12 col-lg-6">
+                <p class="text-white">Default Delivery Information</p>
+                <form class="mt-3" action="{% url 'profile'%}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-black rounded-2 text-uppercase float-right">Update Information</button>
+                </form>
             </div>
         </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
