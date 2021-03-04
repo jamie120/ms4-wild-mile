@@ -26,6 +26,10 @@ hr {
     font-size: 1.7rem;
 }
 
+.page-sub-header {
+    padding-left: 9%;
+}
+
 .page-header-hr {
     width: 83%;
 }
