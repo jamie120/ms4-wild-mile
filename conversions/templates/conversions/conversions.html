@@ -20,11 +20,11 @@
         <div class="row">
             <div class="col text-center">
                 <a class="category-badge text-decoration-none" href="{% url 'conversions' %}">
-                        <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light">All Conversions</span>
-                    </a>
+                    <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light{% if not current_category_css_check %} active-category{% endif %}">All Conversions</span>
+                </a>
                 {% for c in all_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'conversions' %}?category={{ c.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light">{{ c.friendly_name }}</span>
+                        <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light{% if current_category_css_check == c.name %} active-category{% endif %}">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
                 <hr class="page-header-hr text-white mb-1">

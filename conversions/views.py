@@ -19,7 +19,7 @@ def all_conversions(request):
     query = None
     sort = None
     direction = None
-    categories = None
+    current_category_css_check = None
     all_categories = Category.objects.all()
     current_category = None
 
@@ -51,8 +51,8 @@ def all_conversions(request):
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             conversions = conversions.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
             current_category = request.GET['category']
+            current_category_css_check = current_category
             current_category = current_category.replace("_", " ").capitalize()
 
     current_sorting = f'{sort}_{direction}'
@@ -60,8 +60,8 @@ def all_conversions(request):
     context = {
         'conversions': conversions,
         'search_term': query,
-        'current_categories': categories,
         'current_category': current_category,
+        'current_category_css_check': current_category_css_check,
         'all_categories': all_categories,
         'current_sorting': current_sorting,
     }

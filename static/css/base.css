@@ -173,6 +173,11 @@ a.category-badge > span.badge:hover {
     color: black !important;
 }
 
+.active-category {
+    background: white !important;
+    color: black !important;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;

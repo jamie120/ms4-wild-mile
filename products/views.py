@@ -9,9 +9,10 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    categories = None
+    current_category = None
     sort = None
     direction = None
+    all_categories = Category.objects.all()
 
     if request.GET:
         if 'sort' in request.GET:
@@ -31,14 +32,15 @@ def all_products(request):
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            current_category = request.GET['category']
 
     current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
-        'current_categories': categories,
+        'current_category': current_category,
         'current_sorting': current_sorting,
+        'all_categories': all_categories,
     }
 
     return render(request, 'products/products.html', context)
