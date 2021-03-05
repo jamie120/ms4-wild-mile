@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from checkout.models import Order
+
 
 def profile(request):
     """ Display the user profile page """
@@ -45,16 +47,31 @@ def my_listings(request):
     return render(request, template, context)
 
 
-def order_history(request):
+def view_order_history(request):
     """ Display the users order_history """
 
     profile = get_object_or_404(UserProfile, user=request.user)
 
     orders = profile.orders.all()
 
-    template = 'profiles/order_history.html'
+    template = 'profiles/view_order_history.html'
     context = {
         'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    """ Display a particular order detail by
+    rendering it on the checkout success page """
+
+    order = get_object_or_404(Order, order_number=order_number)
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
     }
 
     return render(request, template, context)
