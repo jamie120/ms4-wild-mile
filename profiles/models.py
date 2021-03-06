@@ -6,6 +6,9 @@ from django.dispatch import receiver
 from django_countries.fields import CountryField
 
 
+from conversions.models import CamperConversion
+
+
 class UserProfile(models.Model):
     """
     A user profile model for maintaining personal details such as,
@@ -24,6 +27,12 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class SavedListings(models.Model):
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    conversion = models.ForeignKey(CamperConversion, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
 
 
 @receiver(post_save, sender=User)

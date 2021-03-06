@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.db.models import Q
@@ -6,6 +6,7 @@ from django.forms import modelformset_factory
 
 from .models import CamperConversion, Category, PostImage
 from .forms import ConversionForm, ImageForm
+from profiles.models import SavedListings, UserProfile
 
 # Create your views here.
 
@@ -76,12 +77,8 @@ def conversion_detail(request, conversion_id):
     electrics = conversion.electrics.all()
     image_list = conversion.images.all()
 
-    print(image_list[0])
-
     for image in image_list:
         print(image.image.url)
-
-    print(electrics)
 
     context = {
         'conversion': conversion,
@@ -140,7 +137,6 @@ def approve_conversions(request):
 
 def approve_conversion(request, conversion_id):
     """ Edit a conversion listing in the store """
-    print(conversion_id)
     try:
         conversion = get_object_or_404(CamperConversion, pk=conversion_id)
         conversion.is_active = True
@@ -149,3 +145,43 @@ def approve_conversion(request, conversion_id):
     except UnboundLocalError:
         messages.error(request, 'Failed to approve listing')
         return redirect(reverse('approve_conversions'))
+
+
+def save_listing(request, conversion_id):
+    """
+    Save a conversion to the user profile
+    """
+    if request.user.is_authenticated:
+        username = request.user.username
+        profile = UserProfile.objects.get(user__username=username)
+        all_saved_items = SavedListings.objects.all().filter(user=profile)
+        print(f'{username} logged in')
+        print(conversion_id)
+        if all_saved_items:
+            add_item = True
+            for item in all_saved_items:
+                if conversion_id == item.conversion.id:
+                    add_item = False
+
+            if add_item:
+                messages.info(request, 'Listing added to your profile')
+                saved_item = SavedListings(user=profile, conversion_id=conversion_id, status=True)
+                saved_item.save()
+                return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+            else:
+                messages.info(request, 'You already have this listing saved to your profile')
+                return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+
+        else:
+            print("No items in profile, first item added")
+            messages.info(request, 'Congratulations, you saved your first listing to your profile')
+            saved_item = SavedListings(user=profile, conversion_id=conversion_id, status=True)
+            saved_item.save()
+            return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+    else:
+        print("User not logged in")
+        return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+    # get username
+    # get profile
+    # save conversion id to savelistings in the user profile   profile.saved_lisings.name = conversion_id
+    # redirect to profile/saved listings page
