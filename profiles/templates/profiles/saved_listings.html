@@ -27,14 +27,14 @@
         </div>
         <div class="row mt-5">
             {% for listing in saved_listings %}
-            <div class="col-12 col-md-4">
-                <div class="card">
+            <div class="col-12 col-lg-4">
+                <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="mt-3 text-white text-center">{{ listing.conversion.listing_title }}</h2>
                         <div class="p-2 image-container d-flex justify-content-center my-5">
                             {% if listing.conversion.main_image %}
-                                <a id="conversion-main-image" href="{{ listing.conversion.main_image.url }}" target="_blank">
-                                    <img class="card-img img-fluid" src="{{ listing.conversion.main_image.url }}" alt="{{ conversion.name }}">
+                                <a href="{{ listing.conversion.main_image.url }}" target="_blank">
+                                    <img class="saved-listing-image img-fluid" src="{{ listing.conversion.main_image.url }}" alt="{{ conversion.name }}">
                                 </a>
                             {% else %}
                                 <a href="">
@@ -43,8 +43,8 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <p class="text-white">£{{ listing.conversion.price }}</p>
+                    <div class="card-footer text-center">
+                        <p class="text-white larger-font">£{{ listing.conversion.price }}</p>
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
                             <button class="btn btn-white btn-outline-black text-white">Go To Listing</button>
                         </a>
