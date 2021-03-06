@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
-from .models import UserProfile
+from .models import UserProfile, SavedListings
 from .forms import UserProfileForm
 
 from checkout.models import Order
@@ -31,9 +31,14 @@ def profile(request):
 
 def saved_listings(request):
     """ Display the users saved listings """
-
+    username = request.user.username
+    profile = UserProfile.objects.get(user__username=username)
+    saved_listings = SavedListings.objects.all().filter(user=profile)
+    print(saved_listings)
     template = 'profiles/saved_listings.html'
-    context = {}
+    context = {
+        'saved_listings': saved_listings,
+    }
 
     return render(request, template, context)
 
