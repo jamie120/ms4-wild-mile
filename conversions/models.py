@@ -41,6 +41,7 @@ class CamperConversion(models.Model):
         ('NO_GAS', 'Gas Free')
     ]
     # Basic Info
+    user = models.ForeignKey('profiles.UserProfile', default='', null=True, blank=True, on_delete=models.CASCADE)
     listing_title = models.CharField(max_length=254, default='')
     location = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
