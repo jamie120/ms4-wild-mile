@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 bg-white mt-4">
+                <hr>
+                <h2 class="logo-font mb-4">Edit Conversion</h2>
+                <h5>Basic Info</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 bg-white mb-4">
+                <form method="POST" action="{% url 'edit_conversion' conversion.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Main Conversion Form -->
+                    {{ form.listing_title | as_crispy_field }}
+                    {{ form.user | as_crispy_field }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.location | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.price | as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.phone_number | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.name | as_crispy_field }}
+                        </div>
+                    </div>
+                    <hr class="text-black">
+                    <h5>Vehicle Info</h5>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.vehicle_make_and_model | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.year | as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.category | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.transmission_type | as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.vehicle_length | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.vehicle_width | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form.vehicle_height | as_crispy_field }}
+                        </div>
+                    </div>
+                    {{ form.belted_seats | as_crispy_field }}
+                    {{ form.vehicle_description | as_crispy_field }}
+                    <hr class="text-black">
+                    <h5>Conversion Info</h5>
+                    <br>
+                    {{ form.berths | as_crispy_field }}
+                    {{ form.beds_description | as_crispy_field }}
+                    {{ form.gas_sign_off | as_crispy_field }}
+                    {{ form.max_weight | as_crispy_field }}
+                    {{ form.unladen_weight_verified | as_crispy_field }}
+                    {{ form.unladen_weight | as_crispy_field }}
+                    {{ form.electrics | as_crispy_field }}
+                    {{ form.registered_vehicle_type | as_crispy_field }}
+                    {{ form.conversion_description | as_crispy_field }}
+                    <hr class="text-black">
+                    <h5>Image Upload</h5>
+                    <br>
+                    <!-- Image Upload Formset -->
+                    {{ form.main_image| as_crispy_field }}
+                    {{ formset | crispy }}
+                    <div class="text-left mt-3 mb-3">
+                        <a class="btn btn-outline-black rounded-2" href="{% url 'profile' %}">Cancel</a>
+                        <button class="btn btn-black rounded-2" type="submit">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

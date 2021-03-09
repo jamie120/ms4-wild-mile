@@ -97,7 +97,6 @@ def add_conversion(request):
 
         form = ConversionForm(request.POST, request.FILES)
         formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
-        print(form)
         if form.is_valid() and formset.is_valid():
             post_form = form.save(commit=False)
             user = request.user.id
@@ -125,6 +124,64 @@ def add_conversion(request):
         'form': form,
         'formset': formset,
     }
+    return render(request, template, context)
+
+
+def edit_conversion(request, conversion_id):
+    """ Edit a conversion in the database """
+    ImageFormSet = modelformset_factory(PostImage, form=ImageForm)
+    conversion = get_object_or_404(CamperConversion, pk=conversion_id)
+
+    # Check if listing is currently active
+    previously_active = conversion.is_active
+
+    if request.method == 'POST':
+        form = ConversionForm(request.POST, request.FILES, instance=conversion)
+        formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.filter(conversion__pk=conversion_id))
+        data = PostImage.objects.filter(conversion=conversion)
+        if form.is_valid and formset.is_valid():
+            post_form = form.save(commit=False)
+
+            # Set is_active according to previous state
+            if previously_active:
+                post_form.is_active = True
+                post_form.save()
+            else:
+                post_form.save()
+
+            # Check if new photos are to replace exisiting photos, delete and update as required.
+            for index, f in enumerate(formset):
+                if f.cleaned_data:
+                    if f.cleaned_data['id'] is None:
+                        pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image')) 
+                        pic.save()
+                    elif request.POST.get('form-'+str(index)+'-DELETE') is not None:
+                        pic = PostImage.objects.get(id=request.POST.get('form-'+str(index)+'-id'))
+                        pic.delete()
+                    else:
+                        pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image'))
+
+                        d = PostImage.objects.get(id=data[index].id)  # get slide id which was uploaded
+                        d.image = pic.image  # changing the database title with new title
+
+                        d.save()
+            messages.success(request, f'Succesfully updated listing : {conversion.listing_title}')
+            return redirect(reverse('conversion_detail', args=[conversion.id]))
+        else:
+            messages.error(request, 'Failed to update the listing. Please ensure the form is valid')
+            return redirect(reverse('conversion_detail', args=[conversion.id]))
+    else:
+        form = ConversionForm(instance=conversion)
+        formset = ImageFormSet(queryset=PostImage.objects.filter(conversion__pk=conversion_id))
+        messages.info(request, f'You are editing {conversion.listing_title}')
+
+    template = 'conversions/edit_conversion.html'
+    context = {
+        'form': form,
+        'formset': formset,
+        'conversion': conversion,
+    }
+
     return render(request, template, context)
 
 
