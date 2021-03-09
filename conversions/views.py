@@ -172,10 +172,14 @@ def edit_conversion(request, conversion_id):
             messages.error(request, 'Failed to update the listing. Please ensure the form is valid')
             return redirect(reverse('conversion_detail', args=[conversion.id]))
     else:
-        form = ConversionForm(instance=conversion)
-        formset = ImageFormSet(queryset=PostImage.objects.filter(conversion__pk=conversion_id))
-        messages.info(request, f'You are editing {conversion.listing_title}')
-
+        # Check if the listing author is the current user
+        if request.user == conversion.user.user:
+            form = ConversionForm(instance=conversion)
+            formset = ImageFormSet(queryset=PostImage.objects.filter(conversion__pk=conversion_id))
+            messages.info(request, f'You are editing {conversion.listing_title}')
+        else:
+            messages.error(request, 'Sorry, you can only edit listings which you have created previously.')
+            return redirect(reverse('my_listings'))
     template = 'conversions/edit_conversion.html'
     context = {
         'form': form,
@@ -189,9 +193,16 @@ def edit_conversion(request, conversion_id):
 def delete_conversion(request, conversion_id):
     """ Delete a conversion listing """
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
-    conversion.delete()
-    messages.success(request, 'Listing successfully deleted')
-    return redirect(reverse('my_listings'))
+
+    # Check if the listing author is the current user
+    if request.user == conversion.user.user:
+        conversion.delete()
+        messages.success(request, 'Listing successfully deleted')
+        return redirect(reverse('my_listings'))
+    else:
+        messages.error(request, 'Sorry, you can only delete listings which you have created previously.')
+        return redirect(reverse('my_listings'))
+
 
 @login_required
 def approve_conversions(request):
