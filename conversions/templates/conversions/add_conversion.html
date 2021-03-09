@@ -28,6 +28,7 @@
                     {% csrf_token %}
                     <!-- Main Conversion Form -->
                     {{ form.listing_title | as_crispy_field }}
+                    {{ form.user | as_crispy_field }}
                     <div class="form-row">
                         <div class="form-group col-md-6 mb-0">
                             {{ form.location | as_crispy_field }}
@@ -86,6 +87,7 @@
                     {{ form.unladen_weight_verified | as_crispy_field }}
                     {{ form.unladen_weight | as_crispy_field }}
                     {{ form.electrics | as_crispy_field }}
+                    {{ form.registered_vehicle_type | as_crispy_field }}
                     {{ form.conversion_description | as_crispy_field }}
                     <hr class="text-black">
                     <h5>Image Upload</h5>

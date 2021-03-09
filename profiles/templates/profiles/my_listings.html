@@ -25,5 +25,41 @@
                 </a>
             </div>
         </div>
+        <div class="row mt-5">
+            {% for listing in my_listings %}
+            <div class="col-12 col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="mt-3 text-white text-center">{{ listing.listing_title }}</h2>
+                        <div class="p-2 image-container d-flex justify-content-center my-5">
+                            {% if listing.main_image %}
+                                <a href="{{ listing.main_image.url }}" target="_blank">
+                                    <img class="saved-listing-image img-fluid" src="{{ listing.main_image.url }}" alt="{{ listing.name }}">
+                                </a>
+                            {% else %}
+                                <a href="">
+                                    <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ listing.name }}">
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <p class="text-white larger-font">£{{ listing.price }}</p>
+                        <a href="{% url 'conversion_detail' listing.id %}">
+                            <button class="btn btn-white btn-outline-black text-white">Go To Listing</button>
+                        </a>
+                        <a href="{% url 'conversions' %}">
+                            <button class="btn btn-white btn-outline-black text-white">Edit Listing</button>
+                        </a>
+                        {% if listing.is_active %}
+                        <p class="text-success">Listing is currently live on the site</p>
+                        {% else %}
+                        <p class="text-warning">Listing is NOT currently live on the site</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

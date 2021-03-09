@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import UserProfile, SavedListings
 from .forms import UserProfileForm
+from conversions.models import CamperConversion
 
 from checkout.models import Order
 
@@ -34,7 +35,6 @@ def saved_listings(request):
     username = request.user.username
     profile = UserProfile.objects.get(user__username=username)
     saved_listings = SavedListings.objects.all().filter(user=profile)
-    print(saved_listings)
     template = 'profiles/saved_listings.html'
     context = {
         'saved_listings': saved_listings,
@@ -45,9 +45,13 @@ def saved_listings(request):
 
 def my_listings(request):
     """ Display the users conversion listings """
-
+    username = request.user.username
+    profile = UserProfile.objects.get(user__username=username)
+    my_listings = CamperConversion.objects.all().filter(user=profile)
     template = 'profiles/my_listings.html'
-    context = {}
+    context = {
+        'my_listings': my_listings,
+    }
 
     return render(request, template, context)
 

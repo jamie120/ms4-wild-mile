@@ -94,17 +94,22 @@ def add_conversion(request):
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
 
     if request.method == 'POST':
+
         form = ConversionForm(request.POST, request.FILES)
         formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
-
+        print(form)
         if form.is_valid() and formset.is_valid():
             post_form = form.save(commit=False)
+            user = request.user.id
+            user = get_object_or_404(UserProfile, pk=user)
+            post_form.user = user
             post_form.save()
 
             for form in formset.cleaned_data:
-                image = form['image']
-                photo = PostImage(conversion=post_form, image=image)
-                photo.save()
+                if 'image' in form:
+                    image = form['image']
+                    photo = PostImage(conversion=post_form, image=image)
+                    photo.save()
             messages.success(request,
                              "Posted!")
             return redirect(reverse('add_conversion'))

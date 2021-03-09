@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -40,6 +41,7 @@ class CamperConversion(models.Model):
         ('NA', 'None'),
         ('NO_GAS', 'Gas Free')
     ]
+
     # Basic Info
     user = models.ForeignKey('profiles.UserProfile', default='', null=True, blank=True, on_delete=models.CASCADE)
     listing_title = models.CharField(max_length=254, default='')
