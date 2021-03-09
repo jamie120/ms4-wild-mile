@@ -104,6 +104,7 @@ def add_conversion(request):
             user = get_object_or_404(UserProfile, pk=user)
             post_form.user = user
             post_form.save()
+            form.save_m2m()
 
             for form in formset.cleaned_data:
                 if 'image' in form:
@@ -147,8 +148,12 @@ def edit_conversion(request, conversion_id):
             if previously_active:
                 post_form.is_active = True
                 post_form.save()
+                form.save_m2m()
             else:
+                print(post_form.electrics)
                 post_form.save()
+                form.save_m2m()
+
 
             # Check if new photos are to replace exisiting photos, delete and update as required.
             for index, f in enumerate(formset):

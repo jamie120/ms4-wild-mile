@@ -23,6 +23,7 @@ class ConversionForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         self.fields['electrics'].widget = CheckboxSelectMultiple()
         self.fields['electrics'].queryset = Electric.objects.all()
+        self.fields['electrics'].required = True
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-3'
 
