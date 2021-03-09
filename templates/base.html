@@ -72,6 +72,7 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'approve_conversions' %}" class="dropdown-item">Product Management</a>
+                                    <a href="{% url 'manage_conversions' %}" class="dropdown-item">Conversion Listing Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
