@@ -9,5 +9,7 @@ urlpatterns = [
     path('edit/<int:conversion_id>/', views.edit_conversion, name='edit_conversion'),
     path('delete/<int:conversion_id>/', views.delete_conversion, name='delete_conversion'),
     path('approve/', views.approve_conversions, name='approve_conversions'),
+    path('manage/', views.manage_conversions, name='manage_conversions'),
     path('approve/<conversion_id>', views.approve_conversion, name='approve_conversion'),
+    path('delist/<conversion_id>', views.delist_conversion, name='delist_conversion'),
 ]

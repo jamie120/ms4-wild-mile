@@ -225,6 +225,28 @@ def approve_conversions(request):
     }
     return render(request, template, context)
 
+
+@login_required
+def manage_conversions(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can manage conversions')
+        return redirect(reverse('home'))
+
+    conversions = CamperConversion.objects.all()
+    live_listings = conversions.filter(is_active=True)
+    require_approval = conversions.filter(is_active=False).exists()
+    pending_approval_listings = conversions.filter(is_active=False)
+    template = 'conversions/manage_conversions.html'
+    context = {
+        'conversions': conversions,
+        'require_approval': require_approval,
+        'live_listings': live_listings,
+        'pending_approval_listings': pending_approval_listings,
+    }
+    return render(request, template, context)
+
+
+
 @login_required
 def approve_conversion(request, conversion_id):
     """ Function change the active status of a conversion listing in the store """
@@ -236,6 +258,20 @@ def approve_conversion(request, conversion_id):
     except UnboundLocalError:
         messages.error(request, 'Failed to approve listing')
         return redirect(reverse('approve_conversions'))
+
+
+@login_required
+def delist_conversion(request, conversion_id):
+    """ Function change the active status of a conversion listing in the store """
+    try:
+        conversion = get_object_or_404(CamperConversion, pk=conversion_id)
+        conversion.is_active = False
+        conversion.save()
+        return redirect(reverse('manage_conversions'))
+    except UnboundLocalError:
+        messages.error(request, 'Failed to delist listing')
+        return redirect(reverse('manage_conversions'))
+
 
 
 def save_listing(request, conversion_id):

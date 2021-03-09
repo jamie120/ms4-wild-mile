@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col mt-4">
-                <h2 class="logo-font page-header text-white">Approve Conversions</h2>
+                <h2 class="logo-font page-header text-white">Manage Conversions</h2>
             </div>
         </div>
         <div class="row">
@@ -24,18 +24,18 @@
         </div>
         <div class="row">
             <div class="col mt-4 mb-4">
+                <h5 class="page-sub-header text-white">There are {{ live_listings | length }} listings live on the site.</h5>
                 {% if require_approval %}
-                <h5 class="page-sub-header text-white">Pending Approval</h5>
+                <h5 class="page-sub-header text-white">You have {{ pending_approval_listings | length }} listings that are pending approval.</h5>
+                <a id="back-to-approval-button" href="{% url 'approve_conversions' %}" class="mt-2 btn border-white rounded-2 text-white"><i class="ml-1 fa fa-chevron-left mr-2"></i> Go To Approvals </a>
                 {% else %}
                 <h5 class="page-sub-header text-white">There are no listings awating approval.</h5>
                 {% endif %}
-                <a id="back-to-approval-button" href="{% url 'manage_conversions' %}" class="mt-2 btn border-white rounded-2 text-white"><i class="ml-1 fa fa-chevron-left mr-2"></i> Back to Live Listing Management </a>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-10">
-                {% for conversion in conversions %}
-                    {% if not conversion.is_active %}
+                {% for conversion in live_listings %}
                         <div class="card mb-4">
                             <div class="card-body text-white">
                                 <div class="row">
@@ -46,19 +46,18 @@
                                         <p>User: {{ conversion.name }} </p>
                                     </div>
                                     <div class="col-12 col-lg-6">
+                                       
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-center text-lg-left">
-                                <a href="{% url 'conversion_detail' conversion.id %}" class="btn border-white rounded-2 text-white mb-2">See Details</a>
+                                <a href="{% url 'conversion_detail' conversion.id %}" class="btn border-white rounded-2 text-white mb-2">View Details</a>
                                 <a href="{% url 'edit_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Edit Conversion</a>
                                 <a href="{% url 'delete_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
                                 <a class="ml-2 btn border-white rounded-2 text-white mb-2">Contact Seller</a>
-                                <a href="{% url 'approve_conversion' conversion.id %}" class="ml-2 mb-2 btn border-white rounded-2 text-white">Approve Listing <i class="ml-1 fa fa-plus-circle"></i></a>
+                                <a href="{% url 'delist_conversion' conversion.id %}" class="ml-2 mb-2 btn border-white rounded-2 text-white">Delist Listing <i class="ml-1 fa fa-minus-circle"></i></a>
                             </div>
                         </div>
-                        
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>

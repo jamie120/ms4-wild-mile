@@ -209,6 +209,17 @@ a.category-badge > span.badge:hover {
     background-color: unset;
 }
 
+/* ----- Admin Pages ------ */
+
+.card-img-sm {
+    height: 50%;
+    width: 50%;
+}
+
+#back-to-approval-button {
+    margin-left: 9%;
+}
+
 /* ------- Conversion Detail Page ------- */
 
 .fa-check-circle:before {
