@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.db.models import Q
 from django.forms import modelformset_factory
@@ -88,7 +89,7 @@ def conversion_detail(request, conversion_id):
 
     return render(request, 'conversions/conversion_detail.html', context)
 
-
+@login_required
 def add_conversion(request):
     """ Add a conversion request to the admin """
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
@@ -111,7 +112,7 @@ def add_conversion(request):
                     photo.save()
             messages.success(request,
                              "Posted!")
-            return redirect(reverse('add_conversion'))
+            return redirect(reverse('conversion_detail', args=[post_form.id]))
         else:
             messages.error(request, 'Failed to submit form.')
 
@@ -126,7 +127,7 @@ def add_conversion(request):
     }
     return render(request, template, context)
 
-
+@login_required
 def edit_conversion(request, conversion_id):
     """ Edit a conversion in the database """
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm)
@@ -184,8 +185,20 @@ def edit_conversion(request, conversion_id):
 
     return render(request, template, context)
 
+@login_required
+def delete_conversion(request, conversion_id):
+    """ Delete a conversion listing """
+    conversion = get_object_or_404(CamperConversion, pk=conversion_id)
+    conversion.delete()
+    messages.success(request, 'Listing successfully deleted')
+    return redirect(reverse('my_listings'))
 
+@login_required
 def approve_conversions(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can approve conversions')
+        return redirect(reverse('home'))
+
     conversions = CamperConversion.objects.all()
     require_approval = conversions.filter(is_active=False).exists()
     print(require_approval)
@@ -196,9 +209,9 @@ def approve_conversions(request):
     }
     return render(request, template, context)
 
-
+@login_required
 def approve_conversion(request, conversion_id):
-    """ Edit a conversion listing in the store """
+    """ Function change the active status of a conversion listing in the store """
     try:
         conversion = get_object_or_404(CamperConversion, pk=conversion_id)
         conversion.is_active = True
