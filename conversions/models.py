@@ -83,7 +83,7 @@ class CamperConversion(models.Model):
     is_active = models.BooleanField(default=True)
 
     # Unique reference code for the conversion
-    unique_ref = models.CharField(max_length=10, default=uuid.uuid4)
+    unique_ref = models.UUIDField(default=uuid.uuid4)
 
     def __str__(self):
         return self.listing_title

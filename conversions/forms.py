@@ -12,7 +12,7 @@ class ConversionForm(forms.ModelForm):
         # Hidden field, which defines if the listing is active on the site
         widgets = {
             'is_active': forms.HiddenInput(),
-            'user': forms.HiddenInput()
+            'user': forms.HiddenInput(),
             }
 
     def __init__(self, *args, **kwargs):
@@ -20,6 +20,7 @@ class ConversionForm(forms.ModelForm):
         categories = Category.objects.all()
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
+        self.fields['unique_ref'].disabled = True
         self.fields['category'].choices = friendly_names
         self.fields['electrics'].widget = CheckboxSelectMultiple()
         self.fields['electrics'].queryset = Electric.objects.all()

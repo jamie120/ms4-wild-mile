@@ -99,6 +99,7 @@ def add_conversion(request):
     if request.method == 'POST':
 
         form = ConversionForm(request.POST, request.FILES)
+        print(form)
         formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
         if form.is_valid() and formset.is_valid():
             post_form = form.save(commit=False)
@@ -133,7 +134,7 @@ def add_conversion(request):
 @login_required
 def edit_conversion(request, conversion_id):
     """ Edit a conversion in the database """
-    ImageFormSet = modelformset_factory(PostImage, form=ImageForm)
+    ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
 
     # Check if listing is currently active
