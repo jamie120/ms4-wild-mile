@@ -11,6 +11,7 @@ def bag_contents(request):
     product_count = 0
     grand_total = 0
     bag = request.session.get('bag', {})
+    listing_uuid = None
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -49,6 +50,7 @@ def bag_contents(request):
 
     context = {
         'bag_items': bag_items,
+        'listing_uuid': listing_uuid,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,
