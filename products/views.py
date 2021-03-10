@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models.functions import Lower
 from .models import Product, Category
+from conversions.models import CamperConversion
+from profiles.models import UserProfile
 
 # Create your views here.
 
@@ -50,9 +52,13 @@ def product_detail(request, product_id):
     """ A view to show product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    username = request.user.username
+    profile = UserProfile.objects.get(user__username=username)
+    my_listings = CamperConversion.objects.all().filter(user=profile).filter(is_active=False)
 
     context = {
-        'product': product
+        'product': product,
+        'my_listings': my_listings,
     }
 
     return render(request, 'products/product_detail.html', context)
