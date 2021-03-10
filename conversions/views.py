@@ -157,7 +157,6 @@ def edit_conversion(request, conversion_id):
                 post_form.save()
                 form.save_m2m()
 
-
             # Check if new photos are to replace exisiting photos, delete and update as required.
             for index, f in enumerate(formset):
                 if f.cleaned_data:

@@ -56,3 +56,11 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+def listing_levels(request):
+    """ A view to show listing pricing level details """
+
+    context = {}
+
+    return render(request, 'products/listing_levels.html', context)
