@@ -33,8 +33,11 @@ def bag_contents(request):
                     'product': product,
                     'size': size,
                 })
-
-    if total < settings.FREE_DELIVERY_THRESHOLD:
+    # Check if bag is 0.00 and remove delivery charge, to allow checkout of promotional listing fees without delivery charges.
+    if total == 0:
+        delivery = 0
+        free_delivery_delta = 0
+    elif total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = Decimal(settings.STANDARD_DELIVERY_COST)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:

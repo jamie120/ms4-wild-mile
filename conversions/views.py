@@ -34,7 +34,9 @@ def all_conversions(request):
                 return redirect(reverse('conversions'))
 
             queries = Q(name__icontains=query) | Q(conversion_description__icontains=query)
-            conversions = conversions.filter(queries)
+
+            # Filter conversions with search term and is_active
+            conversions = conversions.filter(queries).filter(is_active=True)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
