@@ -1,5 +1,5 @@
 from django.db import models
-
+import uuid
 
 # Create your models here.
 
@@ -81,6 +81,9 @@ class CamperConversion(models.Model):
 
     # Field which defines if the listing is active on the site, default set to 'False', awaiting admin approval.
     is_active = models.BooleanField(default=True)
+
+    # Unique reference code for the conversion
+    unique_ref = models.CharField(max_length=10, default=uuid.uuid4)
 
     def __str__(self):
         return self.listing_title
