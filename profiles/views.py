@@ -8,6 +8,8 @@ from conversions.models import CamperConversion
 
 from checkout.models import Order
 
+import time
+
 
 @login_required
 def profile(request):
@@ -42,6 +44,24 @@ def saved_listings(request):
         'saved_listings': saved_listings,
     }
 
+    return render(request, template, context)
+
+
+def remove_saved_listing(request, conversion_id):
+    """ Delete a saved listing from the users saved listings """
+    username = request.user.username
+    profile = UserProfile.objects.get(user__username=username)
+    saved_listings = SavedListings.objects.all().filter(user=profile)
+    for listing in saved_listings:
+        if listing.conversion.id == int(conversion_id):
+            print('true')
+            listing.delete()
+
+    saved_listings = SavedListings.objects.all().filter(user=profile)
+    template = 'profiles/saved_listings.html'
+    context = {
+        'saved_listings': saved_listings,
+    }
     return render(request, template, context)
 
 

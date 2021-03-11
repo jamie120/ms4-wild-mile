@@ -46,7 +46,10 @@
                     <div class="card-footer text-center">
                         <p class="text-white larger-font">£{{ listing.conversion.price }}</p>
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">Go To Listing</button>
+                            <button class="btn btn-white btn-outline-black text-white">View Listing</button>
+                        </a>
+                        <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
+                            <button class="btn btn-white btn-outline-black text-white">Remove Listing</button>
                         </a>
                     </div>
                 </div>
