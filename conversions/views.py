@@ -275,8 +275,7 @@ def delist_conversion(request, conversion_id):
         return redirect(reverse('manage_conversions'))
 
 
-
-def save_listing(request, conversion_id):
+def save_listing(request, conversion_id, conversion_unique_ref):
     """
     Save a conversion to the user profile
     """
@@ -284,12 +283,12 @@ def save_listing(request, conversion_id):
         username = request.user.username
         profile = UserProfile.objects.get(user__username=username)
         all_saved_items = SavedListings.objects.all().filter(user=profile)
-        print(f'{username} logged in')
-        print(conversion_id)
         if all_saved_items:
             add_item = True
             for item in all_saved_items:
-                if conversion_id == item.conversion.id:
+                print(type(conversion_unique_ref))
+                print(type(item.conversion.unique_ref))
+                if str(conversion_unique_ref) == str(item.conversion.unique_ref):
                     add_item = False
 
             if add_item:

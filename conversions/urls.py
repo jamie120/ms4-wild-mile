@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.all_conversions, name='conversions'),
     path('<int:conversion_id>/', views.conversion_detail, name='conversion_detail'),
-    path('save_listing/<int:conversion_id>/', views.save_listing, name='save_listing'),
+    path('save_listing/<int:conversion_id>&<conversion_unique_ref>/', views.save_listing, name='save_listing'),
     path('add/', views.add_conversion, name='add_conversion'),
     path('edit/<int:conversion_id>/', views.edit_conversion, name='edit_conversion'),
     path('delete/<int:conversion_id>/', views.delete_conversion, name='delete_conversion'),
