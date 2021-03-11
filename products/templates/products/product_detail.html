@@ -118,13 +118,22 @@
                                 </div>
                                 {% endif %}
                                     <div class="col{% if s %}-12 mt-2{% endif %}">
-                                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                            <span class="icon">
-                                                <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                            <span class="text-uppercase">Keep Shopping</span>
-                                        </a>
-                                        {% if product.sku == 12345678 %}
+                                        {% if from_listing_fees_page %}
+                                            <a href="{% url 'listing_levels' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                                <span class="icon">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </span>
+                                                <span class="text-uppercase">Back to Listing Levels</span>
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                                <span class="icon">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </span>
+                                                <span class="text-uppercase">Keep Shopping</span>
+                                            </a>
+                                        {% endif %}
+                                        {% if product.sku == '12345678' %}
                                         <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag" {% if not my_listings %}disabled{% endif %}>
                                         {% else %}
                                         <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">

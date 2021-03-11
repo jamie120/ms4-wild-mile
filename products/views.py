@@ -73,6 +73,27 @@ def product_detail(request, product_id):
 def listing_levels(request):
     """ A view to show listing pricing level details """
 
-    context = {}
+    context = {
+        'from_listing_fee_page': True,
+    }
 
     return render(request, 'products/listing_levels.html', context)
+
+
+def view_plan(request, product_id):
+    my_listings = None
+    product = get_object_or_404(Product, pk=product_id)
+    try:
+        username = request.user.username
+        profile = UserProfile.objects.get(user__username=username)
+        my_listings = CamperConversion.objects.all().filter(user=profile).filter(is_active=False)
+    except UserProfile.DoesNotExist:
+        messages.info(request, 'Please login to view this product.')
+        return redirect(reverse('products'))
+    context = {
+        'product': product,
+        'from_listing_fees_page': True,
+        'my_listings': my_listings,
+    }
+
+    return render(request, 'products/product_detail.html', context)

@@ -17,6 +17,15 @@ body {
     top: -1.5rem;
 }
 
+a:hover,
+a:visited, 
+a:link, 
+a:active { 
+    text-decoration: none;
+    color: unset;
+}
+
+
 hr {
     border-top: 1px solid white;
 }
