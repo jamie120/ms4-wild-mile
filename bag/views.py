@@ -17,10 +17,14 @@ def add_to_bag(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    listing_uuid = request.POST.get('listing_uuid')
+    listing_uuid = None
     size = None
+    if 'listing_uuid' in request.POST:
+        listing_uuid = request.POST.get('listing_uuid')
+
     if 'product_size' in request.POST:
         size = request.POST['product_size']
+
     bag = request.session.get('bag', {})
 
     if size:
@@ -34,6 +38,11 @@ def add_to_bag(request, item_id):
         else:
             bag[item_id] = {'items_by_size': {size: quantity}}
             messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
+    elif listing_uuid:
+        bag[item_id] = {
+            'item_with_uuid': {listing_uuid: listing_uuid}
+            }
+        messages.success(request, f'Added listing payment for {listing_uuid} to your bag')
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity

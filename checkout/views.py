@@ -70,14 +70,25 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
+                        # Save listing UUID to order line item, set quantity manually to 1.
+                        if 'item_with_uuid' in item_data:
+                            for listing_uuid, listing_uuid in item_data['item_with_uuid'].items():
+                                order_line_item = OrderLineItem(
+                                    order=order,
+                                    product=product,
+                                    quantity=1,
+                                    listing_uuid=listing_uuid,
+                                )
+                                order_line_item.save()
+                        else:
+                            for size, quantity in item_data['items_by_size'].items():
+                                order_line_item = OrderLineItem(
+                                    order=order,
+                                    product=product,
+                                    quantity=quantity,
+                                    product_size=size,
+                                )
+                                order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products was not found in the database")
@@ -100,10 +111,11 @@ def checkout(request):
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        if stripe_total > 0:
+            intent = stripe.PaymentIntent.create(
+                amount=stripe_total,
+                currency=settings.STRIPE_CURRENCY,
+            )
 
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
@@ -128,14 +140,89 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing')
 
-    template = 'checkout/checkout.html'
-    context = {
-        'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
-    }
+    if stripe_total > 0:
+        template = 'checkout/checkout.html'
+
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
+        }
+    else:
+        template = 'checkout/checkout_free.html'
+
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+        }
 
     return render(request, template, context)
+
+
+def checkout_free(request):
+    if request.method == 'POST':
+        bag = request.session.get('bag', {})
+
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
+        }
+
+        order_form = OrderForm(form_data)
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
+            order.original_bag = json.dumps(bag)
+            order.save()
+
+            for item_id, item_data in bag.items():
+                try:
+                    product = Product.objects.get(id=item_id)
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
+                    else:
+                        # Save listing UUID to order line item, set quantity manually to 1.
+                        if 'item_with_uuid' in item_data:
+                            for listing_uuid, listing_uuid in item_data['item_with_uuid'].items():
+                                order_line_item = OrderLineItem(
+                                    order=order,
+                                    product=product,
+                                    quantity=1,
+                                    listing_uuid=listing_uuid,
+                                )
+                                order_line_item.save()
+                        else:
+                            for size, quantity in item_data['items_by_size'].items():
+                                order_line_item = OrderLineItem(
+                                    order=order,
+                                    product=product,
+                                    quantity=quantity,
+                                    product_size=size,
+                                )
+                                order_line_item.save()
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products was not found in the database")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_bag'))
+
+            # Save the info to the user's profile if all is well
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with the form.')
 
 
 def checkout_success(request, order_number):

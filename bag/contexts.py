@@ -25,15 +25,26 @@ def bag_contents(request):
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
-            for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
-                product_count += quantity
-                bag_items.append({
-                    'item_id': item_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'size': size,
-                })
+            if product.sku != '12345678':
+                for size, quantity in item_data['items_by_size'].items():
+                    total += quantity * product.price
+                    product_count += quantity
+                    bag_items.append({
+                        'item_id': item_id,
+                        'quantity': quantity,
+                        'product': product,
+                        'size': size,
+                    })
+            else:
+                for listing_uuid, listing_uuid in item_data['item_with_uuid'].items():
+                    total += 1 * product.price
+                    product_count = 1
+                    bag_items.append({
+                        'item_id': item_id,
+                        'quantity': 1,
+                        'product': product,
+                        'listing_uuid': listing_uuid,
+                    })
     # Check if bag is 0.00 and remove delivery charge, to allow checkout of promotional listing fees without delivery charges.
     if total == 0:
         delivery = 0
