@@ -53,8 +53,10 @@
                                 <a href="{% url 'conversion_detail' conversion.id %}" class="btn border-white rounded-2 text-white mb-2">See Details</a>
                                 <a href="{% url 'edit_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Edit Conversion</a>
                                 <a href="{% url 'delete_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
-                                <a class="ml-2 btn border-white rounded-2 text-white mb-2">Contact Seller</a>
+                                <a class="ml-2 btn border-white rounded-2 text-white mb-2 contact-info-button">Contact Seller</a>
                                 <a href="{% url 'approve_conversion' conversion.id %}" class="ml-2 mb-2 btn border-white rounded-2 text-white">Approve Listing <i class="ml-1 fa fa-plus-circle"></i></a>
+                                <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
+                                <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
                             </div>
                         </div>
                         
@@ -63,4 +65,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'conversions/includes/contact_seller_button_script.html' %}
 {% endblock %}
