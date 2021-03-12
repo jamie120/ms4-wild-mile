@@ -45,12 +45,22 @@
                     </div>
                     <div class="card-footer text-center">
                         <p class="text-white larger-font">£{{ listing.conversion.price }}</p>
+                        {% if listing.conversion.is_active %}
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
                             <button class="btn btn-white btn-outline-black text-white">View Listing</button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
                             <button class="btn btn-white btn-outline-black text-white">Remove Listing</button>
                         </a>
+                        {% else %}
+                        <a href="#">
+                            <button class="btn btn-white btn-outline-black text-white"><strike>View Listing</strike></button>
+                        </a>
+                        <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
+                            <button class="btn btn-white btn-outline-black text-white">Remove Listing</button>
+                        </a>
+                        <p class="text-danger">Sorry this listing is no longer live on the site</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
