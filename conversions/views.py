@@ -16,8 +16,9 @@ def all_conversions(request):
     """ A view to show all conversions,
     including sorting and search queries """
 
-    conversions = CamperConversion.objects.all()
-    print(conversions)
+    # Filter only listings that are active
+    conversions = CamperConversion.objects.all().filter(is_active=True)
+
     query = None
     sort = None
     direction = None
@@ -33,10 +34,10 @@ def all_conversions(request):
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('conversions'))
 
-            queries = Q(name__icontains=query) | Q(conversion_description__icontains=query)
+            queries = Q(listing_title__icontains=query) | Q(conversion_description__icontains=query)
 
             # Filter conversions with search term and is_active
-            conversions = conversions.filter(queries).filter(is_active=True)
+            conversions = conversions.filter(queries)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -91,6 +92,7 @@ def conversion_detail(request, conversion_id):
 
     return render(request, 'conversions/conversion_detail.html', context)
 
+
 @login_required
 def add_conversion(request):
     """ Add a conversion request to the admin """
@@ -130,6 +132,7 @@ def add_conversion(request):
         'formset': formset,
     }
     return render(request, template, context)
+
 
 @login_required
 def edit_conversion(request, conversion_id):
@@ -196,6 +199,7 @@ def edit_conversion(request, conversion_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_conversion(request, conversion_id):
     """ Delete a conversion listing """
@@ -248,7 +252,6 @@ def manage_conversions(request):
     return render(request, template, context)
 
 
-
 @login_required
 def approve_conversion(request, conversion_id):
     """ Function change the active status of a conversion listing in the store """
@@ -275,6 +278,7 @@ def delist_conversion(request, conversion_id):
         return redirect(reverse('manage_conversions'))
 
 
+@login_required
 def save_listing(request, conversion_id, conversion_unique_ref):
     """
     Save a conversion to the user profile
