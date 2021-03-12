@@ -229,6 +229,21 @@ a.category-badge > span.badge:hover {
     margin-left: 9%;
 }
 
+.contact-info-row {
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
 /* ------- Conversion Detail Page ------- */
 
 .fa-check-circle:before {
