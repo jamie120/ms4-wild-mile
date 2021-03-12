@@ -54,6 +54,11 @@
                         <a href="{% url 'delete_conversion' listing.id %}">
                             <button class="btn btn-danger btn-outline-black text-white">Delete Listing</button>
                         </a>
+                        {% if not listing.is_active %}
+                        <a href="{% url 'listing_levels' %}">
+                            <button class="btn btn-danger btn-outline-black text-white">View Listing Plans</button>
+                        </a>
+                        {% endif %}
                         {% if listing.is_active %}
                         <p class="text-success">Listing is currently live on the site</p>
                         {% else %}
