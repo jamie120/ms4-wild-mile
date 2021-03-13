@@ -137,6 +137,7 @@ def add_conversion(request):
 @login_required
 def edit_conversion(request, conversion_id):
     """ Edit a conversion in the database """
+
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
 
@@ -182,8 +183,8 @@ def edit_conversion(request, conversion_id):
             messages.error(request, 'Failed to update the listing. Please ensure the form is valid')
             return redirect(reverse('conversion_detail', args=[conversion.id]))
     else:
-        # Check if the listing author is the current user
-        if request.user == conversion.user.user:
+        # Check if the listing author is the current user or superuser
+        if request.user == conversion.user.user or request.user.is_superuser:
             form = ConversionForm(instance=conversion)
             formset = ImageFormSet(queryset=PostImage.objects.filter(conversion__pk=conversion_id))
             messages.info(request, f'You are editing {conversion.listing_title}')
@@ -205,8 +206,8 @@ def delete_conversion(request, conversion_id):
     """ Delete a conversion listing """
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
 
-    # Check if the listing author is the current user
-    if request.user == conversion.user.user:
+     # Check if the listing author is the current user or superuser
+    if request.user == conversion.user.user or request.user.is_superuser:
         conversion.delete()
         messages.success(request, 'Listing successfully deleted')
         return redirect(reverse('my_listings'))
@@ -255,6 +256,9 @@ def manage_conversions(request):
 @login_required
 def approve_conversion(request, conversion_id):
     """ Function change the active status of a conversion listing in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can approve listings')
+        return redirect(reverse('home'))
     try:
         conversion = get_object_or_404(CamperConversion, pk=conversion_id)
         conversion.is_active = True
@@ -268,6 +272,9 @@ def approve_conversion(request, conversion_id):
 @login_required
 def delist_conversion(request, conversion_id):
     """ Function change the active status of a conversion listing in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can approve listings')
+        return redirect(reverse('home'))
     try:
         conversion = get_object_or_404(CamperConversion, pk=conversion_id)
         conversion.is_active = False
@@ -313,7 +320,3 @@ def save_listing(request, conversion_id, conversion_unique_ref):
     else:
         print("User not logged in")
         return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
-    # get username
-    # get profile
-    # save conversion id to savelistings in the user profile   profile.saved_lisings.name = conversion_id
-    # redirect to profile/saved listings page
