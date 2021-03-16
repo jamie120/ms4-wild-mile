@@ -201,6 +201,20 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* ------ All conversions page ------ */
+
+.img-conversions-page {
+    border: 1px solid white;
+    padding: 7px;
+}
+
+@media (max-width:1199px){
+    .img-conversions-page {
+    border-bottom: unset;
+    }
+}
+
+
 /* ------- Coming Soon Page ------- */
 
 #coming-soon-image {
@@ -275,6 +289,12 @@ a.category-badge > span.badge:hover {
         border: 4px solid rgba(194,208,194);
         border-radius: 20px;
     }
+
+        .card-header.text-white {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
 }
 
 #conversion-main-image {
@@ -294,10 +314,31 @@ a.category-badge > span.badge:hover {
     flex: 0.3 1 auto;
 }
 
+.no-border {
+    border: unset;
+}
+
+.conversion-detail-border {
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+}
 
 .card-footer {
     flex: 1 1 auto;
+    border: 1px solid white;
+    background-color: #555;
 }
+
+.card-footer.text-center.text-lg-left {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.card-header.text-white {
+    border: 1px solid white;
+}
+
+
 
 /* Conversion Detail Square Gallery 
 https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/ */
