@@ -291,14 +291,13 @@ def save_listing(request, conversion_id, conversion_unique_ref):
     Save a conversion to the user profile
     """
     if request.user.is_authenticated:
+        from_conversions = request.GET.get('from_conversions')
         username = request.user.username
         profile = UserProfile.objects.get(user__username=username)
         all_saved_items = SavedListings.objects.all().filter(user=profile)
         if all_saved_items:
             add_item = True
             for item in all_saved_items:
-                print(type(conversion_unique_ref))
-                print(type(item.conversion.unique_ref))
                 if str(conversion_unique_ref) == str(item.conversion.unique_ref):
                     add_item = False
 
@@ -306,17 +305,28 @@ def save_listing(request, conversion_id, conversion_unique_ref):
                 messages.info(request, 'Listing added to your profile')
                 saved_item = SavedListings(user=profile, conversion_id=conversion_id, status=True)
                 saved_item.save()
-                return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+                if from_conversions:
+                    return HttpResponseRedirect(reverse('conversions'))
+                else:
+                    return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
             else:
                 messages.info(request, 'You already have this listing saved to your profile')
-                return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+                if from_conversions:
+                    return HttpResponseRedirect(reverse('conversions'))
+                else:
+                    return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
 
         else:
-            print("No items in profile, first item added")
             messages.info(request, 'Congratulations, you saved your first listing to your profile')
             saved_item = SavedListings(user=profile, conversion_id=conversion_id, status=True)
             saved_item.save()
-            return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+            if from_conversions:
+                return HttpResponseRedirect(reverse('conversions'))
+            else:
+                return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
     else:
-        print("User not logged in")
-        return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
+        messages.info(request, 'Please Login first, to save listings to your profile')
+        if from_conversions:
+            return HttpResponseRedirect(reverse('conversions'))
+        else:
+            return HttpResponseRedirect(reverse('conversion_detail', args=(conversion_id,)))
