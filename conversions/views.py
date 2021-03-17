@@ -81,6 +81,8 @@ def conversion_detail(request, conversion_id):
     electrics = conversion.electrics.all()
     image_list = conversion.images.all()
 
+    print(f'list{conversion.images.all()}')
+
     for image in image_list:
         print(image.image.url)
 
