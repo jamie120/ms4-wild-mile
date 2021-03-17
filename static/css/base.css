@@ -255,6 +255,12 @@ a.category-badge > span.badge:hover {
     background-color: unset;
 }
 
+.fa-arrow-alt-circle-left,
+.fa-arrow-alt-circle-right {
+    color: white;   
+}
+
+
 /* ----- Admin Pages ------ */
 
 .card-img-sm {
