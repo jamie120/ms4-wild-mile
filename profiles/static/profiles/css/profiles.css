@@ -24,15 +24,28 @@ tr {
     border-top: 1em solid transparent;
 }
 
-.saved-listing-image {
-    height: 200px;
+.profile-listing-image-link {
+    width: 100%;
+}
+
+.profile-listing-image {
+    height: auto;
     border-radius: 20px;
-    border: 1px solid white;
+    max-height: 270px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card {
     border-radius: 20px;
     border: 2px solid rgba(194,208,194);
+}
+
+.card-footer-profile-listing {
+    border: unset;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    border-top: 1px solid white;
 }
 
 @media(max-width: 990px) {

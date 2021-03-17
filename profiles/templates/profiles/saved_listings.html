@@ -31,20 +31,20 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="mt-3 text-white text-center">{{ listing.conversion.listing_title }}</h2>
-                        <div class="p-2 image-container d-flex justify-content-center my-5">
+                        <p class="text-white larger-font text-center">£{{ listing.conversion.price }}</p>
+                        <div class="p-2 image-container d-flex justify-content-center mt-4">
                             {% if listing.conversion.main_image %}
-                                <a href="{{ listing.conversion.main_image.url }}" target="_blank">
-                                    <img class="saved-listing-image img-fluid" src="{{ listing.conversion.main_image.url }}" alt="{{ conversion.name }}">
+                                <a class="profile-listing-image-link" href="{{ listing.conversion.main_image.url }}" target="_blank">
+                                    <img class="profile-listing-image img-fluid" src="{{ listing.conversion.main_image.url }}" alt="{{ conversion.name }}">
                                 </a>
                             {% else %}
-                                <a href="">
-                                    <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ listing.conversion.name }}">
+                                <a class="profile-listing-image-link" href="">
+                                    <img class="profile-listing-image card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ listing.conversion.name }}">
                                 </a>
                             {% endif %}
                         </div>
                     </div>
-                    <div class="card-footer text-center">
-                        <p class="text-white larger-font">£{{ listing.conversion.price }}</p>
+                    <div class="card-footer card-footer-profile-listing text-center">
                         {% if listing.conversion.is_active %}
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
                             <button class="btn btn-white btn-outline-black text-white">View Listing</button>
