@@ -224,7 +224,6 @@ a.category-badge > span.badge:hover {
 /* ------ All conversions page ------ */
 
 .img-conversions-page {
-    border: 1px solid white;
     padding: 7px;
     border-radius: 20px;
 }
@@ -259,6 +258,21 @@ a.category-badge > span.badge:hover {
 .fa-arrow-alt-circle-right {
     color: white;   
 }
+
+.carousel-all-conversions {
+    border:1px solid white;
+    border-radius: 20px;
+}
+
+@media (max-width:1199px){
+    .carousel-all-conversions {
+    border-bottom: unset;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    }
+}
+
+
 
 
 /* ----- Admin Pages ------ */

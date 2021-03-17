@@ -67,14 +67,9 @@
                                     {% if conversion.main_image %}
                                     
                                     <!-- Carousel of first three conversion images -->
-                                    <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carousel{{ forloop.counter }}Indicators" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carousel{{ forloop.counter }}Indicators" data-slide-to="1"></li>
-                                            <li data-target="#carousel{{ forloop.counter }}Indicators" data-slide-to="2"></li>
-                                        </ol>
+                                    <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide carousel-all-conversions" data-ride="carousel">
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
+                                            <div class="carousel-item active mr-2">
                                                 <a href="{% url 'conversion_detail' conversion.id %}">
                                                     <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
                                                 </a>
