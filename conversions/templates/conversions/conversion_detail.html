@@ -42,7 +42,7 @@
                     <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center top-bottom-large-border">
                         <div class="p-2 d-flex align-items-center product-details-container mb-5 mt-md-5">
                             <div class="inner-container">
-                                <h2 class="mb-0 text-black">{{ conversion.name }}</h2>
+                                <h2 class="mb-0 text-black">{{ conversion.listing_title }}</h2>
                                 <h4 class="lead mb-0 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
                                 <p class="mt-3 text-black">{{ conversion.vehicle_description }}</p>
                                 <a class="btn border-black rounded-2 text-black">Contact Seller</a>
@@ -136,8 +136,9 @@
                 <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center top-bottom-large-border">
                     <div class="p-2 d-flex align-items-center product-details-container mb-5 mt-md-5">
                         <div class="inner-container">
-                            <h2 class="mb-0 text-black">{{ conversion.name }}</h2>
-                            <h4 class="lead mb-0 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
+                            <h2 class="mb-0 text-black">{{ conversion.listing_title }}</h2>
+                            <h4 class="lead mb-0 mt-2 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
+                            <h3 class="mt-3">Vehicle Description</h3>
                             <p class="mt-3 text-black">{{ conversion.vehicle_description }}</p>
                             <a class="btn border-black rounded-2 text-black contact-info-button">Contact Seller</a>
                             <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}" class="ml-2 btn border-black rounded-2 text-black">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
@@ -149,26 +150,53 @@
             </div>
             <div class="row mt-5 mb-5">
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center top-bottom-large-border">
-                    <div class="p-2 d-flex align-items-center product-details-container">
+                    <div class="p-2 product-details-container">
+                        <h3 class="mt-2">Conversion Description</h3>
                         <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex align-items-center">
-                    <div class="row w-100">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2">
+                    <div class="row">
                         <div class="col-6">
-                            <div class="p-2 product-details-container mb-5 mt-md-5">
+                            <div class="p-3 product-details-container mb-5 mt-5">
                                 {% for item in electrics %}
-                                    <p class="mt-3 text-white larger-font"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
+                                    <p class="text-white larger-font"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="col-6">
-                            <p class="mt-3 text-white">Max Weight - {{ conversion.max_weight }}</p>
+                        <div class="col-6 mt-3">
+                            
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
+                            <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
+                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
                         </div>
                     </div>
-                </div>  
-            </div>
+                    <div class="row">
+                        <div class="col ml-3">
+                            <div class="bg-white p-3 col-border mr-3">
+                                <p class="mt-2 text-black large-font">Vehicle Dimensions(L,W,H) - {{ conversion.vehicle_length }}m {{ conversion.vehicle_width }}m {{ conversion.vehicle_height }}m</p>
+                                {% if conversion.unladen_weight_verified %}
+                                <p class="text-black large-font">Unladed Weight - {{ conversion.unladen_weight }}</p>
+                            {% endif %}
+                            <p class="text-black large-font">Max Weight - {{ conversion.max_weight }}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row mt-5 mb-5">
+                <!-- <div class="col-12  col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
+                </div> -->
+                <div class="col-12 col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 bg-white d-flex justify-content-center top-bottom-large-border col-border">
+                    <div class="p-3 product-details-container">
+                        <h3 class="mt-2">Beds Description</h3>
+                        <p class="mt-3">Berths - {{ conversion.berths}}</p>
+                        <p class="mt-3 text-black">{{ conversion.beds_description }}</p>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Image Gallery Grid MD and above only -->
             <div class="row mb-5">
                 <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block">

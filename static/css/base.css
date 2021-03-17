@@ -53,6 +53,26 @@ hr {
     font-size: large;
 }
 
+@media(max-width:1199px) {
+    .larger-font {
+    font-size: large;
+    }
+    .large-font {
+        font-size: medium;
+    }
+}
+
+@media(max-width:991px) {
+    .larger-font {
+    font-size: medium;
+    }
+    .large-font {
+        font-size: small;
+    }
+}
+
+
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -266,7 +286,7 @@ a.category-badge > span.badge:hover {
 .fa-check-circle:before {
     content: "\f058";
     color: green;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 @media (min-width: 992px) {
