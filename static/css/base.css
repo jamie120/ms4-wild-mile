@@ -43,6 +43,12 @@ hr {
     width: 83%;
 }
 
+#special-message-banner {
+    z-index: -999;
+    position: relative;
+    background-color: #263d41;
+}
+
 /* --- Larger fonts ---- */
 
 .larger-font {
@@ -178,6 +184,70 @@ a {
 .navbar-light .navbar-toggler {
     color: rgba(0,0,0,.5);
     border-color: white;
+}
+
+.nav-link-fade-up::before {
+  width: 40%;
+  bottom: 5px;
+  opacity: 0;
+}
+
+.nav-link-fade-up:hover::before {
+  bottom: 10px;
+  opacity: 1;
+}
+
+.nav-link-faq {
+    padding: 8px;
+}
+
+.nav-link {
+    padding-top: 2px;
+}
+
+.nav-link,
+.nav-link-faq {
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
+.nav-link:hover,
+.nav-link-faq:hover {
+  opacity: 1;
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 2px;
+  left: 18%;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.nav-link-faq::before {
+  transition: 300ms;
+  height: 2px;
+  left: 28%;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.nav-link-about::before {
+  transition: 300ms;
+  height: 2px;
+  left: 15%;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus {
+    background: #2F363D;
+    color:rgb(255, 255, 255);
 }
 
 /* Home Page */
