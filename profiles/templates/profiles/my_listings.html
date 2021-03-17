@@ -56,13 +56,13 @@
                         </a>
                         {% if not listing.is_active %}
                         <a href="{% url 'listing_levels' %}">
-                            <button class="btn btn-danger btn-outline-black text-white">View Listing Plans</button>
+                            <button class="btn btn-danger btn-outline-black text-white mt-2">View Listing Plans</button>
                         </a>
                         {% endif %}
                         {% if listing.is_active %}
-                        <p class="text-success mt-3">Listing is currently live on the site</p>
+                        <p class="text-success mt-3 mb-0">Listing is currently live on the site</p>
                         {% else %}
-                        <p class="text-warning mt-3">Listing is NOT currently live on the site</p>
+                        <p class="text-warning mt-3 mb-0">Listing is NOT currently live on the site</p>
                         {% endif %}
                     </div>
                 </div>
