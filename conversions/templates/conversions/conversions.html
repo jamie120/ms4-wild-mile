@@ -63,7 +63,7 @@
                     <div class="row mt-1 mb-4 {% if forloop.counter == 1 %}mt-2{% else %}mt-4{% endif %}"></div>
                         <div class="row conversion-listing">
                             <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-lg-last{% endif %} d-flex align-items-center">
-                                <div class="">
+                                <div class="mx-auto">
                                     {% if conversion.main_image %}
                                     <a href="{% url 'conversion_detail' conversion.id %}">
                                         <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
