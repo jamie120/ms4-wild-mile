@@ -123,9 +123,32 @@
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
                     <div class="p-2 image-container d-flex justify-content-center my-5">
                         {% if conversion.main_image %}
-                            <a id="conversion-main-image" href="{{ conversion.main_image.url }}" target="_blank">
-                                <img class="card-img img-fluid" src="{{ conversion.main_image.url }}" alt="{{ conversion.name }}">
+                        <!-- Carousel of first three conversion images -->
+                        <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide" data-ride="carousel">
+                            
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="{% url 'conversion_detail' conversion.id %}">
+                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
+                                    </a>
+                                </div>
+                                {% for image in conversion.images.all %}
+                                    <div class="carousel-item">
+                                        <a href="{% url 'conversion_detail' conversion.id %}">
+                                            <img class="img-fluid img-conversions-page" src="{{ image.image.url }}" alt="{{ conversion.listing_title }}">
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="prev">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-left ml-2"></i>
+                                <span class="sr-only">Previous</span>
                             </a>
+                            <a class="carousel-control-next" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="next">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-right mr-2"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                         {% else %}
                             <a href="">
                                 <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
