@@ -62,10 +62,9 @@
                     {% if conversion.is_active %}
                     <div class="row mt-1 mb-4 {% if forloop.counter == 1 %}mt-2{% else %}mt-4{% endif %}"></div>
                         <div class="row conversion-listing">
-                            <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-lg-last{% endif %} d-flex align-items-center">
+                            <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-xl-last{% endif %} d-flex align-items-center">
                                 <div class="mx-auto">
                                     {% if conversion.main_image %}
-                                    
                                     <!-- Carousel of first three conversion images -->
                                     <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide carousel-all-conversions" data-ride="carousel">
                                         <div class="carousel-inner">
@@ -104,8 +103,8 @@
                                 <div class="card no-border w-100 h-100">
                                     <div class="card-header text-white">
                                         <a href="{% url 'conversion_detail' conversion.id %}">
-                                            <h3 class="mb-0 p-2">{{ conversion.listing_title }}</h3>
-                                            <h4 class="mb-2 p-2 text-left font-weight-bold">£{{ conversion.price }}</h4>
+                                            <h3 class="mb-0 p-2 title">{{ conversion.listing_title }}</h3>
+                                            <h4 class="mb-2 p-2 title text-left font-weight-bold">£{{ conversion.price }}</h4>
                                         </a>
                                     </div>
                                     <div class="card-body h-100 text-white conversion-detail-border">
@@ -116,14 +115,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Location</span> - {{ conversion.location }}</strong></p>
-                                                <p class="mb-0 p-2">{{ conversion.vehicle_description|truncatechars:250 }}</p>
+                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Location</span> - {{ conversion.location }}</p>
+                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Berths</span> - {{ conversion.berths }}</p>
+                                                <p class="mb-0 p-2 text-left font-weight-bold">{{ conversion.vehicle_description|truncatechars:250 }}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-center text-lg-left">
                                         <a href="{% url 'conversion_detail' conversion.id %}" class="btn border-black bg-white rounded-2 text-black mb-2">View Details</a>
-                                        <a class="ml-2 btn border-black bg-white rounded-2 text-black mb-2 contact-info-button">Contact Seller</a>
                                         <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}?from_conversions=True" class="ml-2 btn border-black bg-white rounded-2 text-black mb-2">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
                                         <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
                                         <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
@@ -146,8 +145,6 @@
 
 {% block postloadjs %}
     {{ block.super }}
-
-{% include 'conversions/includes/contact_seller_button_script.html' %}
 
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {

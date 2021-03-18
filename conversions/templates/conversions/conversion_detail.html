@@ -24,104 +24,11 @@
         {% if not conversion.is_active %}
             <!-- Check if user is author of listing or admin, if True render listing contents -->
             {% if request.user.is_superuser or request.user.username == conversion.user.user.username %}
-                <!-- Main Conversion information -->
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
-                        <div class="p-2 image-container d-flex justify-content-center my-5">
-                            {% if conversion.main_image %}
-                                <a id="conversion-main-image" href="{{ conversion.main_image.url }}" target="_blank">
-                                    <img class="card-img img-fluid" src="{{ conversion.main_image.url }}" alt="{{ conversion.name }}">
-                                </a>
-                            {% else %}
-                                <a href="">
-                                    <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
-                                </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center top-bottom-large-border">
-                        <div class="p-2 d-flex align-items-center product-details-container mb-5 mt-md-5">
-                            <div class="inner-container">
-                                <h2 class="mb-0 text-black">{{ conversion.listing_title }}</h2>
-                                <h4 class="lead mb-0 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
-                                <p class="mt-3 text-black">{{ conversion.vehicle_description }}</p>
-                                <a class="btn border-black rounded-2 text-black">Contact Seller</a>
-                                <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}" class="ml-2 btn border-black rounded-2 text-black">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5 mb-5">
-                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center top-bottom-large-border">
-                        <div class="p-2 d-flex align-items-center product-details-container">
-                            <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex align-items-center">
-                        <div class="row w-100">
-                            <div class="col-6">
-                                <div class="p-2 product-details-container mb-5 mt-md-5">
-                                    {% for item in electrics %}
-                                        <p class="mt-3 text-white larger-font"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <p class="mt-3 text-white">Max Weight - {{ conversion.max_weight }}</p>
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-
-                <!-- Image Gallery Grid MD and above only -->
-                <div class="row mb-5">
-                    <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block">
-                        <section>
-                            <h1 class="text-white mb-3">Image Gallery</h1>
-                            {% if image_list %}
-                            <div class="gallery">
-                                {% for image in image_list|slice:"0:6" %}
-                                        <figure class="gallery__item gallery__item--{{ forloop.counter }}">
-                                            <a href="{{ image.image.url }}" target="_blank">
-                                                <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
-                                            </a>
-                                        </figure>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </section>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 d-md-none">
-                        <div class="image-container my-5">
-                            {% if image_list %}
-                                {% for image in image_list|slice:"0:6" %}
-                                <a href="{{ image.image.url }}" target="_blank">
-                                    <img class="card-img-top img-fluid mb-4" src="{{ image.image.url }}" alt="imagelist present">
-                                </a>
-                                {% endfor %}
-                            {% else %}
-                                <a href="#">
-                                    <img class="card-img-top img-fluid mb-4" src="{{ MEDIA_URL }}noimage.png" alt="no image">
-                                </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center text-white">Sorry this conversion is not currently live. Please try another listing</h2>
-                </div>
-            </div>
-            {% endif %}
-        {% else %}
+                 <h2 class="text-center text-white mb-4">This conversion is not currently live.</h2>
             <!-- Main Conversion information -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
-                    <div class="p-2 image-container d-flex justify-content-center my-5">
+                    <div class="p-2 image-container d-flex justify-content-center mt-1 mb-3">
                         {% if conversion.main_image %}
                         <!-- Carousel of first three conversion images -->
                         <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide" data-ride="carousel">
@@ -156,8 +63,8 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center top-bottom-large-border">
-                    <div class="p-2 d-flex align-items-center product-details-container mb-5 mt-md-5">
+                <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center product-details-container mb-5 mt-md-5">
                         <div class="inner-container">
                             <h2 class="mb-0 text-black">{{ conversion.listing_title }}</h2>
                             <h4 class="lead mb-0 mt-2 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
@@ -172,36 +79,41 @@
                 </div>
             </div>
             <div class="row mt-5 mb-5">
-                <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center top-bottom-large-border">
-                    <div class="p-2 product-details-container">
-                        <h3 class="mt-2">Conversion Description</h3>
-                        <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center product-details-container">
+                        <div class="inner-container">
+                            <h3 class="mt-2">Conversion Description</h3>
+                            <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2">
                     <div class="row">
+                        <div class="col-6 p-5 border-right-thin">
+                            <h3 class="text-white">Details</h3>
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
+                            <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
+                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
+                        </div>
                         <div class="col-6">
-                            <div class="p-3 product-details-container mb-5 mt-5">
+                            <h3 class="text-white ml-3 mt-5">Electrics</h3>
+                            <div class="p-3 product-details-container mb-5 mt-4">
                                 {% for item in electrics %}
                                     <p class="text-white larger-font"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="col-6 mt-3">
-                            
-                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
-                            <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
-                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
-                        </div>
+                        
                     </div>
                     <div class="row">
-                        <div class="col ml-3">
-                            <div class="bg-white p-3 col-border mr-3">
-                                <p class="mt-2 text-black large-font">Vehicle Dimensions(L,W,H) - {{ conversion.vehicle_length }}m {{ conversion.vehicle_width }}m {{ conversion.vehicle_height }}m</p>
+                        <div class="col p-5 border-top-thin">
+                            <div class="mr-3">
+                                <h3 class="text-white">Dimensions / Weight</h3>
+                                <p class="mt-5 text-white large-font">Vehicle (L,W,H) - {{ conversion.vehicle_length }}m {{ conversion.vehicle_width }}m {{ conversion.vehicle_height }}m</p>
                                 {% if conversion.unladen_weight_verified %}
-                                <p class="text-black large-font">Unladed Weight - {{ conversion.unladen_weight }}</p>
+                                <p class="text-white large-font">Unladed Weight - {{ conversion.unladen_weight }}</p>
                             {% endif %}
-                            <p class="text-black large-font">Max Weight - {{ conversion.max_weight }}</p>
+                            <p class="text-white large-font">Max Weight - {{ conversion.max_weight }}</p>
                             </div>
                             
                         </div>
@@ -211,8 +123,160 @@
                 <div class="row mt-5 mb-5">
                 <!-- <div class="col-12  col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
                 </div> -->
-                <div class="col-12 col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 bg-white d-flex justify-content-center top-bottom-large-border col-border">
-                    <div class="p-3 product-details-container">
+                <div class="col-12 col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 bg-white d-flex justify-content-center col-border">
+                    <div class="p-4 product-details-container">
+                        <h3 class="mt-2">Beds Description</h3>
+                        <p class="mt-3">Berths - {{ conversion.berths}}</p>
+                        <p class="mt-3 text-black">{{ conversion.beds_description }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Gallery Grid MD and above only -->
+            <div class="row mb-5">
+                <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block">
+                    <section>
+                        <h1 class="text-white mb-3">Image Gallery</h1>
+                        {% if image_list %}
+                        <div class="gallery">
+                            {% for image in image_list|slice:"0:6" %}
+                                    <figure class="gallery__item gallery__item--{{ forloop.counter }}">
+                                        <a href="{{ image.image.url }}" target="_blank">
+                                            <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
+                                        </a>
+                                    </figure>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 d-md-none">
+                    <div class="image-container my-5">
+                        {% if image_list %}
+                            {% for image in image_list|slice:"0:6" %}
+                            <a href="{{ image.image.url }}" target="_blank">
+                                <img class="card-img-top img-fluid mb-4" src="{{ image.image.url }}" alt="imagelist present">
+                            </a>
+                            {% endfor %}
+                        {% else %}
+                            <a href="#">
+                                <img class="card-img-top img-fluid mb-4" src="{{ MEDIA_URL }}noimage.png" alt="no image">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-center text-white">Sorry this conversion is not currently live. Please try another listing</h2>
+                </div>
+            </div>
+            {% endif %}
+        {% else %}
+            <!-- Main Conversion information -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
+                    <div class="p-2 image-container d-flex justify-content-center mt-1 mb-3">
+                        {% if conversion.main_image %}
+                        <!-- Carousel of first three conversion images -->
+                        <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide" data-ride="carousel">
+                            
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="{% url 'conversion_detail' conversion.id %}">
+                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
+                                    </a>
+                                </div>
+                                {% for image in conversion.images.all %}
+                                    <div class="carousel-item">
+                                        <a href="{% url 'conversion_detail' conversion.id %}">
+                                            <img class="img-fluid img-conversions-page" src="{{ image.image.url }}" alt="{{ conversion.listing_title }}">
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="prev">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-left ml-2"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="next">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-right mr-2"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        {% else %}
+                            <a href="">
+                                <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="bg-white col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2 d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center product-details-container mb-5 mt-md-5">
+                        <div class="inner-container">
+                            <h2 class="mb-0 text-black">{{ conversion.listing_title }}</h2>
+                            <h4 class="lead mb-0 mt-2 text-left text-black font-weight-bold">£{{ conversion.price }}</h4>
+                            <h3 class="mt-3">Vehicle Description</h3>
+                            <p class="mt-3 text-black">{{ conversion.vehicle_description }}</p>
+                            <a class="btn border-black rounded-2 text-black contact-info-button">Contact Seller</a>
+                            <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}" class="ml-2 btn border-black rounded-2 text-black">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
+                            <p class="mt-5 text-black large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
+                            <p class="mt-3 text-black large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-lg-1 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center product-details-container">
+                        <div class="inner-container">
+                            <h3 class="mt-2">Conversion Description</h3>
+                            <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-border-col-2">
+                    <div class="row">
+                        <div class="col-6 p-5 border-right-thin">
+                            <h3 class="text-white">Details</h3>
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
+                            <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
+                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-white ml-3 mt-5">Electrics</h3>
+                            <div class="p-3 product-details-container mb-5 mt-4">
+                                {% for item in electrics %}
+                                    <p class="text-white larger-font"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col p-5 border-top-thin">
+                            <div class="mr-3">
+                                <h3 class="text-white">Dimensions / Weight</h3>
+                                <p class="mt-5 text-white large-font">Vehicle (L,W,H) - {{ conversion.vehicle_length }}m {{ conversion.vehicle_width }}m {{ conversion.vehicle_height }}m</p>
+                                {% if conversion.unladen_weight_verified %}
+                                <p class="text-white large-font">Unladed Weight - {{ conversion.unladen_weight }}</p>
+                            {% endif %}
+                            <p class="text-white large-font">Max Weight - {{ conversion.max_weight }}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 mb-5">
+                <!-- <div class="col-12  col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
+                </div> -->
+                <div class="col-12 col-md-12 col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 bg-white d-flex justify-content-center col-border">
+                    <div class="p-4 product-details-container">
                         <h3 class="mt-2">Beds Description</h3>
                         <p class="mt-3">Berths - {{ conversion.berths}}</p>
                         <p class="mt-3 text-black">{{ conversion.beds_description }}</p>

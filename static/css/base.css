@@ -172,6 +172,10 @@ bg-light {
     background-color: bisque !important;
 }
 
+bg-cream {
+    background-color: #f3f0dd !important;
+}
+
 a {
     color: unset;
 }
@@ -365,6 +369,10 @@ a.category-badge > span.badge:hover {
     align-self: center;
 }
 
+.title {
+    color: black;
+}
+
 
 
 
@@ -404,25 +412,25 @@ a.category-badge > span.badge:hover {
 
 @media (min-width: 992px) {
        .col-border-col-1 {
-        border: 4px solid rgba(194,208,194);
-        border-right: unset;
+        border: 16px solid rgba(194,208,194);
+        /* border-right: unset; */
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
         .col-border-col-2 {
-        border: 4px solid rgba(194,208,194);
-        border-left: unset;
+        border: 16px solid rgba(194,208,194);
+        /* border-left: unset; */
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
 
-        .top-bottom-large-border {
+        /* .top-bottom-large-border {
         border-top-width: 50px;
         border-bottom-width: 50px;
-    }
+    } */
 
         .col-border {
-        border: 4px solid rgba(194,208,194);
+        border: 16px solid rgba(194,208,194);
         border-radius: 20px;
     }
 
@@ -443,7 +451,7 @@ a.category-badge > span.badge:hover {
 }
 
 .card {
-    border: 4px solid rgba(194,208,194);
+    border: 2px solid rgba(194,208,194);
 }
 
 .card-body {
@@ -472,9 +480,16 @@ a.category-badge > span.badge:hover {
 
 .card-header.text-white {
     border: 1px solid white;
-    background-color: #555;
+    background-color: rgb(228, 208, 186);
 }
 
+.border-top-thin {
+    border-top: 1px solid white;
+}
+
+.border-right-thin {
+    border-right: 1px solid white;
+}
 
 
 /* Conversion Detail Square Gallery 
