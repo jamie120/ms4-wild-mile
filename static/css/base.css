@@ -342,6 +342,10 @@ a.category-badge > span.badge:hover {
     }
 }
 
+.carousel {
+    align-self: center;
+}
+
 
 
 
