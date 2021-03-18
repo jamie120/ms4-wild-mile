@@ -12,10 +12,12 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
+    products = products.exclude(sku='12345678')
     current_category = None
     sort = None
     direction = None
     all_categories = Category.objects.all()
+    all_categories = all_categories.exclude(name='listing_fee')
 
     if request.GET:
         if 'sort' in request.GET:
