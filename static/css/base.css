@@ -77,6 +77,16 @@ hr {
     }
 }
 
+/* Border radius settings  */
+
+.br-1 {
+    border-radius: 10px;
+}
+
+.br-2 {
+    border-radius: 20px;
+}
+
 
 
 /* from Bulma */
