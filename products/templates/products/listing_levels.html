@@ -16,9 +16,11 @@
             <div class="col"> 
                 <h2 class="logo-font mt-5 mb-4 text-white">CHOOSE A SERVICE LEVEL</h2>
                 <hr>
+                {% if from_add_conversion_form %}
                 <a class="text-white" href="{% url 'conversions' %}">
                     <span><i class="fas fa-chevron-left text-white"></i> BACK TO FORM</span>
                 </a>
+                {% endif %}
             </div>
         </div>
         <div class="row mt-5">
