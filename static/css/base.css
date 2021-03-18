@@ -253,6 +253,15 @@ a {
   background-color: white;
 }
 
+.nav-link-home::before {
+  transition: 300ms;
+  height: 2px;
+  left: 11%;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
 .dropdown-item:hover,
 .dropdown-item:active,
 .dropdown-item:focus {
