@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
 from .models import Product, Category
 from conversions.models import CamperConversion
+from .forms import ProductForm
 from profiles.models import UserProfile
 
 # Create your views here.
@@ -99,3 +101,32 @@ def view_plan(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+
+@login_required
+def add_product(request):
+    """ Add a product to the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can approve conversions')
+        return redirect(reverse('home'))
+    else:
+        if request.method == 'POST':
+            form = ProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request,
+                                 "Product added successfully")
+                return redirect(reverse('add_product'))
+            else:
+                messages.error(request, 'Failed to add product.')
+
+        else:
+            form = ProductForm()
+
+        template = 'products/add_product.html'
+        context = {
+            'form': form,
+        }
+        return render(request, template, context)
