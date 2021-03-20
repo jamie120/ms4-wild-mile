@@ -672,7 +672,7 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    color: #a7adad; /* text-info */
 }
 
 .allauth-form-inner-content input {
@@ -719,7 +719,11 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #447f91; /* text-info */
+}
+
+.form-check-label {
+    color: #a7adad; /* text-info */
 }
 
 /* -------------------------------- Media Queries */
