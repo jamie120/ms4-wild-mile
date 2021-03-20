@@ -24,7 +24,7 @@
         </div>
 
         <div class="row">
-            <div class="col mt-5">
+            <div class="col mt-5 mb-4">
                 <p class="text-white text-center">
                 Use the form below to add your conversion to the site.
                 </p>
@@ -48,19 +48,13 @@
 
             </div>
         </div>
+   
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 col-xl-8 bg-white mt-4">
-                <hr>
-                <h5>Basic Info</h5>
-                <hr>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 col-xl-8 bg-white mb-4">
-                <form method="POST" action="{% url 'add_conversion' %}" class="form mb-2" enctype="multipart/form-data">
+            <div class="col-12 col-lg-10 col-xl-8 bg-white br-2 mb-4">
+                <form method="POST" action="{% url 'add_conversion' %}" class="form mb-2 p-3" enctype="multipart/form-data">
                     {% csrf_token %}
                     <!-- Main Conversion Form -->
+                    <h5 class="mb-4 mt-4">Basic Info</h5>
                     {{ form.listing_title | as_crispy_field }}
                     {{ form.user | as_crispy_field }}
                     <div class="form-row">
@@ -130,9 +124,9 @@
                     <!-- Image Upload Formset -->
                     {{ form.main_image| as_crispy_field }}
                     {{ formset | crispy }}
-                    <div class="text-left mt-3 mb-3">
-                        <a class="btn btn-outline-black rounded-2" href="{% url 'conversions' %}">Cancel</a>
-                        <button class="btn btn-black rounded-2" type="submit">Save</button>
+                    <div class="text-right mt-4 mb-3">
+                        <a class="btn btn-lg btn-outline-black rounded-2" href="{% url 'conversions' %}">Cancel</a>
+                        <button class="btn btn-lg btn-black rounded-2" type="submit">Save</button>
                     </div>
                 </form>
             </div>
