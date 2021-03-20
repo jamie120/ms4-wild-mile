@@ -525,11 +525,11 @@ a.category-badge > span.badge:hover {
 .card-footer.text-center.text-lg-left {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    border-top: unset;
 }
 
 .card-header.text-white {
     border: 1px solid white;
-    background-color: rgb(228, 208, 186);
 }
 
 .border-top-thin {
