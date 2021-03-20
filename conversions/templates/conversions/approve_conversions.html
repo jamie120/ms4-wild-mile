@@ -29,7 +29,7 @@
                 {% else %}
                 <h5 class="page-sub-header text-white">There are no listings awating approval.</h5>
                 {% endif %}
-                <a id="back-to-approval-button" href="{% url 'manage_conversions' %}" class="mt-2 btn border-white rounded-2 text-white"><i class="ml-1 fa fa-chevron-left mr-2"></i> Back to Live Listing Management </a>
+                <a id="back-to-approval-button" href="{% url 'manage_conversions' %}" class="mt-2 btn btn-outline-black rounded-2 text-white"><i class="ml-1 fa fa-chevron-left mr-2"></i> Back to Live Listing Management </a>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -50,11 +50,11 @@
                                 </div>
                             </div>
                             <div class="card-footer text-center text-lg-left">
-                                <a href="{% url 'conversion_detail' conversion.id %}" class="btn border-white rounded-2 text-white mb-2">See Details</a>
-                                <a href="{% url 'edit_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Edit Conversion</a>
-                                <a href="{% url 'delete_conversion' conversion.id %}" class="btn border-white rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
-                                <a class="ml-2 btn border-white rounded-2 text-white mb-2 contact-info-button">Contact Seller</a>
-                                <a href="{% url 'approve_conversion' conversion.id %}" class="ml-2 mb-2 btn border-white rounded-2 text-white">Approve Listing <i class="ml-1 fa fa-plus-circle"></i></a>
+                                <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black rounded-2 text-white mb-2">See Details</a>
+                                <a href="{% url 'edit_conversion' conversion.id %}" class="btn btn-outline-black rounded-2 text-white ml-2 mb-2">Edit Conversion</a>
+                                <a href="{% url 'delete_conversion' conversion.id %}" class="btn btn-outline-black rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
+                                <a class="ml-2 btn btn-outline-black rounded-2 text-white mb-2 contact-info-button">Contact Seller</a>
+                                <a href="{% url 'approve_conversion' conversion.id %}" class="ml-2 mb-2 btn btn-outline-black rounded-2 text-white">Approve Listing <i class="ml-1 fa fa-plus-circle"></i></a>
                                 <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
                                 <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
                             </div>
