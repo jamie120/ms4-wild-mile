@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+/** FAQ EXPAND ANSWERS.
+ * On click 'question' element, ID attribute is captured to variable.
+ * Variable string is amended to target the corresponding answer ID.
+ * Variable is then used to show the HTML element on the screen.
+ * The corresponding ICON is also changed to provide user feedback.
+ * */
+
+$('.question').click(function() { 
+    var id = $(this).attr('id');
+    id = id.replace('question', 'answer');
+    if ($("#" + id).is(":hidden")) {
+        $("#" + id).slideDown("slow");
+    } else {
+        $("#" + id).hide();
+    }
+    //CHANGE ICON & SR TEXT
+    id = id.replace('answer', 'icon');
+    $("#" + id).find('i').toggleClass("fa-plus").toggleClass("fa-minus");
+    $("#" + id).find('span').text("Collapse");
+    // REMOVE QUESTION BACKGROUND BORDER RADIUS
+    id = id.replace('icon', 'question');
+    $("#" + id).toggleClass("border-bottom-radius-off"); 
+});
+
+</script>

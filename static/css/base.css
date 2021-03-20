@@ -406,6 +406,36 @@ a.category-badge > span.badge:hover {
       to { opacity: 1; }
 }
 
+
+/* ---- FAQ Page ---- */
+
+.answer {
+    display: none;
+    margin-top: 1rem;
+    color: black;
+}
+
+.question {
+    color: black;
+    font-size: 1.2rem;
+    padding: 1%;
+    background-color: #e9d18b;
+    border-radius: 10px;
+}
+
+.q-a-content {
+    background-color: #aab7c4;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.border-bottom-radius-off {
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+}
+
 /* ------- Conversion Detail Page ------- */
 
 .fa-check-circle:before {
