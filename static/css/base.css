@@ -168,15 +168,15 @@ hr {
 
 /* Colours */
 
-bg-dark {
+.bg-dark {
     background-color: #2F363D !important;
 }
 
-bg-light {
+.bg-light {
     background-color: bisque !important;
 }
 
-bg-cream {
+.bg-cream {
     background-color: #f3f0dd !important;
 }
 
