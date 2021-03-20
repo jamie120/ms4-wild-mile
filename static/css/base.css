@@ -77,7 +77,7 @@ hr {
     }
 }
 
-/* Border radius settings  */
+/* Border / border radius settings  */
 
 .br-1 {
     border-radius: 10px;
@@ -85,6 +85,10 @@ hr {
 
 .br-2 {
     border-radius: 20px;
+}
+
+.border-white {
+    border: 1px solid white;
 }
 
 
