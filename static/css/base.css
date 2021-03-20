@@ -10,6 +10,13 @@ body {
     font-family: 'Lato';
 }
 
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 #logo-img {
     width: 11%;
     position: absolute;
@@ -276,6 +283,14 @@ a {
     background: #2F363D;
     color:rgb(255, 255, 255);
 }
+
+/* Footer */
+
+.footer-icon {
+    font-size: 2.2rem;
+}
+
+
 
 /* Home Page */
 
