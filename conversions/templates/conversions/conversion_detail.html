@@ -25,6 +25,7 @@
             <!-- Check if user is author of listing or admin, if True render listing contents -->
             {% if request.user.is_superuser or request.user.username == conversion.user.user.username %}
                  <h2 class="text-center text-white mb-4">This conversion is not currently live.</h2>
+
             <!-- Main Conversion information -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
@@ -133,8 +134,8 @@
             </div>
             
             <!-- Image Gallery Grid MD and above only -->
-            <div class="row mb-5">
-                <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block">
+            <div class="row mb-5 w-100">
+                <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block w-100">
                     <section>
                         <h1 class="text-white mb-3">Image Gallery</h1>
                         {% if image_list %}
@@ -170,13 +171,17 @@
                 </div>
             </div>
             {% else %}
+
+            <!-- If listing is not live - Message to users that are not superusers or listing author -->
             <div class="row">
                 <div class="col">
                     <h2 class="text-center text-white">Sorry this conversion is not currently live. Please try another listing</h2>
                 </div>
             </div>
             {% endif %}
+
         {% else %}
+
             <!-- Main Conversion information -->
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-5 col-xl-4 offset-xl-2 offset-lg-1 d-flex justify-content-center col-border-col-1">
@@ -285,8 +290,8 @@
             </div>
             
             <!-- Image Gallery Grid MD and above only -->
-            <div class="row mb-5">
-                <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block">
+            <div class="row mb-5 w-100">
+                <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block w-100">
                     <section>
                         <h1 class="text-white mb-3">Image Gallery</h1>
                         {% if image_list %}
@@ -322,6 +327,7 @@
                 </div>
             </div>
         {% endif %}
+
     </div>
 {% endblock %}
 
