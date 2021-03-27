@@ -5,7 +5,8 @@
 @font-face {
     font-family: 'pwscratchedfontmedium';
     src: url('pwscratchedfont.woff2') format('woff2'),
-         url('pwscratchedfont.woff') format('woff');
+         url('pwscratchedfont.woff') format('woff'),
+         url('pwscratchedfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
