@@ -46,23 +46,22 @@
                     </div>
                     <div class="card-footer card-footer-profile-listing text-center">
                         <a href="{% url 'conversion_detail' listing.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">Go To Listing</button>
+                            <button class="btn btn-white btn-outline-black border-white text-white">Go To Listing</button>
                         </a>
                         <a href="{% url 'edit_conversion' listing.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">Edit Listing</button>
+                            <button class="btn btn-white btn-outline-black border-white text-white">Edit Listing</button>
                         </a>
                         <a href="{% url 'delete_conversion' listing.id %}">
-                            <button class="btn btn-danger btn-outline-black text-white">Delete Listing</button>
+                            <button class="btn border-white btn-outline-black text-white">Delete Listing</button>
                         </a>
-                        {% if not listing.is_active %}
-                        <a href="{% url 'listing_levels' %}">
-                            <button class="btn btn-danger btn-outline-black text-white mt-2">View Listing Pricing</button>
-                        </a>
-                        {% endif %}
+                        <hr>
                         {% if listing.is_active %}
                         <p class="text-success mt-3 mb-0">Listing is currently live on the site</p>
                         {% else %}
-                        <p class="text-warning mt-3 mb-0">Listing is NOT currently live on the site</p>
+                        <p class="text-warning mt-3 mb-2">Listing is NOT currently live on the site</p>
+                        <a href="{% url 'listing_levels' %}">
+                            <button class="btn border-white btn-outline-black text-white mt-2">View Listing Pricing</button>
+                        </a>
                         {% endif %}
                     </div>
                 </div>

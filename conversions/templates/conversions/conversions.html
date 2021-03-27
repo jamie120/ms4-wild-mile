@@ -104,7 +104,7 @@
                                     <div class="card-header bg-cream text-white">
                                         <a href="{% url 'conversion_detail' conversion.id %}">
                                             <h3 class="mb-0 p-2 title">{{ conversion.listing_title }}</h3>
-                                            <h4 class="mb-2 p-2 title text-left font-weight-bold">£{{ conversion.price }}</h4>
+                                            <h4 class="mb-2 p-2 text-black text-left font-weight-bold">£{{ conversion.price }}</h4>
                                         </a>
                                     </div>
                                     <div class="card-body h-100 text-white conversion-detail-border">
@@ -122,8 +122,8 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-center text-lg-left">
-                                        <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black rounded-2 mb-2">View Details</a>
-                                        <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}?from_conversions=True" class="ml-2 btn btn-outline-black rounded-2 mb-2">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
+                                        <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black border-white rounded-2 mb-2">View Details</a>
+                                        <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}?from_conversions=True" class="ml-2 btn btn-outline-black border-white rounded-2 mb-2">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
                                         <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
                                         <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
                                     </div>

@@ -47,17 +47,17 @@
                     <div class="card-footer card-footer-profile-listing text-center">
                         {% if listing.conversion.is_active %}
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">View Listing</button>
+                            <button class="btn btn-white btn-outline-black border-white text-white">View Listing</button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">Remove Listing</button>
+                            <button class="btn btn-white btn-outline-black border-white text-white">Remove Listing</button>
                         </a>
                         {% else %}
                         <a href="#">
-                            <button class="btn btn-white btn-outline-black text-white"><strike>View Listing</strike></button>
+                            <button class="btn btn-white btn-outline-black border-white text-white"><strike>View Listing</strike></button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn btn-white btn-outline-black text-white">Remove Listing</button>
+                            <button class="btn btn-white btn-outline-black border-white text-white">Remove Listing</button>
                         </a>
                         <p class="text-danger mt-2 mb-2">Sorry this listing is no longer live on the site</p>
                         {% endif %}

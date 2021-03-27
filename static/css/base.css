@@ -139,7 +139,7 @@ hr {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: #363E46;
     color: white !important;
 }
 
@@ -392,6 +392,7 @@ a.category-badge > span.badge:hover {
 
 .title {
     color: black;
+    font-family: pwscratchedfont;
 }
 
 
