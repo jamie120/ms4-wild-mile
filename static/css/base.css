@@ -96,6 +96,17 @@ hr {
     border-radius: 20px;
 }
 
+.br-2-top {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.br-2-bottom {
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+
 .border-white {
     border: 1px solid white;
 }
@@ -199,6 +210,10 @@ a {
 
 .light-color {
     background-color: rgb(194,208,194);
+}
+
+.bg-light-green {
+    background-color: #627072 !important;
 }
 
 /* Navbar */
@@ -345,8 +360,6 @@ a.category-badge > span.badge:hover {
 @media (max-width:1199px){
     .img-conversions-page {
     border-bottom: unset;
-    border-bottom-left-radius: unset;
-    border-bottom-right-radius: unset;
     }
 }
 
@@ -378,20 +391,19 @@ a.category-badge > span.badge:hover {
     border-radius: 20px;
 }
 
-@media (max-width:1199px){
+/* @media (max-width:1199px){
     .carousel-all-conversions {
     border-bottom: unset;
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;
     }
-}
+} */
 
 .carousel {
     align-self: center;
 }
 
 .title {
-    color: black;
     font-family: pwscratchedfont;
 }
 
@@ -464,25 +476,20 @@ a.category-badge > span.badge:hover {
 
 @media (min-width: 992px) {
        .col-border-col-1 {
-        border: 16px solid rgba(194,208,194);
+        border: 10px solid #627072;
         /* border-right: unset; */
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
         .col-border-col-2 {
-        border: 16px solid rgba(194,208,194);
+        border: 10px solid #627072;
         /* border-left: unset; */
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
 
-        /* .top-bottom-large-border {
-        border-top-width: 50px;
-        border-bottom-width: 50px;
-    } */
-
         .col-border {
-        border: 16px solid rgba(194,208,194);
+        border: 10px solid #627072;
         border-radius: 20px;
     }
 
@@ -503,7 +510,7 @@ a.category-badge > span.badge:hover {
 }
 
 .card {
-    border: 2px solid rgba(194,208,194);
+    border: 2px solid #263d41;
 }
 
 .card-body {
@@ -511,13 +518,18 @@ a.category-badge > span.badge:hover {
 }
 
 .no-border {
-    border: unset;
+    border: unset !important;
 }
 
-.conversion-detail-border {
+.bg-none {
+    background-color: unset !important;
+}
+
+/* .conversion-detail-border {
     border-left: 1px solid gainsboro;
     border-right: 1px solid gainsboro;
-}
+} */
+
 
 .card-footer {
     flex: 1 1 auto;
@@ -525,22 +537,23 @@ a.category-badge > span.badge:hover {
     background-color: #555;
 }
 
-.card-footer.text-center.text-lg-left {
+
+/* .card-footer.text-center.text-lg-left {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top: unset;
-}
+} */
 
-.card-header.text-white {
+/* .card-header.text-white {
     border: 1px solid white;
-}
+} */
 
 .border-top-thin {
-    border-top: 1px solid white;
+    border-top: 1px solid #627072;
 }
 
 .border-right-thin {
-    border-right: 1px solid white;
+    border-right: 1px solid #627072;
 }
 
 

@@ -92,9 +92,10 @@
                     <div class="row">
                         <div class="col-6 p-5 border-right-thin">
                             <h3 class="text-white">Details</h3>
-                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
                             <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
-                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
+                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
+                            <p class="mt-5 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
                         </div>
                         <div class="col-6">
                             <h3 class="text-white ml-3 mt-5">Electrics</h3>
@@ -248,9 +249,10 @@
                     <div class="row">
                         <div class="col-6 p-5 border-right-thin">
                             <h3 class="text-white">Details</h3>
-                            <p class="mt-5 text-white">Transmission Type - {{ conversion.transmission_type }}</p>
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
                             <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
-                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.registered_vehicle_type }}</p>
+                            <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
+                            <p class="mt-5 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
                         </div>
                         <div class="col-6">
                             <h3 class="text-white ml-3 mt-5">Electrics</h3>
