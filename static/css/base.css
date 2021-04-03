@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background: url('/media/homepage_background_cropped.jpg') no-repeat fixed center;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
@@ -56,6 +56,8 @@ hr {
     z-index: -999;
     position: relative;
     background-color: #263d41;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+    padding: 10px;
 }
 
 /* --- Larger fonts ---- */
@@ -105,7 +107,6 @@ hr {
     border-bottom-left-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
 }
-
 
 .border-white {
     border: 1px solid white;
@@ -190,6 +191,10 @@ hr {
 
 .bg-dark {
     background-color: #363E46 !important;
+}
+
+.bg-dark-main {
+    background-color: #2F363D !important;
 }
 
 .bg-light {
@@ -297,7 +302,7 @@ a {
 .dropdown-item:hover,
 .dropdown-item:active,
 .dropdown-item:focus {
-    background: #2F363D;
+    background: #263d41;
     color:rgb(255, 255, 255);
 }
 
@@ -305,8 +310,12 @@ a {
 
 .footer-icon {
     font-size: 2.2rem;
+    color: white !important;
 }
 
+#footer {
+    border-top: 1px solid rgb(255, 255, 255, 0.5);
+}
 
 
 /* Home Page */
@@ -317,7 +326,7 @@ a {
 }
 
 #title-column {
-    margin-top: 21rem;
+    margin-top: 14rem;
 }
 
 .scratched-font {
@@ -387,7 +396,7 @@ a.category-badge > span.badge:hover {
 }
 
 .carousel-all-conversions {
-    border:1px solid white;
+    border:1px solid #627072;
     border-radius: 20px;
 }
 
@@ -494,8 +503,9 @@ a.category-badge > span.badge:hover {
     }
 
         .card-header.text-white {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+        /* border-top-left-radius: 20px;
+        border-top-right-radius: 20px; */
+        
     }
 
 }
@@ -544,9 +554,10 @@ a.category-badge > span.badge:hover {
     border-top: unset;
 } */
 
-/* .card-header.text-white {
-    border: 1px solid white;
-} */
+.card-header.text-white {
+    border-radius: 10px;
+    background-color: #627072 !important;
+}
 
 .border-top-thin {
     border-top: 1px solid #627072;

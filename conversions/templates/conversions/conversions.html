@@ -62,7 +62,7 @@
                     {% if conversion.is_active %}
                     <div class="row mt-1 mb-4 {% if forloop.counter == 1 %}mt-2{% else %}mt-4{% endif %}"></div>
                         <div class="row conversion-listing">
-                            <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-xl-last{% endif %} d-flex align-items-center mb-3">
+                            <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-xl-last{% endif %} d-flex align-items-start mb-3">
                                 <div class="mx-auto">
                                     {% if conversion.main_image %}
                                     <!-- Carousel of first three conversion images -->
