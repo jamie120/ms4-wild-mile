@@ -66,6 +66,10 @@ hr {
     font-size: larger;
 }
 
+.largest-font {
+    font-size: 3rem;
+}
+
 .large-font {
     font-size: large;
 }
@@ -483,22 +487,22 @@ a.category-badge > span.badge:hover {
     font-size: 1.5rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
        .col-border-col-1 {
-        border: 10px solid #627072;
+        border: 7px solid #627072;
         /* border-right: unset; */
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
         .col-border-col-2 {
-        border: 10px solid #627072;
+        border: 7px solid #627072;
         /* border-left: unset; */
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
 
         .col-border {
-        border: 10px solid #627072;
+        border: 7px solid #627072;
         border-radius: 20px;
     }
 
