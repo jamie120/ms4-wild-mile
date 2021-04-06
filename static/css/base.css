@@ -57,7 +57,12 @@ hr {
     position: relative;
     background-color: #263d41;
     border-bottom: 1px solid rgba(255,255,255,.5);
-    padding: 10px;
+    padding: 7px;
+    padding-bottom: 3px;
+}
+
+#scrolling-message-1 {
+    margin-right: 400px;
 }
 
 /* --- Larger fonts ---- */
