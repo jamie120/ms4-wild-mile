@@ -14,7 +14,7 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col offset-lg-2 mt-4 mb-4">
+            <div class="col offset-lg-2 mt-5 mb-4">
                 <a class="text-white" href="{% url 'conversions' %}">
                     <span><i class="fas fa-chevron-left text-white"></i> BACK TO CONVERSIONS</span>
                 </a>
@@ -295,7 +295,7 @@
             <div class="row mb-5 w-100">
                 <div class="col-12 col-lg-8 offset-lg-2 d-none d-md-block w-100">
                     <section>
-                        <h1 class="text-white mb-3">Image Gallery</h1>
+                        <h1 class="text-white mb-4">Image Gallery</h1>
                         {% if image_list %}
                         <div class="gallery">
                             {% for image in image_list|slice:"0:6" %}
