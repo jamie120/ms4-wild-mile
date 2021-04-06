@@ -499,16 +499,16 @@ a.category-badge > span.badge:hover {
 }
 
 .question {
-    color: black;
+    color: white;
     font-size: 1.2rem;
     padding: 1%;
-    background-color: #e9d18b;
+    background-color: #607072;
     border-radius: 10px;
 }
 
 .q-a-content {
     background-color: #aab7c4;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     height: auto;
     margin-top: 1rem;
