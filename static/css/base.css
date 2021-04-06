@@ -156,11 +156,17 @@ hr {
     color: white;
 }
 
+.btn-light-green {
+    background: #627072 !important;
+    color: white;
+}
+
 .btn-outline-black {
     background: white;
     color: black !important;
     border: 1px solid black;
 }
+
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
@@ -168,6 +174,19 @@ hr {
     background: #363E46;
     color: white !important;
 }
+
+.btn-outline-muted {
+    background: #607072;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline-muted:hover,
+.btn-outline-muted:active,
+.btn-outline-muted:focus {
+    background: #363E46 !important;
+}
+
 
 .see-conversions-button:hover,
 .see-conversions-button:active,
