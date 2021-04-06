@@ -70,27 +70,27 @@
                                 <div class="card-body pb-0">
                                     
                                 </div>
-                                <div class="card-footer bg-dark pt-0 border-0 text-left">
+                                <div class="card-footer bg-light-green br-1 pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
                                             <p class="mb-1 mt-2 text-white">{{ product.name }}</p>
                                             <p class="lead mb-0 text-left text-white font-weight-bold">£{{ product.price }}</p>
                                             {% if product.category %}
                                                 <p class="small mt-1 mb-0">
-                                                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <a class="text-white" href="{% url 'products' %}?category={{ product.category.name }}">
                                                         <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                                                     </a>
                                                 </p>
                                             {% endif %}
                                             {% if product.rating %}
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                                <small class="text-white"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                             {% else %}
-                                                <small class="text-muted">No Rating</small>
+                                                <small class="text-white">No Rating</small>
                                             {% endif %}
                                             {% if request.user.is_superuser %}
-                                                <small class="ml-3">
-                                                    <a class="br-1 p-2 bg-white" href="{% url 'edit_product' product.id %}">Edit</a>
-                                                    <a class="br-1 p-2 ml-1 bg-white text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                <small class="ml-3 float-right">
+                                                    <a class="br-1 p-2 bg-white border-muted" href="{% url 'edit_product' product.id %}">Edit</a>
+                                                    <a class="br-1 p-2 ml-1 bg-white text-danger border-muted" href="{% url 'delete_product' product.id %}">Delete</a>
                                                 </small>
                                             {% endif %}
                                         </div>
