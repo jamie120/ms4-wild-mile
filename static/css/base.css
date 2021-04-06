@@ -460,9 +460,6 @@ a.category-badge > span.badge:hover {
     font-family: pwscratchedfont;
 }
 
-
-
-
 /* ----- Admin Pages ------ */
 
 .card-img-sm {
@@ -544,12 +541,6 @@ a.category-badge > span.badge:hover {
         .col-border {
         border: 7px solid #627072;
         border-radius: 20px;
-    }
-
-        .card-header.text-white {
-        /* border-top-left-radius: 20px;
-        border-top-right-radius: 20px; */
-        
     }
 
 }
