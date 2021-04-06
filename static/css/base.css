@@ -428,6 +428,13 @@ a.category-badge > span.badge:hover {
 }
 
 
+/* --- Bag Styling --- */
+
+#plus-bag-button {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
 /* ------- All Conversion Listings Page ------- */
 
 .card {
