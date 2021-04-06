@@ -20,7 +20,7 @@ body {
 }
 
 #logo-img {
-    width: 11%;
+    width: 14%;
     position: absolute;
     left: 6rem;
     top: -1.5rem;
@@ -308,6 +308,12 @@ a {
 .dropdown-item:focus {
     background: #263d41;
     color:rgb(255, 255, 255);
+}
+
+@media(min-width:1200px){
+li.nav-item{
+    font-size: 1.2rem;
+}
 }
 
 /* Footer */
@@ -782,7 +788,9 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
 }
 
 /* manage logo size on smaller devices */
-@media (max-width: 1670px) {
+
+
+@media (max-width: 1920px) {
 #logo-img {
     width: 16%;
     position: absolute;
@@ -790,6 +798,8 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
     top: -23px;
     }
 }
+
+
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
