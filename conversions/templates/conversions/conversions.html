@@ -27,13 +27,11 @@
                         <span class="p-2 mt-2 badge bg-white text-black rounded-2 border border-light{% if current_category_css_check == c.name %} active-category{% endif %}">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
-                
             </div>
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
-
-                <div class="row mt-3">
+                <div class="row mt-3 mb-4">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector"
