@@ -40,8 +40,13 @@ hr {
 }
 
 .page-header {
-    padding-left: 8.5%;
     font-size: 1.7rem;
+}
+
+@media(min-width:768px){
+    .page-header {
+        padding-left: 8.5%;
+    }
 }
 
 .page-sub-header {
@@ -362,8 +367,7 @@ a.category-badge > span.badge:hover {
 }
 
 .active-category {
-    background: white !important;
-    color: black !important;
+    font-size: 1.1rem !important;
 }
 
 .btt-button {

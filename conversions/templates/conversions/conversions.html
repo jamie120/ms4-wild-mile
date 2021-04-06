@@ -12,22 +12,22 @@
 {% block content %}
 <div class="overlay"></div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mt-3">
             <div class="col mt-5">
-                <h2 class="logo-font page-header text-white">Conversions</h2>
+                <h2 class="logo-font page-header text-white text-md-left text-center">Conversions</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col text-center">
+            <div class="col text-center offset-md-1 text-md-left">
                 <a class="category-badge text-decoration-none" href="{% url 'conversions' %}">
-                    <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light{% if not current_category_css_check %} active-category{% endif %}">All Conversions</span>
+                    <span class="p-2 mt-2 badge bg-white text-black rounded-2 border border-light{% if not current_category_css_check %} active-category{% endif %}">All Conversions</span>
                 </a>
                 {% for c in all_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'conversions' %}?category={{ c.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-white rounded-2 border border-light{% if current_category_css_check == c.name %} active-category{% endif %}">{{ c.friendly_name }}</span>
+                        <span class="p-2 mt-2 badge bg-white text-black rounded-2 border border-light{% if current_category_css_check == c.name %} active-category{% endif %}">{{ c.friendly_name }}</span>
                     </a>
                 {% endfor %}
-                <hr class="page-header-hr text-white mb-1">
+                
             </div>
         </div>
         <div class="row">
@@ -37,7 +37,7 @@
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector"
-                                class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                class="custom-select custom-select-sm rounded-2 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
