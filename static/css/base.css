@@ -220,6 +220,35 @@ hr {
     z-index: -1;
 }
 
+/* Entry Site overlay */
+
+#entry-overlay-content {
+    margin-top: 30vh;
+}
+
+#overlay-site-entry {
+    opacity : 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #363E46;
+    width: 100%;
+    z-index: 9000;
+    display: block;
+    -webkit-transition: opacity 1000ms linear;
+    transition: opacity 1000ms linear;
+}
+
+
+#entry-overlay-logo {
+    width: 15%;
+    margin-left: auto;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    padding: 20px;
+
+}
+
 /* Colours */
 
 .bg-dark {
