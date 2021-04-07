@@ -246,7 +246,15 @@ hr {
     border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     padding: 20px;
+    -webkit-transition: transform 700ms ease-in-out;
+    transition: transform 700ms ease-in-out;
+}
 
+
+#entry-overlay-logo:hover {
+    transform: scale(1.1);
+    -webkit-transition: transform 700ms ease-in-out;
+    transition: transform 700ms ease-in-out;
 }
 
 /* Colours */
