@@ -18,9 +18,9 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col"> 
+            <div class="col mt-3"> 
                 <hr>
-                <h2 class="logo-font mb-4 text-white">Shopping Bag</h2>
+                <h2 class="logo-font mb-4 mt-4 text-white">Shopping Bag</h2>
                 <hr>
             </div>
         </div>
@@ -29,10 +29,10 @@
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small text-white">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small text-white">Subtotal</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
@@ -47,12 +47,12 @@
                             </a>
                         </div>
                         <div class="col-7">
-                            <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-white">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
-                <div class="row text-black text-right">
+                <div class="row text-white text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Order Delivery:</p>
@@ -66,16 +66,16 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the form below to complete your order</p>
+                <p class="text-white">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout_free' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small text-muted px-2 w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        <legend class="fieldset-label small text-muted px-2 w-auto">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -104,7 +104,7 @@
                             </span>
                             <span class="font-weight-bold">Adjust Bag</span>
                         </a>
-                        <button id="submit-button" class="btn btn-black rounded-2">
+                        <button id="submit-button" class="btn btn-light-green text-white rounded-2">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
