@@ -36,7 +36,7 @@
                 </p>
                 <a href="{% url 'listing_levels' %}">
                     <p class="text-white text-center"><u>
-                    For the listing to become live on the site, you must pay a listing fee. These can be viewed here - <i class="fa fa-external-link-square"></i>
+                    For the listing to become live on the site, you must apply a listing token. These can be viewed here - <i class="fa fa-external-link-square"></i>
                     </u></p>
                 </a>
                 <p class="text-white text-center mt-4">
@@ -54,7 +54,7 @@
                 <form method="POST" action="{% url 'add_conversion' %}" class="form mb-2 p-3" enctype="multipart/form-data">
                     {% csrf_token %}
                     <!-- Main Conversion Form -->
-                    <h5 class="mb-4 mt-4">Basic Info</h5>
+                    <h4 class="mb-4 font-weight-bold mt-4">Basic Info</h4>
                     {{ form.listing_title | as_crispy_field }}
                     {{ form.user | as_crispy_field }}
                     <div class="form-row">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <hr class="text-black">
-                    <h5>Vehicle Info</h5>
+                    <h4 class="font-weight-bold">Vehicle Info</h4>
                     <br>
                     <div class="form-row">
                         <div class="form-group col-md-6 mb-0">
@@ -103,10 +103,17 @@
                             {{ form.vehicle_height | as_crispy_field }}
                         </div>
                     </div>
-                    {{ form.belted_seats | as_crispy_field }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.current_mileage | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.belted_seats | as_crispy_field }}
+                        </div>
+                    </div>
                     {{ form.vehicle_description | as_crispy_field }}
                     <hr class="text-black">
-                    <h5>Conversion Info</h5>
+                    <h4 class="font-weight-bold">Conversion Info</h4>
                     <br>
                     {{ form.berths | as_crispy_field }}
                     {{ form.beds_description | as_crispy_field }}
@@ -119,7 +126,8 @@
                     {{ form.conversion_description | as_crispy_field }}
                     {{ form.unique_ref | as_crispy_field }}
                     <hr class="text-black">
-                    <h5>Image Upload</h5>
+                    <h4 class="font-weight-bold">Image Upload</h4>
+                    <h6>You may add a main image here, plus 5 additional photographs. Dont worry if you have more, you can always add more later by editing the listing from your profile.</h6>
                     <br>
                     <!-- Image Upload Formset -->
                     {{ form.main_image| as_crispy_field }}

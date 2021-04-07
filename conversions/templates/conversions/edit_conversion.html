@@ -76,7 +76,14 @@
                             {{ form.vehicle_height | as_crispy_field }}
                         </div>
                     </div>
-                    {{ form.belted_seats | as_crispy_field }}
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.current_mileage | as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.belted_seats | as_crispy_field }}
+                        </div>
+                    </div>
                     {{ form.vehicle_description | as_crispy_field }}
                     <hr class="text-black">
                     <h5>Conversion Info</h5>

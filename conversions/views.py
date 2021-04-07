@@ -98,7 +98,7 @@ def conversion_detail(request, conversion_id):
 @login_required
 def add_conversion(request):
     """ Add a conversion request to the admin """
-    ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=3)
+    ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=5)
 
     if request.method == 'POST':
 

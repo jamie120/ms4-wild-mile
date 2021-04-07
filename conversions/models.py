@@ -29,8 +29,9 @@ class Electric(models.Model):
 class CamperConversion(models.Model):
     VEHICLE_TYPES = [
         ('P_VAN', 'Panel Van'),
-        ('C_VAN_REFIT', 'Campervan Refit'),
-        ('SPEC_VEH', 'Special Vehicle')
+        ('C_VAN_REFIT', 'Motor Caravan'),
+        ('SPEC_VEH', 'Special Vehicle'),
+        ('OTHER', 'Other - See description')
     ]
     TRANSMISSION_TYPES = [
         ('MT', 'Manual'),
@@ -60,6 +61,7 @@ class CamperConversion(models.Model):
     vehicle_length = models.IntegerField()
     vehicle_width = models.IntegerField()
     vehicle_height = models.IntegerField()
+    current_mileage = models.IntegerField()
     belted_seats = models.IntegerField()
     vehicle_description = models.TextField()
 
