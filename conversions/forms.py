@@ -4,6 +4,10 @@ from django.forms.widgets import CheckboxSelectMultiple, ClearableFileInput
 from django.utils.translation import ugettext_lazy
 
 
+class MyClearableFileInput(ClearableFileInput):
+    clear_checkbox_label = ugettext_lazy('Delete')
+
+
 class ConversionForm(forms.ModelForm):
 
     class Meta:
@@ -37,12 +41,9 @@ class ConversionForm(forms.ModelForm):
         self.fields['electrics'].widget = CheckboxSelectMultiple()
         self.fields['electrics'].queryset = Electric.objects.all()
         self.fields['electrics'].required = True
+        self.fields['main_image'].widget = MyClearableFileInput()
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-3'
-
-
-class MyClearableFileInput(ClearableFileInput):
-    clear_checkbox_label = ugettext_lazy('Delete')
 
 
 class ImageForm(forms.ModelForm):

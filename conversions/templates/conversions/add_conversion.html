@@ -125,16 +125,15 @@
                     {{ form.registered_vehicle_type | as_crispy_field }}
                     {{ form.conversion_description | as_crispy_field }}
                     {{ form.unique_ref | as_crispy_field }}
-                    <hr class="text-black">
-                    <h4 class="font-weight-bold">Image Upload</h4>
+                    <h4 class="mt-4">Image Upload</h4>
                     <h6>You may add a main image here, plus 5 additional photographs. Dont worry if you have more, you can always add more later by editing the listing from your profile.</h6>
-                    <br>
+                    <hr class="border-top-dark">
                     <!-- Image Upload Formset -->
                     {{ form.main_image| as_crispy_field }}
                     {{ formset | crispy }}
                     <div class="text-right mt-4 mb-3">
                         <a class="btn btn-lg btn-outline-black rounded-2" href="{% url 'conversions' %}">Cancel</a>
-                        <button class="btn btn-lg btn-black rounded-2" type="submit">Save</button>
+                        <button class="btn btn-lg btn-light-green rounded-2" type="submit">Save</button>
                     </div>
                 </form>
             </div>

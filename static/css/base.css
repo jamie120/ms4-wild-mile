@@ -126,7 +126,9 @@ hr {
     border: 1px solid white;
 }
 
-
+.border-top-dark {
+    border-top: 1px solid #607072;
+}
 
 /* from Bulma */
 .icon {
@@ -533,6 +535,22 @@ a.category-badge > span.badge:hover {
     }
 }
 
+/* ------ ADD/EDIT conversion page ------ */
+
+.multiField label,
+#div_id_main_image label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#id_main_image {
+    border: unset !important;
+    margin-top: 10px;
+}
+
+.myclearablefileinput {
+    margin-top: 10px;
+}
 
 /* ------- Coming Soon Page ------- */
 

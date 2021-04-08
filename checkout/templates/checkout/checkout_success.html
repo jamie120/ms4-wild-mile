@@ -25,9 +25,10 @@
                     <hr>
                     <p class="text-white">This is a past order confirmation. A confirmation email was sent to <strong>{{ order.email }} on the order date.</strong></p>
                 {% else %}
-                    <h2 class="logo-font mb-4 text-white">Thank You</h2>
+                    <h2 class="logo-font mb-4 mt-3 text-white">Thank You</h2>
                     <hr>
                     <p class="text-white">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
+                    <p class="text-white">Please note, if you have purchased a listing token, it can take upto 24 hours for your listing to become active -<br> you can check the status of the listing in your profile - alternatively click here ----> <a href="{% url 'my_listings' %}"><strong class="bg-white p-1 br-1 text-black">MY LISTINGS</strong></a></p>
                 {% endif %}
             </div>
         </div>
@@ -209,7 +210,7 @@
                     <span class="icon mr-2">
                         <i class="fas fa-gifts"></i>
                     </span>
-                    <span class="text-uppercase">Head back to our merchandise page.</span>
+                    <span class="text-uppercase">Checkout our merchandise page.</span>
                 </a>
                 {% endif %}
             </div>

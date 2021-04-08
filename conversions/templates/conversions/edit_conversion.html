@@ -97,15 +97,16 @@
                     {{ form.electrics | as_crispy_field }}
                     {{ form.registered_vehicle_type | as_crispy_field }}
                     {{ form.conversion_description | as_crispy_field }}
-                    <hr class="text-black">
-                    <h5>Image Upload</h5>
-                    <br>
+                    <h5 class="mt-4">Image Upload</h5>
+                    <h6>You may add an additional 3 images each time you edit a listing. We don't currently enforce a limit on this.</h6>
+                    <hr class="border-top-dark">
                     <!-- Image Upload Formset -->
                     {{ form.main_image| as_crispy_field }}
+                    
                     {{ formset | crispy }}
                     <div class="text-right mt-3 mb-3">
                         <a class="btn btn-lg btn-outline-black rounded-2" href="{% url 'profile' %}">Cancel</a>
-                        <button class="btn btn-lg btn-black rounded-2" type="submit">Save Changes</button>
+                        <button class="btn btn-lg btn-light-green rounded-2" type="submit">Save Changes</button>
                     </div>
                 </form>
             </div>
