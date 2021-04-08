@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-white mt-3 text-center text-md-left">
-                            {{ conversions|length }} Conversion{% if conversions|length is not 1 %}s{% endif %}
+                            {{ total_listings }} Conversion{% if total_listings is not 1 %}s{% endif %}
                             {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% elif current_category %} found in "{{ current_category }}"{% else %} available{% endif %}
                         </p>
                         <hr class="text-white">
@@ -132,6 +132,24 @@
                         <hr class="text-white mt-3">
                     {% endif %}
                 {% endfor %}
+
+                <div class="pagination larger-font text-white">
+                    <span class="step-links">
+                        {% if conversions.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ conversions.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ conversions.number }} of {{ conversions.paginator.num_pages }}.
+                        </span>
+
+                        {% if conversions.has_next %}
+                            <a href="?page={{ conversions.next_page_number }}">next</a>
+                            <a href="?page={{ conversions.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
             </div>
         </div>
     </div>

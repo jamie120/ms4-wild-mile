@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.db.models import Q
 from django.forms import modelformset_factory
+from django.core.paginator import Paginator
+from django.shortcuts import render
 
 from .models import CamperConversion, Category, PostImage
 from .forms import ConversionForm, ImageForm
@@ -19,6 +21,7 @@ def all_conversions(request):
     # Filter only listings that are active
     conversions = CamperConversion.objects.all().filter(is_active=True)
 
+    total_listings = len(conversions)
     query = None
     sort = None
     direction = None
@@ -38,6 +41,7 @@ def all_conversions(request):
 
             # Filter conversions with search term and is_active
             conversions = conversions.filter(queries)
+            total_listings = len(conversions)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -52,15 +56,20 @@ def all_conversions(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             conversions = conversions.order_by(sortkey)
+            total_listings = len(conversions)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             conversions = conversions.filter(category__name__in=categories)
+            total_listings = len(conversions)
             current_category = request.GET['category']
             current_category_css_check = current_category
             current_category = current_category.replace("_", " ").capitalize()
 
     current_sorting = f'{sort}_{direction}'
+    paginator = Paginator(conversions, 4)  # Show 4 conversions per page
+    page_number = request.GET.get('page')
+    conversions = paginator.get_page(page_number)
 
     context = {
         'conversions': conversions,
@@ -69,6 +78,7 @@ def all_conversions(request):
         'current_category_css_check': current_category_css_check,
         'all_categories': all_categories,
         'current_sorting': current_sorting,
+        'total_listings': total_listings
     }
 
     return render(request, 'conversions/conversions.html', context)
