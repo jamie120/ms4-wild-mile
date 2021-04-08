@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='camperconversion',
             name='unique_ref',
-            field=models.CharField(default=uuid.uuid4, max_length=10),
+            field=models.CharField(default=uuid.uuid4, max_length=100),
         ),
     ]

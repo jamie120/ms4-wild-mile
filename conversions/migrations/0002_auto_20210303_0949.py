@@ -58,13 +58,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='camperconversion',
             name='phone_number',
-            field=models.IntegerField(default=''),
+            field=models.IntegerField(default='0'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='camperconversion',
             name='vehicle_height',
-            field=models.IntegerField(default=''),
+            field=models.IntegerField(default='0'),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -76,13 +76,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='camperconversion',
             name='vehicle_width',
-            field=models.IntegerField(default=''),
+            field=models.IntegerField(default='0'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='camperconversion',
             name='year',
-            field=models.IntegerField(default=''),
+            field=models.IntegerField(default='0'),
             preserve_default=False,
         ),
         migrations.AlterField(
