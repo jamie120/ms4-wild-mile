@@ -1,4 +1,5 @@
 from django.db import models
+from smartfields import fields
 import uuid
 
 # Create your models here.
@@ -94,7 +95,8 @@ class CamperConversion(models.Model):
 class PostImage(models.Model):
     conversion = models.ForeignKey(
         CamperConversion, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = fields.ImageField(
+        null=True, blank=True)
 
     def __str__(self):
         return self.conversion.listing_title

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # Other
     'crispy_forms',
+    'smartfields',
 ]
 
 MIDDLEWARE = [

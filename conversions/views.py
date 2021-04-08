@@ -159,25 +159,29 @@ def edit_conversion(request, conversion_id):
                 post_form.save()
                 form.save_m2m()
             else:
-                print(post_form.electrics)
                 post_form.save()
                 form.save_m2m()
 
             # Check if new photos are to replace exisiting photos, delete and update as required.
+
+            #Track deleted images
+            deleted = 0
+
             for index, f in enumerate(formset):
                 if f.cleaned_data:
+                    print(1)
                     if f.cleaned_data['id'] is None:
                         pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image')) 
                         pic.save()
-                    elif request.POST.get('form-'+str(index)+'-DELETE') is not None:
-                        pic = PostImage.objects.get(id=request.POST.get('form-'+str(index)+'-id'))
+                    elif f.cleaned_data.get('image') == False:
+                        pic = PostImage.objects.get(id=data[index].id)
                         pic.delete()
+                        deleted += 1
                     else:
                         pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image'))
-
+                        index = index - deleted  # Remove deleted items amount from index, to ensure images can be accessed/saved/updated in the correct list index
                         d = PostImage.objects.get(id=data[index].id)  # get slide id which was uploaded
                         d.image = pic.image  # changing the database title with new title
-
                         d.save()
             messages.success(request, f'Succesfully updated listing : {conversion.listing_title}')
             return redirect(reverse('conversion_detail', args=[conversion.id]))
@@ -208,7 +212,7 @@ def delete_conversion(request, conversion_id):
     """ Delete a conversion listing """
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
 
-     # Check if the listing author is the current user or superuser
+    # Check if the listing author is the current user or superuser
     if request.user == conversion.user.user or request.user.is_superuser:
         conversion.delete()
         messages.success(request, 'Listing successfully deleted')

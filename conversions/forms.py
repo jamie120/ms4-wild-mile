@@ -1,6 +1,7 @@
 from django import forms
 from .models import CamperConversion, Category, Electric, PostImage
-from django.forms.widgets import CheckboxSelectMultiple
+from django.forms.widgets import CheckboxSelectMultiple, ClearableFileInput
+from django.utils.translation import ugettext_lazy
 
 
 class ConversionForm(forms.ModelForm):
@@ -40,9 +41,19 @@ class ConversionForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-3'
 
 
+class MyClearableFileInput(ClearableFileInput):
+    clear_checkbox_label = ugettext_lazy('Delete')
+
+
 class ImageForm(forms.ModelForm):
-    image = forms.ImageField(label='Image')
+    image = forms.ImageField(label='Image',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Making location required
+        self.fields['image'].required = False
+        self.fields['image'].widget = MyClearableFileInput()
 
     class Meta:
         model = PostImage
-        fields = ('image', )
+        fields = ('image',)
