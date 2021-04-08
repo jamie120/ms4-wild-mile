@@ -1,1 +1,1 @@
-web: gunicorn wild-mile-ms4.wsgi:application
+web: gunicorn wild_mile_ms4.wsgi:application
