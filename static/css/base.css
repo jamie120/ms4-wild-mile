@@ -231,7 +231,7 @@ hr {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #363E46;
+    background-color: rgb(47, 52, 56);
     width: 100%;
     z-index: 9000;
     display: none;
@@ -239,13 +239,12 @@ hr {
     transition: opacity 1000ms linear;
 }
 
-
 #entry-overlay-logo {
     width: 15%;
     margin-left: auto;
     border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    padding: 20px;
+    padding: 2px;
     -webkit-transition: transform 700ms ease-in-out;
     transition: transform 700ms ease-in-out;
 }
@@ -407,12 +406,85 @@ li.nav-item{
     color: white !important;
 }
 
+#home-title-caption {
+    font-size: 2rem;
+    color: white !important;
+}
+
+#home-title-button {
+    padding: 15px;
+    }
+
 #title-column {
     margin-top: 23vh;
 }
 
 .scratched-font {
     font-family: pwscratchedfont;
+}
+
+@media(max-width:1370px){
+
+    #title-column {
+    margin-top: 15vh;
+    }
+}
+
+@media(max-width:991px){
+    #home-title {
+        font-size: 4rem;
+    }
+
+    #home-title-caption {
+    font-size: 1.8rem;
+    }
+
+    #home-title-button {
+    font-size: 1rem;
+    padding: 10px;
+    }
+
+    #title-column {
+    margin-top: 20vh;
+    }
+}
+
+@media(max-width:768px){
+    #home-title {
+        font-size: 3rem;
+    }
+
+    #home-title-caption {
+    font-size: 1.3rem;
+    }
+
+    #home-title-button {
+    font-size: 0.8rem;
+    padding: 8px;
+    }
+
+    #title-column {
+    margin-top: 18vh;
+    }
+}
+
+@media(max-width:400px){
+    #home-title {
+        font-size: 2rem;
+    }
+
+    #home-title-caption {
+    font-size: 0.7rem;
+    }
+
+    #home-title-button {
+    font-size: 1rem;
+    padding: 8px;
+    }
+
+    #title-column {
+    margin-top: 15vh;
+    }
 }
 
 /* ------ All products page ------ */
@@ -614,24 +686,11 @@ a.category-badge > span.badge:hover {
     background-color: unset !important;
 }
 
-/* .conversion-detail-border {
-    border-left: 1px solid gainsboro;
-    border-right: 1px solid gainsboro;
-} */
-
-
 .card-footer {
     flex: 1 1 auto;
     border: 1px solid white;
     background-color: #555;
 }
-
-
-/* .card-footer.text-center.text-lg-left {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top: unset;
-} */
 
 .card-header.text-white {
     border-radius: 10px;
@@ -646,6 +705,38 @@ a.category-badge > span.badge:hover {
     border-right: 1px solid #627072;
 }
 
+/* Owl Carousel custome style */
+
+.owl-nav {
+    color: white !important;
+    font-size: 3rem;
+    text-align: center;
+    background-color: #607072;
+    width: 12%;
+    height: 10%;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 2px;
+    margin-top: 20px;
+}
+
+@media (max-width:768px){
+    .owl-nav {
+        font-size: 2.5rem;
+        width: 25%;
+        height: 8%;
+        }
+}
+
+button.owl-prev {
+    margin-right: 2rem;
+}
+
+button.owl-prev:focus,
+button.owl-next:focus {
+    outline: none;
+}
 
 /* Conversion Detail Square Gallery 
 https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/ */

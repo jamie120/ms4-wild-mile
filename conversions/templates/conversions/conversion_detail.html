@@ -28,17 +28,13 @@
                 <hr>
 
                 <!-- Title and Price -->
-                <div class="container">
-                    <div class="col-11">
-                        <div class="row">
-                            <div class="br-1 text-center w-100 offset-1 text-white p-3 mb-1 mt-3">
-                                <h2 class="mb-0 largest-font title">{{ conversion.listing_title }}</h2>
-                                <h4 class="lead mb-3 mt-2 text-center largest-font">£{{ conversion.price }}</h4>
-                            </div>
-                        </div>
+                <div class="row mb-2">
+                    <div class="br-1 bg-dark text-center col-12 col-xl-8 offset-xl-2 w-100 text-white p-3 mb-2 col-border mt-3">
+                        <h2 class="mb-0 mt-2 largest-font title">{{ conversion.listing_title }}</h2>
+                        <h4 class="lead mb-2 mt-2 text-center largest-font">£{{ conversion.price }}</h4>
                     </div>
                 </div>
-           
+    
                 <!-- Main Conversion information -->
                 <div class="row">
                     <div class="col-12 col-xl-4 offset-xl-2 d-flex justify-content-center col-border-col-1">
@@ -104,9 +100,10 @@
                             <div class="col-6 p-5 border-right-thin">
                                 <h3 class="text-white">Details</h3>
                                 <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
-                                <p class="mt-5 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
-                                <p class="mt-5 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
-                                <p class="mt-5 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
+                                <p class="mt-4 text-white">Mileage - {{ conversion.current_mileage }} miles</p>
+                                <p class="mt-4 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
+                                <p class="mt-4 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
+                                <p class="mt-4 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
                             </div>
                             <div class="col-6">
                                 <h3 class="text-white ml-3 mt-5">Electrics</h3>
@@ -145,47 +142,53 @@
                 </div>
                 
                 <!-- Image Gallery Grid MD and above only -->
-                <div class="row mb-3">
-                    <div class="col-12 col-xl-8 offset-xl-2">
-                        <h1 class="text-white mb-4 ml-4">Image Gallery</h1>
-                    </div>
+            <div class="row mb-3">
+                <div class="col-12 col-xl-8 offset-xl-2">
+                    <h1 class="text-white mb-4 ml-4">Image Gallery</h1>
                 </div>
-                
-                <div class="row mt-2">
-                    <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
-                        <section>
-                            {% if image_list %}
-                            <div class="gallery">
-                                {% for image in image_list|slice:"0:6" %}
-                                        <figure class="gallery__item gallery__item--{{ forloop.counter }}">
-                                            <a href="{{ image.image.url }}" target="_blank">
-                                                <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
-                                            </a>
-                                        </figure>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </section>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 d-md-none">
-                        <div class="image-container my-5">
-                            {% if image_list %}
-                                {% for image in image_list|slice:"0:6" %}
-                                <a href="{{ image.image.url }}" target="_blank">
-                                    <img class="card-img-top img-fluid mb-4" src="{{ image.image.url }}" alt="imagelist present">
-                                </a>
-                                {% endfor %}
-                            {% else %}
-                                <a href="#">
-                                    <img class="card-img-top img-fluid mb-4" src="{{ MEDIA_URL }}noimage.png" alt="no image">
-                                </a>
-                            {% endif %}
+            </div>
+            
+            <div class="row mt-2">
+                <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
+                    <section>
+                        {% if image_list %}
+                        <!--- Grid for images 0:6 --->
+                        <div class="gallery">
+                            {% for image in image_list|slice:"0:6" %}
+                                    <figure class="gallery__item gallery__item--{{ forloop.counter }}">
+                                        <a href="{{ image.image.url }}" target="_blank">
+                                            <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
+                                        </a>
+                                    </figure>
+                            {% endfor %}
                         </div>
+                        <!--- Addtional images in carousel --->
+                                                    
+                            <div class="owl-carousel">
+                                {% for image in image_list|slice:"6:" %}
+                                    <a href="{{ image.image.url }}" target="_blank">
+                                        <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                                    </a>
+                                 {% endfor %}
+                            </div>
+                           
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
+
+            <!-- Image Gallery no grid - ALL IMAGES - MD and BELOW only -->
+            <div class="row">
+                <div class="col-12 d-md-none">
+                    <div class="owl-carousel">
+                        {% for image in image_list|slice:"0:" %}
+                            <a href="{{ image.image.url }}" target="_blank">
+                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                            </a>
+                        {% endfor %}
                     </div>
                 </div>
+            </div>
 
             {% else %}
                 <!-- If listing is not live - Message to users that are not superusers or listing author -->
@@ -199,17 +202,14 @@
         {% else %}
             <!-- If listing is live - Display listing -->
             <!-- Title and Price -->
-            <div class="container">
-                <div class="col-11">
-                    <div class="row">
-                        <div class="br-1 text-center w-100 offset-1 text-white p-3 mb-1 mt-3">
-                            <h2 class="mb-0 largest-font title">{{ conversion.listing_title }}</h2>
-                            <h4 class="lead mb-3 mt-2 text-center largest-font">£{{ conversion.price }}</h4>
-                        </div>
-                    </div>
+            
+            <div class="row mb-2">
+                <div class="br-1 bg-dark text-center col-12 col-xl-8 offset-xl-2 w-100 text-white p-3 mb-2 col-border mt-3">
+                    <h2 class="mb-0 mt-2 largest-font title">{{ conversion.listing_title }}</h2>
+                    <h4 class="lead mb-2 mt-2 text-center largest-font">£{{ conversion.price }}</h4>
                 </div>
             </div>
-           
+    
             <!-- Main Conversion information -->
             <div class="row">
                 <div class="col-12 col-xl-4 offset-xl-2 d-flex justify-content-center col-border-col-1">
@@ -275,6 +275,7 @@
                         <div class="col-6 p-5 border-right-thin">
                             <h3 class="text-white">Details</h3>
                             <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
+                            <p class="mt-4 text-white">Mileage - {{ conversion.current_mileage }} miles</p>
                             <p class="mt-4 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
                             <p class="mt-4 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
                             <p class="mt-4 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
@@ -326,6 +327,7 @@
                 <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
                     <section>
                         {% if image_list %}
+                        <!--- Grid for images 0:6 --->
                         <div class="gallery">
                             {% for image in image_list|slice:"0:6" %}
                                     <figure class="gallery__item gallery__item--{{ forloop.counter }}">
@@ -335,34 +337,60 @@
                                     </figure>
                             {% endfor %}
                         </div>
+                        <!--- Addtional images in carousel --->
+                                                    
+                            <div class="owl-carousel">
+                                {% for image in image_list|slice:"6:" %}
+                                    <a href="{{ image.image.url }}" target="_blank">
+                                        <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                                    </a>
+                                 {% endfor %}
+                            </div>
+                           
                         {% endif %}
                     </section>
                 </div>
             </div>
 
+            <!-- Image Gallery no grid - ALL IMAGES - MD and BELOW only -->
             <div class="row">
                 <div class="col-12 d-md-none">
-                    <div class="image-container my-5">
-                        {% if image_list %}
-                            {% for image in image_list|slice:"0:6" %}
+                    <div class="owl-carousel">
+                        {% for image in image_list|slice:"0:" %}
                             <a href="{{ image.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid mb-4" src="{{ image.image.url }}" alt="imagelist present">
+                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
                             </a>
-                            {% endfor %}
-                        {% else %}
-                            <a href="#">
-                                <img class="card-img-top img-fluid mb-4" src="{{ MEDIA_URL }}noimage.png" alt="no image">
-                            </a>
-                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
+
         {% endif %}
 
     </div>
 {% endblock %}
 
 {% block postloadjs %}
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+        })
+    });
+</script>
 {{ block.super }}
 {% include 'conversions/includes/contact_seller_button_script.html' %}
 {% endblock %}
