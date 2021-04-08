@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-12 col-xl-4 col-border-col-2">
                         <div class="row">
-                            <div class="col-6 p-5 border-right-thin">
+                            <div id="conversion-detail-container" class="col-12 col-sm-6 p-5 border-right-thin">
                                 <h3 class="text-white">Details</h3>
                                 <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
                                 <p class="mt-4 text-white">Mileage - {{ conversion.current_mileage }} miles</p>
@@ -105,7 +105,7 @@
                                 <p class="mt-4 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
                                 <p class="mt-4 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
                             </div>
-                            <div class="col-6">
+                            <div id="electrics-detail-container" class="col-12 col-sm-6">
                                 <h3 class="text-white ml-3 mt-5">Electrics</h3>
                                 <div class="p-3 product-details-container mb-5 mt-4">
                                     {% for item in electrics %}
@@ -272,7 +272,7 @@
                 </div>
                 <div class="col-12 col-xl-4 col-border-col-2">
                     <div class="row">
-                        <div class="col-6 p-5 border-right-thin">
+                        <div id="conversion-detail-container" class="col-12 col-sm-6 p-5 border-right-thin">
                             <h3 class="text-white">Details</h3>
                             <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
                             <p class="mt-4 text-white">Mileage - {{ conversion.current_mileage }} miles</p>
@@ -280,7 +280,7 @@
                             <p class="mt-4 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
                             <p class="mt-4 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
                         </div>
-                        <div class="col-6">
+                        <div id="electrics-detail-container" class="col-12 col-sm-6">
                             <h3 class="text-white ml-3 mt-5">Electrics</h3>
                             <div class="p-3 product-details-container mb-5 mt-4">
                                 {% for item in electrics %}
@@ -294,11 +294,11 @@
                         <div class="col p-5 border-top-thin">
                             <div class="mr-3">
                                 <h3 class="text-white">Dimensions / Weight</h3>
-                                <p class="mt-5 text-white large-font">Vehicle (L,W,H) - {{ conversion.vehicle_length }}m, {{ conversion.vehicle_width }}m, {{ conversion.vehicle_height }}m</p>
+                                <p class="mt-5 text-white">Vehicle (L,W,H) - {{ conversion.vehicle_length }}m, {{ conversion.vehicle_width }}m, {{ conversion.vehicle_height }}m</p>
                                 {% if conversion.unladen_weight_verified %}
-                                <p class="text-white large-font">Unladed Weight - {{ conversion.unladen_weight }}</p>
+                                <p class="text-white">Unladed Weight - {{ conversion.unladen_weight }}</p>
                             {% endif %}
-                            <p class="text-white large-font">Max Weight - {{ conversion.max_weight }}</p>
+                            <p class="text-white">Max Weight - {{ conversion.max_weight }}</p>
                             </div>
                             
                         </div>

@@ -666,7 +666,17 @@ a.category-badge > span.badge:hover {
         border: 7px solid #627072;
         border-radius: 20px;
     }
+}
 
+@media (max-width: 575px) {
+    #conversion-detail-container {
+    border-right: unset;
+    border-bottom: 1px solid #627072;
+    }
+
+    #electrics-detail-container {
+        padding: 1.8rem !important;
+    }
 }
 
 #conversion-main-image {
