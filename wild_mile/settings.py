@@ -135,6 +135,8 @@ else:
     }
 
 
+db_url = os.environ['DATABASE_URL']
+print(f'the Databse URL is {db_url}')
 
 
 # Password validation

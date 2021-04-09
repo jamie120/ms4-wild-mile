@@ -49,7 +49,7 @@ class CamperConversion(models.Model):
     listing_title = models.CharField(max_length=254, default='')
     location = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    phone_number = models.IntegerField()
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=254)
 
     # Vehicle Info
