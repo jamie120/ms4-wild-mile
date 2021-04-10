@@ -401,6 +401,14 @@ a {
     }
 }
 
+/* Remove Hover effect on collapsed navbar */
+
+@media(max-width:991px){
+    .nav-link-fade-up:hover::before {
+        opacity: 0;
+    }
+}
+
 /* Footer */
 
 .footer-icon {
