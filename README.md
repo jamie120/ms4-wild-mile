@@ -122,16 +122,33 @@ Optional: Include use of additional libraries and external APIs.
 ## UX
 
 #### Business Objectives
-
-- 
+- The aim of Wild Mile Conversions is to create a web-based platform that enables the buying and selling of all sorts of unique, interesting and alternative conversions such as (but not limited to!) campervans, mobile bars and catering. 
+- The site will generate revenue from people that wish to list/advertise their converted vehicle on the platform. Revenue will also be generated from selling Wild Mile merchandise.
+- The site will only allow self- converted and vintage vehicles, or unique base vehicles ready for conversion - to be listed. This will be managed by an approval process before listings become live on the site.
+- The site will provide sellers, with a unique opportunity to advertise to a large group of a specific target audience.
+- The site will be easy to navigate, all features will be clear to a user.
+- Social media channels will be present on the footer, to attract site visitors to join the growing community of 'Wild Mile' enthusiasts.
 
 #### User Objectives
 
-- 
+- Users may be using the site to find bespoke conversions, as potential buyers.
+- Users may like to list/advertise a conversion for sale on the site, this should be easily acheived with a clear, straightforward method.
+- Users may like to purchase 'Wild Mile' merchandise using the site. The store should make this easy, with clear pricing and checkout functionality.
 
 #### Project Goals
 
-- 
+- Create a clear, well-designed website for the user to navigate with ease.
+- Use a consistent, clear theme throughout the site.
+- Consider appropriate pages/layout and content to fulfil business/user objectives/user stories.
+- Integrate a relational database into the web app using SQlite + Django, transfer this to Postgres during deployment. The database will store conversion listings, merchandise products, user profiles.
+- Consider user authentication, to allow/enable the following actions & features: -
+    * Creation of a user profile
+    * Save listings to profile
+    * Add a conversion listing
+    *
+
+- Fulfil all mandatory project requirements as a minimum. (these are listed below)
+ 
 
 #### User Stories
 
