@@ -242,7 +242,7 @@ hr {
 }
 
 #entry-overlay-logo {
-    width: 15%;
+    width: 20%;
     margin-left: auto;
     border: 3px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
@@ -256,6 +256,22 @@ hr {
     transform: scale(1.1);
     -webkit-transition: transform 700ms ease-in-out;
     transition: transform 700ms ease-in-out;
+}
+
+@media(max-width:1200px){
+    #entry-overlay-logo {
+    width: 35%;
+    }
+
+    #entry-overlay-content {
+    margin-top: 20vh;
+    }
+}
+
+@media(max-width:768px){
+    #entry-overlay-content h3 {
+        font-size: 1.2rem;
+    }
 }
 
 /* Colours */
@@ -445,6 +461,10 @@ a {
     font-family: pwscratchedfont;
 }
 
+br.responsive {
+    display: inline;
+}
+
 @media(max-width:1370px){
 
     #title-column {
@@ -487,6 +507,13 @@ a {
 
     #title-column {
     margin-top: 18vh;
+    }
+
+}
+
+@media(min-width:768px){
+    br.responsive {
+        display: none;
     }
 }
 
