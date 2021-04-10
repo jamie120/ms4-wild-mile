@@ -37,7 +37,7 @@ def profile(request):
 
     return render(request, template, context)
 
-
+@login_required
 def saved_listings(request):
     """ Display the users saved listings """
     username = request.user.username
@@ -50,7 +50,7 @@ def saved_listings(request):
 
     return render(request, template, context)
 
-
+@login_required
 def remove_saved_listing(request, conversion_id):
     """ Delete a saved listing from the users saved listings """
     username = request.user.username
@@ -68,7 +68,7 @@ def remove_saved_listing(request, conversion_id):
     }
     return render(request, template, context)
 
-
+@login_required
 def my_listings(request):
     """ Display the users conversion listings """
     username = request.user.username
@@ -81,7 +81,7 @@ def my_listings(request):
 
     return render(request, template, context)
 
-
+@login_required
 def view_order_history(request):
     """ Display the users order_history """
 
@@ -96,7 +96,7 @@ def view_order_history(request):
 
     return render(request, template, context)
 
-
+@login_required
 def order_history(request, order_number):
     """ Display a particular order detail by
     rendering it on the checkout success page """
@@ -111,7 +111,7 @@ def order_history(request, order_number):
 
     return render(request, template, context)
 
-
+@login_required
 def message_portal(request):
     """ Displays a coming soon message, as this is a future feature """
 
