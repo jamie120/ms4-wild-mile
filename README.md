@@ -140,19 +140,26 @@ Optional: Include use of additional libraries and external APIs.
 - Create a clear, well-designed website for the user to navigate with ease.
 - Use a consistent, clear theme throughout the site.
 - Consider appropriate pages/layout and content to fulfil business/user objectives/user stories.
-- Integrate a relational database into the web app using SQlite + Django, transfer this to Postgres during deployment. The database will store conversion listings, merchandise products, user profiles.
+- Design models and integrate a relational database into the web app using SQlite + Django, transfer this to Postgres during deployment. The database will store conversion listings, merchandise products, user profiles.
 - Consider user authentication, to allow/enable the following actions & features: -
     * Creation of a user profile
-    * Save listings to profile
-    * Add a conversion listing
-    *
+    * Save Default delivery information
+    * View order history
+    * Add/Edit a conversion listing
+    * Save/Favorite listings to profile
+    * Admin features
+        * Edit, delete, approve conversion listings
+        * Edit, delete and add merchandise products
 
-- Fulfil all mandatory project requirements as a minimum. (these are listed below)
+- Fulfil all mandatory project minimum requirements. (these are listed [HERE](#mandatory-requirements))
+
  
 
 #### User Stories
 
-1. 
+A detailed list of user stories has been complied to help steer the design process.
+ * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
+
 
 # Structure
 
@@ -160,88 +167,151 @@ Optional: Include use of additional libraries and external APIs.
 
 #### Page Structure
 
-* 
+* The site is designed to feel familar throughout it's pages in style and functionality. It contains straight-forward navigation elements, further filtering/manipulation of site content can be completed within individual pages by utilising features such as search, filter and multiple pages. This design allows users to quickly and easily engage with and locate relevant content from within the site.
 
-#### Home Landing page
+* The site theme and code was developed from the ground up, with elements of the site layout inspired from 'boutique-ado' mini project that was put together during the teaching/learning of the 'Code Institute - Software Developer' course.
             
-* 
+* To maintain familarity between pages and improve site usability, the filter and sort elements implemented accross the site are displayed and work in the same way throughout the site.
+
+* Research into optimal page layouts was conducted accross various sites/businesses which advertise/list products. The research helped to develop page layouts which present information clearly to the user accross multiple devices sizes with success.
+
+* To support [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing) and taking input from research, the following pages were chosen to be created:
+
+    ##### Home - Landing Page
+
+    ##### Conversions Page ----- Conversion Detail Page
+
+    ##### Add Conversion Page
+
+    ##### Edit Conversion Page
+
+    ##### Conversion Listing Prices Page
+
+    ##### Merchandise Page ----- Product Detail Page
+
+    ##### Shopping Bag Page ----- Checkout Page ----- Checkout Success Page
+
+    ##### About Page
+
+    ##### FAQ Page
+
+    ##### Profile Page ----- Order History Page ----- My Listings Page ----- Saved Listings ----- Message Portal
+
+    ##### Conversion Management Page ----- Approve Conversions Page
+
+    ##### Add Product Page
+
+    ##### Edit Product Page
+
+    ##### Authentication Pages (allauth templates - styled)
+    
+* The navbar, present on all pages will contain the following navigation links :
+    * Home
+    * Buy a conversion (dropdown) ----- All conversions ----- Campervans ----- Mobile Bars and Catering Vans
+    * Sell a conversion (dropdown) ----- View Pricing ----- Add a conversion
+    * Merchandise (dropdown) ----- All Products ----- Clothing ----- Stickers ------ Mugs
+    * About Us
+    * Faq
+
+* Accompanying the navbar, a 'My Account' and 'Shopping Bag' button will be present on all pages:
+    * My Account (dropdown) ----- Register ----- Login / My Profile ----- Logout
+
+    * My Account for admin/superuser with contain addition navlinks when logged in:
+        * Product Management
+        * Conversion Listing Management
+    
+    * Shopping Bag is a direct link to the shopping bag template
+
+* A search bar will be present on all pages - this takes a user query and returns the conversions template displaying only relevant matches. The specified search query is used as a filter against the title and description of all live listings.
+
+* The site footer will contain social media icons, which link the user to the relevant social platform in a new browser/tab.
+
+#### Home Landing Page
+
+* The home page will contain a button to view all conversions with the company name and business summary.
+
 #### Conversions Page
 
-* 
+* The all conversions page (conversions.html) will dynamically show conversions from the database, based on search terms or filters which have been applied.
+
 #### Conversion Detail Page
 
-* 
+* The conversion detail page will display the content/data for one listing, including contact information for the seller.
 #### Add Conversion Page
 
-* 
+* The add conversion page will render a form, which can be filled in to submit a listing to the site including photo file upload. The page will also contain directions for the user to support the user experience.
+
+#### Edit Conversion Page
+
+* The edit conversion page will render the same form as 'add conversion', but it will be populated with an instance of a specified listing. The user will be able to update the content, clear or update photo file content.
 
 #### Add Conversion Pricing Page
 
-* 
+* The conversion pricing page will outline the different listing tokens which can be purchased. The elements displaying this information will link to their respective product page, so that a user may add it to their shopping bag and checkout to purchase a listing token.
 
 #### Merchandise Page
 
-* 
+* The merchandise page (products.html) will dynamically show products from the database, based on category filters which have been applied.
 
 #### Product Detail Page
 
-* 
+* The product detail page will display the content/data for one product, including the functionality to add the product to the shopping bag so that a user may checkout and purchase the item.
 
 #### Shopping Bag Page
 
-* 
+* The shopping bag will render all products in the session bag. It will contain links to checkout - to allow the user to complete purchase of bag items.
 
 #### Checkout Page
 
-* 
+* The checkout page will allow users to review and complete the order, add delivery and payment details.
 
 #### Checkout Success Page
 
-* 
+* The checkout success page will render the completed order information and provide user feedback.
 
 #### About Us Page
 
-* 
+* The about us page will display information about the business and its owners.
 
 #### FAQ Page
 
-*
+* The FAQ page will render some questions and answers which are most common to site users.
 
 #### Profile Page
 
-* 
+* The profile page will contain a host of links to other registered site features, as well as the users default delivery information which can be updated.
 
 #### Order History Page
 
-* 
+* This page will display all previous orders associated with the logged in user profile.
 
 #### My Listings Page
 
-* 
+* The My listings page will display any listings that the user has added to the platform, allowing users to edit or delete listings as required.
 
 #### Saved Listings Page
 
-* 
+* The saved listings page will render any listings the user has chosed to save/favorite whilst browsing the site.
 
 #### Message Portal Page
 
-* 
+* The message portal is a future feature that will allow users to communicate between themselves using the 'Wild Mile' platform.
 
 #### Conversion Management Page
 
-* 
+* This page will render a summary of all active listings and allow the ability to view, edit, delete, unlist as required.
 
 #### Approve Conversion Page
 
-* 
+* This page will render a summary of all inactive listings and allow the ability to view, edit, delete, make active as required.
 
 #### Add Product Page
 
-* 
+* The add product page will render a form, the form allows products to be added to the merchandise section of the site.
 
 #### Authentication Pages
 
-* 
+* Various authentication pages, login, logout, register ... and other associated will be provided from the allauth library.
 
 
 # Surface
@@ -250,13 +320,12 @@ Optional: Include use of additional libraries and external APIs.
 
 Colour Palette - Three main colours that compliment the design of the site are:
 
- - ![#2c4650](https://via.placeholder.com/15/2c4650/000000?text=+) - `#2c4650` - Section background
- - ![#343a40](https://via.placeholder.com/15/343a40/000000?text=+) - `#343a40` - Dark section background
- - ![#1D809F](https://via.placeholder.com/15/1D809F/000000?text=+) - `#1D809F` - Page buttons, navbar
- - ![#f8f9fa](https://via.placeholder.com/15/f8f9fa/000000?text=+) - `#f8f9fa` - Page buttons
- - ![#ecb807](https://via.placeholder.com/15/ecb807/000000?text=+) - `#ecb807` - Page fonts
+ - ![#363E46](https://via.placeholder.com/15/363E46/000000?text=+) - `#363E46` - Main Site Body
+ - ![#263d41](https://via.placeholder.com/15/263d41/000000?text=+) - `#263d41` - Information Banner
+ - ![#627072](https://via.placeholder.com/15/627072/000000?text=+) - `#627072` - Page buttons, card background
 
-* Other various shades of grey are used to highlight, surround and drop shadows on elements throughout the site.
+* Other various shades of grey are used with white to highlight, surround and drop shadows on elements throughout the site.
+* The main colour was chosen to represent the road and take some relvance to the company name.
 
 ## Font Choice
 
