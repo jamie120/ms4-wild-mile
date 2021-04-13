@@ -206,12 +206,12 @@ A detailed list of user stories has been complied to help steer the design proce
     ##### Authentication Pages (allauth templates - styled)
     
 * The navbar, present on all pages will contain the following navigation links :
-    * Home
-    * Buy a conversion (dropdown) ----- All conversions ----- Campervans ----- Mobile Bars and Catering Vans
-    * Sell a conversion (dropdown) ----- View Pricing ----- Add a conversion
-    * Merchandise (dropdown) ----- All Products ----- Clothing ----- Stickers ------ Mugs
-    * About Us
-    * Faq
+    ##### Home
+    ##### Buy a conversion (dropdown) ----- All conversions ----- Campervans ----- Mobile Bars and Catering Vans
+    ##### Sell a conversion (dropdown) ----- View Pricing ----- Add a conversion
+    ##### Merchandise (dropdown) ----- All Products ----- Clothing ----- Stickers ------ Mugs
+    ##### About Us
+    ##### Faq
 
 * Accompanying the navbar, a 'My Account' and 'Shopping Bag' button will be present on all pages:
     * My Account (dropdown) ----- Register ----- Login / My Profile ----- Logout
