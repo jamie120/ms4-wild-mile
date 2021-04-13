@@ -327,11 +327,15 @@ Colour Palette - Three main colours that compliment the design of the site are:
 * Other various shades of grey are used with white to highlight, surround and drop shadows on elements throughout the site.
 * The main colour was chosen to represent the road and take some relvance to the company name.
 
+
 ## Font Choice
 
 The following fonts were applied to the site. 
 
-- 
+- pwscratchedfont - Used for conversion listing titles and home page brand title.
+    - The hand drawn style of the font works well to bring the concept of creativity forward.
+- Raleway - Used throughout the site as main parent font.
+    - The clean, modern look compliments the dark backgrounds and theme of the site.
 
 # Skeleton
 
@@ -339,18 +343,14 @@ The following fonts were applied to the site.
 
 Wireframes were designed using Figma, for three primary breakpoints - Desktop, Tablet and Mobile.
 
-- Desktop Wireframes.
+- [Figma Wireframes](https://www.figma.com/file/UHdbvOVwqO7qNSWGQC7sWG/MS4-WILD-MILE?node-id=0%3A1)
 
-![Desktop - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Desktop.png "Desktop - Wireframe screenshot")
-
-- Tablet Wireframes.
-
-![Tablet - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Tablet.png "Tablet - Wireframe screenshot")
-
-- Mobile Wireframes.
-
-![Mobile - ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/Mobile.png "Mobile - Wireframe screenshot")
-
+![Home & Profile](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/home_&_profile.png "Home & Profile screenshot")
+![About & FAQ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/about_&_faq.png "About & FAQ screenshot")
+![Conversions & Conversion Detail](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/conversions_&_conversion_detail.png "Conversions & Conversion Detail screenshot")
+![Merchandise & Product Detail](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/merch_&_product_detail.png "Merchandise & Product Detail screenshot")
+![Add Conversion & Listing Pricing](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/add_conversion_&_listing_pricing.png "Add Conversion & Listing Pricing screenshot")
+![My Listings & Saved Listings](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/saved_listings_&_my_listings.png "My Listings & Saved Listings screenshot")
 
 ## Wireframe and Final Project Differences
 
