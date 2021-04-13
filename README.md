@@ -345,12 +345,12 @@ Wireframes were designed using Figma, for three primary breakpoints - Desktop, T
 
 - [Figma Wireframes](https://www.figma.com/file/UHdbvOVwqO7qNSWGQC7sWG/MS4-WILD-MILE?node-id=0%3A1)
 
-![Home & Profile](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/home_&_profile.png "Home & Profile screenshot")
-![About & FAQ](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/about_&_faq.png "About & FAQ screenshot")
-![Conversions & Conversion Detail](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/conversions_&_conversion_detail.png "Conversions & Conversion Detail screenshot")
-![Merchandise & Product Detail](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/merch_&_product_detail.png "Merchandise & Product Detail screenshot")
-![Add Conversion & Listing Pricing](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/add_conversion_&_listing_pricing.png "Add Conversion & Listing Pricing screenshot")
-![My Listings & Saved Listings](https://github.com/jamie120/ms3-eat-vegan-recipes/blob/master/documentation/wireframes/saved_listings_&_my_listings.png "My Listings & Saved Listings screenshot")
+![Home & Profile](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/home_&_profile.png "Home & Profile screenshot")
+![About & FAQ](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/about_&_faq.png "About & FAQ screenshot")
+![Conversions & Conversion Detail](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/conversions_&_conversion_detail.png "Conversions & Conversion Detail screenshot")
+![Merchandise & Product Detail](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/merch_&_product_detail.png "Merchandise & Product Detail screenshot")
+![Add Conversion & Listing Pricing](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/add_conversion_&_listing_pricing.png "Add Conversion & Listing Pricing screenshot")
+![My Listings & Saved Listings](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/saved_listings_&_my_listings.png "My Listings & Saved Listings screenshot")
 
 ## Wireframe and Final Project Differences
 
