@@ -458,7 +458,7 @@ a {
 }
 
 .scratched-font {
-    font-family: 'pwscratchedfont', Arial, sans-serif;
+    font-family: 'pwscratchedfontmedium', Arial, sans-serif;
 }
 
 br.responsive {
@@ -638,7 +638,7 @@ a.category-badge > span.badge:hover {
 }
 
 .title {
-    font-family: pwscratchedfont;
+    font-family: 'pwscratchedfontmedium';
 }
 
 /* ----- Admin Pages ------ */
