@@ -458,7 +458,7 @@ a {
 }
 
 .scratched-font {
-    font-family: pwscratchedfont;
+    font-family: 'pwscratchedfont', Arial, sans-serif;
 }
 
 br.responsive {
