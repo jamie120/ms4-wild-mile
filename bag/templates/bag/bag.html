@@ -119,7 +119,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-light-green rounded-2">
+                                                        <button class="decrement-qty btn btn-sm btn-light-green rounded-2" disabled>
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
                                                             </span>
@@ -143,8 +143,12 @@
                                             </div>
                                             {% endif %}
                                         </form>
+                                        {% if item.product.sku != '12345678' %}
                                         <a class="update-link bg-dark p-1 border-muted br-1 text-white float-left"><small>Update</small></a>
                                         <a class="remove-item bg-dark p-1 border-muted br-1 text-white float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        {% else %}
+                                        <a class="remove-item bg-dark p-1 border-muted br-1 text-white float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        {% endif %}
                                          
                                     </td>
                                     <td class="py-3">
