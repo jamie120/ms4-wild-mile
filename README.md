@@ -64,7 +64,7 @@ Optional: Include use of additional libraries and external APIs.
             * [Conversion Management](#conversion-management-page)
                 * [Approve Conversions](#approve-conversions-page)
             * [Add Product](#add-product-page)
-            * [Authentication](#auth-pages)
+            * [Authentication](#authentication-pages)
 
 3.  [Surface](#surface)
     * [Colors](#colours)
@@ -72,33 +72,26 @@ Optional: Include use of additional libraries and external APIs.
 4.  [Skeleton](#skeleton)
     * [Wireframe Designs](#wireframe-designs)
     * [Final Project Design Differences](#wireframe-and-final-project-differences)
-    * [Responsive Design](#responsive-design)
+    * [Responsive Design](#responsive-page-design)
     * [Database Design & Structure](#database-design-and-structure)
 5.  [Features](#features)
     * [Sitewide](#sitewide)
         * [Navbar](#nav-bar)
+        * [Banner](#banner)
         * [Footer](#footer)
-    * [Homepage](#home)
-        * [Header](#header)
-        * [Top Recipes](#top-recipes)
-        * [Recipe Links](#recipe-links)
-        * [Call to action buttons](#call-to-action-button)
-    * [Recipes Page](#recipes-page)
-        * [Search and Filter Function](#search-and-filter-functionality)
-        * [Recipe Cards](#recipe-cards)
-        * [Pagination](#pagination)
-        * [Call to action buttons](#call-to-action-button)
-    * [Recipe Page](#recipe-page)
-        * [Image & Buttons](#image-and-buttons)
-        * [Recipe Information](#recipe-information)
-        * [Comments](#comments)
-        * [Call to action buttons](#call-to-action-buttons)
-    * [Add Recipe Page](#add-recipe-page)
-        * [Categories](#categories)
-        * [Form Design](#form-design)
-        * [Ingredients Input](#ingredients-input)
-        * [Method Input](#method-input)
-    * [Edit Recipe Page](#edit-recipe-page)
+    * [Homepage](#homepage)
+    * [Conversions](#conversions)
+        * [Conversion Detail](#conversion-detail)
+    * [Add Conversion](#add-conversion)
+    * [Edit Conversion](#edit-conversion)
+    * [Add Conversion Pricing](#add-conversion-pricing)
+    * [Merchandise](#merchandise)
+        * [Product Detail](#product-detail)
+    * [Shopping Bag](#shopping-bag)
+    * [Checkout](#checkout)
+        * [Checkout Success](#checkout-success)
+
+
     * [Authentication](#authentication)
 6.  [Future Features](#future-features)
 7.  [Technologies Used](#technologies-used)
@@ -199,9 +192,9 @@ A detailed list of user stories has been complied to help steer the design proce
 
     ##### Conversion Management Page ----- Approve Conversions Page
 
-    ##### Add Product Page
+    ##### Add Product/Merch Page
 
-    ##### Edit Product Page
+    ##### Edit Product/Merch Page
 
     ##### Authentication Pages (allauth templates - styled)
     
@@ -225,6 +218,8 @@ A detailed list of user stories has been complied to help steer the design proce
 * A search bar will be present on all pages - this takes a user query and returns the conversions template displaying only relevant matches. The specified search query is used as a filter against the title and description of all live listings.
 
 * The site footer will contain social media icons, which link the user to the relevant social platform in a new browser/tab.
+
+### Page summaries
 
 #### Home Landing Page
 
@@ -353,111 +348,277 @@ Wireframes were designed using Figma, for three primary breakpoints - Desktop, T
 ![My Listings & Saved Listings](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/wireframes/saved_listings_&_my_listings.png "My Listings & Saved Listings screenshot")
 
 ## Wireframe and Final Project Differences
-
-- Home Page
     
-- Recipes
+- Profile Page
+    * It was decided that the 'Message Portal' would remain a future feature of the site. This allowed increased focus on mandatory requirements of the project.
+    * Saved listings link was added to the profile page.
    
-- Recipe Page
+- Conversions Page
+    * Category filtering was added to the top of the page, to allow users to view only listings from specific categories.
+    * Several images were added inside a carousel element for each listing on the page. This allowed users to see more of the conversion without having to enter the conversion detail page.
+    * View Details and Save to profile buttons were added to each listing summary, to increase functionality.
   
-- Add Recipe form
+- Conversion Detail Page
+    * More content sections added to support required conversion data - electrics, beds, etc....
+    * Display 6 images in varying size, within a CSS grid.
+    * Added a carousel of images at the bottom of the page, for image counts larger that 6 photos. On mobile, all images are in the carousel.
     
-- Navbar
+- FAQ Page
+    * Display questions in two columns on desktop devices, as opposed to the wireframe displaying a single column.
+
+- Merchandise Page
+    * Category filtering was added to the top of the page, to allow users to view only listings from specific categories.
+    * Add sorting to products (price, name, category), to allow users to easily manipulate the content as desired.
+    * Add edit and delete buttons for superuser/admin for each product.
+    * Display 4 products per row on desktop.
+    * Display product information in card footer - with defined background.
    
-- Call to action buttons
+- Product Detail Page
+    * Removed background colour for product information, made all text white.
+    * Removed carousel, as only single images for products present.
    
 ## Responsive Page Design
 
-The site has been designed to operate well on all screen sizes. As a core purpose of the site is to host recipes, it is expected that the site will be viewed on tablet and mobile devices often, whilst in the kitchen. With that in mind, the site content and layouts have been designed to support a positive user experience.
+The site has been designed to operate well on all screen sizes. Special care has been taken to ensure site content and layouts support a positive user experience. Bootstrap responsive classes are used to acheive this and are referenced in the terminology below.
 
 - Home page
+    * Font sizes, text breaks and padding and margin is adjusted for smaller devices to maintain clarity and a positive user experience.
+
+- Conversions Page
+    * Listing images stack above the listing summary at the medium breakpoint and below.
+    * Filter and sort controls centralise at the medium breakpoint and below.
+
+- Conversion Detail
+    * All content is stacked to a single column for breakpoints medium and below.
+    * All photos are displayed in a responsive carousel with user controls at the medium breakpoint and below, the CSS grid image gallery is hidden.
+
+- Conversion Listing Prices Page
+    * The three card elements stack into a single column at the medium breakpoint and below.
+
+- Merchandise Page
+    * Products are displayed in rows of 4 (xl), 3 (lg), 2 (m) & 1 (sm) based on the respective devices screen size 
+    *  Filter and sort controls centralise at the medium breakpoint and below.
+    
+- Product Detail Page
+    * The product image stacks at the medium breakpoint and below, above the product information.
+    * For large devices, the two columns occupy only 4 parts of the grid, an offset of 2 is added to the image container to maintain proportions. This design helps bring content to the center of the screen.
+
+- Shopping Bag Page
+    * The shopping bag displays a table with order information to the user at medium breakpoints and above.
+    * At smaller breakpoints the table is hidden and the table content is rendered to the page using the Bootstrap grid, not in the constraints of a HTML table. This allows the information to be better displayed and styled on the smaller device size, resulting in a better user experience.
+    
+- Checkout Page
+    * The shopping bag content stacks above the delivery and payment details at medium breakpoint and below. This makes best use of screen space and allows for the delivery and payment elements to remain clear and legible on mobile devices.
+
+- About Page
+    * The two column layout stacks into a single column at the medium breakpoint and below.
+
+- FAQ Page
+    * The two column layout stacks into a single column at the medium breakpoint and below.
+
+- Profile Page 
+    * The profile navigation links stack above the default delivery information at the large breakpoint and below. Resulting in better use of space on mobile and tablet.
+
+- My Listings / Saved Listings
+    * The three card elements stack into a single column at the medium breakpoint and below.
+
+- Authentication Pages 
+    * The main column containing the allauth form/data occupies full width (12) at the medium breakpoint and smaller. Otherwise it's set at 6, at the left of the screen. The right hand column is empty space.
 
 ## Database Design and structure
 
-* The database 
+* Database design and structure is handled through the creation of Models using Django. The following main models have been designed for this project:
 
-### Recipe Structure
-1. _id - ObjectId - (generated by mongoDB)
-2. name - str
-3. category - str 
-4. short_description - str
-5. recipe_info - array
-6. ingredients - array
-7. method - str
-8. img_url - str
-9. votes - int
-10. added_by - str
+Conversions - 4 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
 
-### Categories Structure
-1. _id - ObjectId - (generated by mongoDB)
-2. name - str
+1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
+2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
+3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
+4. PostImage model, created for the functionality of additional image uploading. This model has a foreign key relating back to the main conversion model.
 
-### Reviews Structure
-1. _id - ObjectId - (generated by mongoDB)
-2. recipe_review - str
-3. recipe_rating - str
-4. recipe_id - str
-5. added_by - str
+Orders - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
 
-### Users
+1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
+2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
 
-1. _id - ObjectId - (generated by mongoDB)
-2. username - str
-3. password - str - (password hash generated by werkzeug.security)
+Products - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
+
+1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
+2. Product model, foreignkey to category, contains all product information fields.
+
+Profiles - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+
+1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
+2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
 
 # Features
 
 ## Sitewide
 
 ### Nav Bar
+* The navbar collapses at the Bootstrap medium breakpoint and below. It can be expanded by clicking the collapsed nav icon to access the navlinks.
+* Main nav items have a hover effect active, which displays a short white underline below each nav item.
+* Dropdown nav items have a hover effect which changes their text colour to white and changes the background color to the dark green used in the site banner.
 
 ### Banner
+* The site banner features a marquee element which displays scrolling text accross the viewport. For the context of this project, it is conveying key business messages/offers to site users.
 
 ### Footer
+* The footer contains social media links and is at the bottom of each page.
+
+## Homepage
+* The home page features a call to action button which is labelled 'SEE CONVERSIONS'. This button when clicked, will render the conversions.html template. Displaying all active conversion listings to the user.
+
+## Conversions
+* The conversions page handles search terms, categories and sorting to provide users with a fully customisable experience when browsing conversions on the site.
+* Conversion category can be selected by clicking one of the category buttons, which will filter the results respectively.
+* The selected category button increases in size relative to the others, to indicate the selected category.
+* Sorting of conversions by Price, Name & Category is possible with the sort by dropdown menu.
+* A dynamically coded text caption, below the category buttons lets the user know the number of conversions that have been found from the database. This updates if a user changes category or submits a search term.
+* Pagination is set to return four listings per page. Page controls are present below the fourth conversion listing.
+* A return to top arrow is present at the bottom righthand area of the page. It remains in place as the user browses the page.
+* Users can engage with the image carousel on each returned listing by using the navigation arrows within the carousel element, the carousel displays three images per listing.
+* To view the conversion detail, users can click the carousel, listing title or the 'view details' button, to render the respective conversion_detail.html template.
+* A save to profile button will save the respective conversion to the users 'Saved Listings' in thier profile. If the user is not logged it, they will be redirected to the sign in page.
+
+## Conversion Detail
+* The conversion_detail page features a contact seller button directly below the vehicle description. When this button is clicked, contact information appears below it for the seller.
+* A save to profile button is featured next to the 'contact seller' button. This saves the respective conversion to the users 'Saved Listings' in their profile. As above, if the user isn't logged in they will be redirected to the sign in page.
+* The image carousel at the top of the page features all images, the user can use the controls to scroll between previous and next images.
+* The image gallery at the bottom of the page consists of two parts. 
+    1. A 6 image CSS Grid (only renders min-width: 768px)
+    2. An image carousel with user controls (only renders for listings with 6+ images: min-width:768px, renders all images within the carouse: max-width:767px)
+* Borders and column offsets are utilized for the largest viewport to bring content into the middle of the screen -  min-width:1200px
+* If a conversion listing that is no longer active is requested to render within the template :
+    1. The template will render a message to the user - informing them the listing is no longer available. 
+    2. If the request is made by the listing creator or a superuser :
+        * The template will render a small message at the top of the page informing the user 'this listing is not live' - the listing content will render below this message.
+
+## Add Conversion
+* This page is protected with a login decorator, it requires users to be authorised and logged in to view. Otherwise redirects to the sign in page.
+* The form has been rendered using django crispy forms. With custom layout and custom labels.
+* Users may upload a main image, which is captured in the conversion model. As well as an additional 5 images using the PostForm model. (Further images may be added to listings later using the edit conversion template)
+* Once a listing is saved, it is available to view, edit or delete in the users 'My Listings' area of their profile.
 
 
-## Home
+## Edit Conversion
+* The form rendered on this page is the same as the add_conversion template, detailed above. The same features and validation remain.
+* In addition to the points above, the form self populates with an instance of a conversion listing, including all the images associated with the listing.
+* Users may delete previously uploaded images, overwrite images and upload upto three additional images.
+* Each time the form is accessed, three new empty 'choose file' fields will render.
 
-## Conversions Page
+## Add Conversion Pricing
+* Links are currently diabled for 'paid' listing tokens.
+* The standard listing token is currently set as 'free - £0.00'. When clicked, the user is directed to a product detail page, rendering the listing token details. 
 
-## Conversion Detail Page
+## Merchandise
+* Sorting of conversions by Price, Rating, Name & Category is possible with the sort by dropdown menu.
+* Product category can be selected by clicking one of the category buttons, which will filter the products to display only items in the selected category. 
+* The selected category button increases in size relative to the others, to indicate the selected category.
+* A text caption, below the category buttons lets the user know the number of products that have been found in the selected category.
+* Site admin and superusers will see 'edit' and 'delete' buttons, within the footer of each product card.
+* Only merchandise products will display, listing tokens are not displayed on this template. This is acheived by removing specific SKUs from rendering on this page with conditional HTML code.
 
-## Add Conversion Page
+## Product Detail
+* Products with sizes render a dropdown menu for users to select a size.
+* Lising token products will render a dropdown menu for users to select from any inactive listings associated with their profile. Add to bag button will only be enabled if there is a listing selected.
+* Images can be clicked to render full screen in a new tab.
+* Site admin and superusers will see 'edit' and 'delete' buttons, to the right of each product rating.
+* Quantity buttons can't be decreased below 1.
+    * If the product is a listing token, quantity is set to 1. No quantity adjustment buttons will render to the page.
 
-## Add Conversion Pricing Page
+## Shopping Bag
+* The shopping bag will allow users to adjust the quantity of bag items and update the bag. Users will also be able to remove bag items completely.
+* When update or remove buttons are clicked, the bag will refresh with any updated totals and delivery costs.
+* Two buttons at the bottom of the page give the users choice to: 
+    1. Keep shopping (back to products)
+    2. Secure checkout (renders checkout page)
 
-## Merchandise Page
+## Checkout
+* If the bag total is £0.00 (purchase of listing token only), a separate template will render (checkout_free.html) without payment elements.
+* The checkout template will self populate default delivery information if this is present and set in the user profile.
+* Users may check the 'save my delivery information to my profile' checkbox, to update or add this information to their profile.
+* A Stripe payment element will render below the delivery information form. With appropriate Stripe validation.
+* An summary of items being purchased is displayed on the page for the user.
+* The 'Complete Order' button will check all data is validated, process the order and direct the user to a 'checkout_success' page.
+* The 'Adjust Bag' button will take the user back to the bag page, if they require to make any changes.
 
-## Product Detail Page
-
-## Shopping Bag Page
-
-## Checkout Page
-
-## Checkout Success Page
-
-## About Us Page
+## Checkout Success
+* The checkout success page will display order information to the user, including order items, cost, time and order number.
+* The page is accessible from the user profile/order summary page and directly after checkout.
+* If the page is accessed from the order summary page - the header, message and redirect link below the order summary will be different to when the page is accessed via the checkout process.
 
 ## FAQ Page
+* The questions on the FAQ page will expand to reveal their answers once clicked, answers are hidden when clicked again.
+* The + icon changes to - when an answer is displayed. This provided visual feedback to users, as they represent expand and contract.
 
 ## Profile Page
+* The profile page will display default delivery information, this can be updated and saved by pressing the 'update information' button below the form.
+* The five links present on the profile page, simply redirect as expected to respective pages.
 
 ## Order History Page
+* All previous orders associated with the logged in user will display on this page.
+* Orders are summarised over four columns, Order number, date, items and order total.
+* Users may click on an order number to render the checkout_success template to view full order details.
+* A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
 ## My Listings Page
+* All listings that a user has created will be displayed on this page. Both active and inactive.
+* Each listing will be contained within a card element, containing the listing main image, listing title and price. 
+* The following buttons are present in the card footer:
+    1. Go To Listing (redirect - conversion_detail)
+    2. Edit Listing (redirect - edit_conversion)
+    3. Delete Listing (deletes listing from the database - reloads 'My Listing' template)
+* A status message will display below the buttons, informing the user if the listing is currently live or inactive on the site.
+* For inactive listings - an additional button 'View Listing Pricing' will render below the listig status message. This will redirect the use to the listing token pricing template.
+* A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
 ## Saved Listings Page
-
-## Message Portal
+* All listings a user has saved to their profile will be displayed on this page. Both active and inactive.
+* Each listing will be contained within a card element, containing the listing main image, listing title and price. 
+* The following buttons are present in the card footer:
+    1. View listing (redirect - conversion_detail)
+    2. Remove Listing (remove listing from profile - reload 'Saved Listings')
+* A status message will display below the buttons, informing the user if a listing is currently no longer active on the site. In this case, the 'View Listing' button will be disabled.
+* A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
 ## Conversion Management
+* This page is only accessible by superusers or admin user profile.
+* Below the header, a message will display current number of listings active and number of listings awating approval.
+* A link to 'Go To Approvals' will direct the user to the 'approve_conversions' template.
+* Each active listing will generate a card element on this page, each with the listing name, category and user(listing author) in the card body.
+* The card footer will host the following buttons:
+    1. View Details (redirect - conversion_detail)
+    2. Edit Conversion (redirect - edit_conversion)
+    3. Delete Conversion (delete listing from DB - reloads conversion_management)
+    4. Contact seller (displays contact information below the button when clicked)
+    5. Delist listing (changes the listing 'inactive' value to False - reloads conversion_management)
 
-## Approve Conversion 
+## Approve Conversion
+* This page is only accessible by superusers or admin user profile.
+* Below the header, a message will display 'There are no listings awaiting approval' if all site listings are active.
+* Each inactive listing in the database will generate a card element on this page. 
+* The card element is identical to that in conversion_management detailed above, apart from the 'Delist Listing' button, which is replaced with 'Approve Listing'.
+* The 'Approve Listing' button when clicked, changes the 'is_active' value to True.
 
 ## Add Product Page
+* This page is only accessible by superusers or admin user profile.
+* This page renders a product management form - to add a product to the merchandise section of the site. Name, description and price are mandatory fields.
+* 'Add product' button will add an entry to the database, using the data from the form-fields.
+
+## Edit Product Page
+* This page is only accessible by superusers or admin user profile.
+* This page renders the product management form - populated with an instance of an item from the DB.
+* A title at the top of the form will inform the user which item is being edited, as no image is displayed on the form.
+* 'Save Changes' button will update the database entry with any updated fields in the form.
 
 ## Authentication Pages
-
+* The authentication is handled by allauth.
+* When registering as a user with the site, a verification email is sent to the user.
 
 ## Authentication
 The site uses authentication. Users that have signed up to the site have the privilege to conduct the following actions:
