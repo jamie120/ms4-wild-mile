@@ -66,6 +66,7 @@ Optional: Include use of additional libraries and external APIs.
             * [Add Product](#add-product-page)
             * [Authentication](#authentication-pages)
 
+
 3.  [Surface](#surface)
     * [Colors](#colours)
     * [Fonts](#font-choice)
@@ -90,8 +91,15 @@ Optional: Include use of additional libraries and external APIs.
     * [Shopping Bag](#shopping-bag)
     * [Checkout](#checkout)
         * [Checkout Success](#checkout-success)
-
-
+    * [FAQ](#faq)
+    * [Profile](#profile)
+        * [Order History](#order-history)
+        * [My Listings](#my-listings)
+        * [Saved Listings](#saved-listings)
+    * [Conversion Management](#conversion-management)
+        * [Approve Conversions](#approve-conversions)
+    * [Add Product](#add-product)
+    * [Edit Product](#edit-product)
     * [Authentication](#authentication)
 6.  [Future Features](#future-features)
 7.  [Technologies Used](#technologies-used)
@@ -199,12 +207,12 @@ A detailed list of user stories has been complied to help steer the design proce
     ##### Authentication Pages (allauth templates - styled)
     
 * The navbar, present on all pages will contain the following navigation links :
-    ##### Home
-    ##### Buy a conversion (dropdown) ----- All conversions ----- Campervans ----- Mobile Bars and Catering Vans
-    ##### Sell a conversion (dropdown) ----- View Pricing ----- Add a conversion
-    ##### Merchandise (dropdown) ----- All Products ----- Clothing ----- Stickers ------ Mugs
-    ##### About Us
-    ##### Faq
+    - Home
+    - Buy a conversion (dropdown) ----- All conversions ----- Campervans ----- Mobile Bars and Catering Vans
+    - Sell a conversion (dropdown) ----- View Pricing ----- Add a conversion
+    - Merchandise (dropdown) ----- All Products ----- Clothing ----- Stickers ------ Mugs
+    - About Us
+    - Faq
 
 * Accompanying the navbar, a 'My Account' and 'Shopping Bag' button will be present on all pages:
     * My Account (dropdown) ----- Register ----- Login / My Profile ----- Logout
@@ -552,21 +560,21 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 * The page is accessible from the user profile/order summary page and directly after checkout.
 * If the page is accessed from the order summary page - the header, message and redirect link below the order summary will be different to when the page is accessed via the checkout process.
 
-## FAQ Page
+## FAQ
 * The questions on the FAQ page will expand to reveal their answers once clicked, answers are hidden when clicked again.
 * The + icon changes to - when an answer is displayed. This provided visual feedback to users, as they represent expand and contract.
 
-## Profile Page
+## Profile
 * The profile page will display default delivery information, this can be updated and saved by pressing the 'update information' button below the form.
 * The five links present on the profile page, simply redirect as expected to respective pages.
 
-## Order History Page
+## Order History
 * All previous orders associated with the logged in user will display on this page.
 * Orders are summarised over four columns, Order number, date, items and order total.
 * Users may click on an order number to render the checkout_success template to view full order details.
 * A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
-## My Listings Page
+## My Listings
 * All listings that a user has created will be displayed on this page. Both active and inactive.
 * Each listing will be contained within a card element, containing the listing main image, listing title and price. 
 * The following buttons are present in the card footer:
@@ -577,7 +585,7 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 * For inactive listings - an additional button 'View Listing Pricing' will render below the listig status message. This will redirect the use to the listing token pricing template.
 * A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
-## Saved Listings Page
+## Saved Listings
 * All listings a user has saved to their profile will be displayed on this page. Both active and inactive.
 * Each listing will be contained within a card element, containing the listing main image, listing title and price. 
 * The following buttons are present in the card footer:
@@ -598,36 +606,38 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
     4. Contact seller (displays contact information below the button when clicked)
     5. Delist listing (changes the listing 'inactive' value to False - reloads conversion_management)
 
-## Approve Conversion
+## Approve Conversions
 * This page is only accessible by superusers or admin user profile.
 * Below the header, a message will display 'There are no listings awaiting approval' if all site listings are active.
 * Each inactive listing in the database will generate a card element on this page. 
 * The card element is identical to that in conversion_management detailed above, apart from the 'Delist Listing' button, which is replaced with 'Approve Listing'.
 * The 'Approve Listing' button when clicked, changes the 'is_active' value to True.
 
-## Add Product Page
+## Add Product
 * This page is only accessible by superusers or admin user profile.
 * This page renders a product management form - to add a product to the merchandise section of the site. Name, description and price are mandatory fields.
 * 'Add product' button will add an entry to the database, using the data from the form-fields.
 
-## Edit Product Page
+## Edit Product
 * This page is only accessible by superusers or admin user profile.
 * This page renders the product management form - populated with an instance of an item from the DB.
 * A title at the top of the form will inform the user which item is being edited, as no image is displayed on the form.
 * 'Save Changes' button will update the database entry with any updated fields in the form.
 
-## Authentication Pages
-* The authentication is handled by allauth.
-* When registering as a user with the site, a verification email is sent to the user.
-
 ## Authentication
-The site uses authentication. Users that have signed up to the site have the privilege to conduct the following actions:
-
-1. add recipes to the site / Edit & Delete recipes added by themselves.
-2. Like other users recipes.
-3. Leave comments and ratings on recipes from other users / Delete comments added by themselves.
+* The site login/register authentication is handled by allauth.
+* When registering as a user with the site, a verification email is sent to the user.
+* Decorators throughout the site views to manage access of site content.
+* Conditional HTML code is written throughout templates, to provide a personalised user experience.
 
 # Future Features
+1. Implement a message portal, for users to communicate with each other regarding the purchase of listings. Removing the need to display contact information on the listings.
+2. Display image thumbnails in the add / edit conversions forms, to improve the user experience.
+3. Introduce more conversion listing categories, create separate forms and database models to support the complexity of such feature.
+4. Introduce more conversion filter options, such as 'Electrics' or 'Mileage'. This will help users sort through listings more easily if there are many listings in the database.
+5. Develop an automatic de-list feature, which will change a listings 'isactive' value after a set period of time. Link this to the listing token duration.
+6. Set up recurring payment for paid listing tokens.
+7. Display featured listings on the home page - users may decide to purchase 'premium - featured' bolt on to a listing token.
 
 # Technologies Used
 
@@ -635,11 +645,18 @@ The site uses authentication. Users that have signed up to the site have the pri
 
 * HTML - the base language used for this project.
 * CSS - used for styling HTML code sitewide.
-* Python & Flask - Used to produce the backend code running the site.
+* Python & Django - Used to produce the backend code running the site.
     * OS - This project used OS to provide functions for interacting with the site.
-    * Bson.objectid - Used to enable the use of ObjectID when referring to the _id data names within the MongoDB database.
-    * Werkzeug - Werkzeug.security is used to provide password authentication for the site.
 * JavaScript - used to make elements of the site interactive and support HTML & CSS styling.
+
+## Storage/Database
+
+* [Amazon Web Services](https://aws.amazon.com) - used to store static/media files.
+* [Postgres](http://postgresql.org) - Postgres plugin in Heroku used to store production database.
+
+## Payment Handling
+
+* [Stripe](https://www.stripe.com/) - used to facilitate payments. 
 
 ## Libraries
 
@@ -653,7 +670,7 @@ The site uses authentication. Users that have signed up to the site have the pri
 * [Gitpod](https://www.gitpod.io) - used as IDE for this project.
 * [Git](https://git-scm.com/) - used for version control.
 * [Github](https://github.com/) - used to host repository.
-* [Heroku](https://dashboard.heroku.com/) - 
+* [Heroku](https://dashboard.heroku.com/) - used to host deployed webapp.
 * [Figma](https://www.figma.com/) - used for creation of website theme/wireframe.
 * [Am I Responsive](http://ami.responsivedesign.is/) - used for testing purposes and for the screenshot at the top of my README filed to display the web pages on different devices.
 * [Google Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) - used for testing and debugging the site.
