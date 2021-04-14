@@ -2,7 +2,14 @@
 # Wild Mile Conversions
 ## Code Institute: Milestone Project 4 - Jamie Rolls - 
 A live version of the site is available [here.](https://wild-mile-ms4.herokuapp.com/)
----
+
+Stripe Test transaction details:
+
+credit card: 4242 4242 4242 4242
+expiration date: 04 / 24
+CVC: 424
+ZIP: 42424
+
 ![Desktop](insert - responsive screenshots here)
 
 Wild Mile Conversions is a site dedicated to the advertisement of bespoke vehicle conversions for leisure and business. Listings are added by site users, with the aim to attract buyers and complete a selling transaction off-site. Users purchase a listing fee to advertise on the site. Wild Mile merchansise is also available for purchase. The site is designed to be easy to navigate, promotes ease of use and have intuitive features for both buyers and sellers to enhance the user experience.
@@ -44,29 +51,9 @@ Optional: Include use of additional libraries and external APIs.
 2.  [Structure](#structure)
     * [Design Process](#design-process)
         * [Page Structure](#page-structure)
-            * [Home](#home-landing-page)
-            * [Conversions](#conversions-page)
-                * [Conversion Detail](#conversion-detail-page)
-            * [Add Conversion](#add-conversion-page)
-            * [Add Conversion Pricing](#add-conversion-pricing-page)
-            * [Merchandise](#merchandise-page)
-                * [Product Detail](#product-detail-page)
-            * [Shopping Bag](#shopping-bag-page)
-            * [Checkout](#checkout-page)
-                * [Checkout Success](#checkout-success-page)
-            * [About Us](#about-us-page)
-            * [Faq](#faq-page)
-            * [Profile](#profile-page)
-                * [Order History](#order-history-page)
-                * [My Listings](#my-listings-page)
-                * [Saved Listings](#saved-listings-page)
-                * [Message Portal](#message-portal-page)
-            * [Conversion Management](#conversion-management-page)
-                * [Approve Conversions](#approve-conversions-page)
-            * [Add Product](#add-product-page)
-            * [Authentication](#authentication-pages)
-
-
+        * [Page Summaries](#page-summaries)
+        * [Django Apps](#django-apps)
+        * [Database Design & Structure](#database-design-and-structure)
 3.  [Surface](#surface)
     * [Colors](#colours)
     * [Fonts](#font-choice)
@@ -74,7 +61,6 @@ Optional: Include use of additional libraries and external APIs.
     * [Wireframe Designs](#wireframe-designs)
     * [Final Project Design Differences](#wireframe-and-final-project-differences)
     * [Responsive Design](#responsive-page-design)
-    * [Database Design & Structure](#database-design-and-structure)
 5.  [Features](#features)
     * [Sitewide](#sitewide)
         * [Navbar](#nav-bar)
@@ -103,9 +89,6 @@ Optional: Include use of additional libraries and external APIs.
     * [Authentication](#authentication)
 6.  [Future Features](#future-features)
 7.  [Technologies Used](#technologies-used)
-    * [Languages](#languages)
-    * [Libraries](#libraries)
-    * [Tools](#tools)
 8.  [Testing](#testing)
 9. [Deployment](#deployment)
     * [Hosting on Heroku](#hosting-on-heroku)
@@ -154,19 +137,20 @@ Optional: Include use of additional libraries and external APIs.
 
 - Fulfil all mandatory project minimum requirements. (these are listed [HERE](#mandatory-requirements))
 
- 
-
 #### User Stories
 
 A detailed list of user stories has been complied to help steer the design process.
  * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
 
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
 
 # Structure
 
 ## Design Process
 
-#### Page Structure
+## Page Structure
 
 * The site is designed to feel familar throughout it's pages in style and functionality. It contains straight-forward navigation elements, further filtering/manipulation of site content can be completed within individual pages by utilising features such as search, filter and multiple pages. This design allows users to quickly and easily engage with and locate relevant content from within the site.
 
@@ -227,7 +211,7 @@ A detailed list of user stories has been complied to help steer the design proce
 
 * The site footer will contain social media icons, which link the user to the relevant social platform in a new browser/tab.
 
-### Page summaries
+## Page summaries
 
 #### Home Landing Page
 
@@ -317,6 +301,57 @@ A detailed list of user stories has been complied to help steer the design proce
 * Various authentication pages, login, logout, register ... and other associated will be provided from the allauth library.
 
 
+## Django Apps
+
+The Wild Mile WebApp consists of 6 Django applications that host the main site features.
+
+- 'home'
+- 'conversions'
+- 'products'
+- 'profiles'
+- 'bag'
+- 'checkout'
+
+Other installed apps supporting the site features are: 
+- 'crispy_forms'
+- 'smartfields'
+- 'storages'
+- 'allauth'
+
+## Database Design and structure
+
+* Database design and structure is handled through the creation of Models using Django. The following main models have been designed for this project:
+
+Conversions - 4 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
+
+1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
+2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
+3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
+4. PostImage model, created for the functionality of additional image uploading. This model has a foreign key relating back to the main conversion model.
+
+Orders - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+
+1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
+2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
+
+Products - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
+
+1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
+2. Product model, foreignkey to category, contains all product information fields.
+
+Profiles - 2 Models
+Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+
+1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
+2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
+
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
+
 # Surface
 
 ## Colours
@@ -339,6 +374,10 @@ The following fonts were applied to the site.
     - The hand drawn style of the font works well to bring the concept of creativity forward.
 - Raleway - Used throughout the site as main parent font.
     - The clean, modern look compliments the dark backgrounds and theme of the site.
+
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
 
 # Skeleton
 
@@ -433,35 +472,9 @@ The site has been designed to operate well on all screen sizes. Special care has
 - Authentication Pages 
     * The main column containing the allauth form/data occupies full width (12) at the medium breakpoint and smaller. Otherwise it's set at 6, at the left of the screen. The right hand column is empty space.
 
-## Database Design and structure
-
-* Database design and structure is handled through the creation of Models using Django. The following main models have been designed for this project:
-
-Conversions - 4 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
-
-1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
-2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
-3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
-4. PostImage model, created for the functionality of additional image uploading. This model has a foreign key relating back to the main conversion model.
-
-Orders - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
-
-1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
-2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
-
-Products - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
-
-1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
-2. Product model, foreignkey to category, contains all product information fields.
-
-Profiles - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
-
-1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
-2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
 
 # Features
 
@@ -630,6 +643,10 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 * Decorators throughout the site views to manage access of site content.
 * Conditional HTML code is written throughout templates, to provide a personalised user experience.
 
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
+
 # Future Features
 1. Implement a message portal, for users to communicate with each other regarding the purchase of listings. Removing the need to display contact information on the listings.
 2. Display image thumbnails in the add / edit conversions forms, to improve the user experience.
@@ -639,6 +656,10 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 6. Set up recurring payment for paid listing tokens.
 7. Display featured listings on the home page - users may decide to purchase 'premium - featured' bolt on to a listing token.
 
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
+
 # Technologies Used
 
 ## Languages
@@ -647,6 +668,7 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 * CSS - used for styling HTML code sitewide.
 * Python & Django - Used to produce the backend code running the site.
     * OS - This project used OS to provide functions for interacting with the site.
+    * allauth - Used to handle authentication.
 * JavaScript - used to make elements of the site interactive and support HTML & CSS styling.
 
 ## Storage/Database
@@ -679,13 +701,22 @@ Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/
 * [jshint](https://jshint.com/) - used to test and validate all JS code.
 * [Dead Link Checker](https://www.deadlinkchecker.com/website-dead-link-checker.asp)
 
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
+
 # Testing
 
 All-testing has been documented [testing.md](insert link here)
 
+<div align="right">
+    <a href="#table-of-contents"> ⇧ Back To Top </a>
+</div>
+
 # Deployment
 
-<!-- * The site was developed in GitPod and pushed to the following remote GitHub repository - [REPO](https://github.com/jamie120/ms3-eat-eat_vegan_recipes) -->
+### GitPod
+* The site was developed in GitPod and pushed to the following remote GitHub repository - [REPO](https://github.com/jamie120/ms4-wild-mile) -->
     * The following GIT commands were used throughout deployment:
         * **git status** ------ used to check the status of files and any changes made / untracked.
         * **git add**   ------ to stage files ready to commit.
@@ -693,39 +724,141 @@ All-testing has been documented [testing.md](insert link here)
         * **git push** ------ to push the files to the master branch of the GitHub repo.
 
 ### Hosting on Heroku
-<!-- 
-* This site is hosted using Heroku, deployed directly from the master branch via GitHub. - [LIVE SITE](https://ms3-eat-vegan-recipes.herokuapp.com/) -->
+* This site is hosted using Heroku, deployed directly from the master branch via GitHub. - [LIVE SITE](https://ms4-wild-mile.herokuapp.com/) -->
     * The following steps were taken to complete the hosting process.
        
     1. Set **_debug=False_** in the app.py file.
     2. Created a requirements.txt file from the terminal, using **_pip3 freeze --local > requirements.txt_**, to allow Heroku to detect this project as a python app and any required package dependencies.
-    3. Created a Procfile using **_echo web: python app.py > Procfile_** from the Gitpod terminal so Heroku would be informed on which file runs the app and how to run this project.
-    4. Created a new Heroku app, **_ms3_eat-vegan-recipes** and set its region to Europe.
-    5. Automatic deployment was set up on Heroku - On the app dashboard, in the deploy menu. Connect to GitHub section. The GitHub repository was searched for and connected to the app.
+    3. Created a Procfile using **_echo web: python app.py > Procfile_** from the Gitpod terminal so Heroku would be informed on which file runs the app and how to run this project. This project Procfile contained the following :  web: gunicorn wild_mile.wsgi:application
+    4. Created a new Heroku app, **_ms4_wild-mile** and set its region to Europe.
+    5. Set Postgres plugin free plan from the resources tab in the newly created app.
     6. In the settings tab on the app dashboard, 'Reveal Config Vars' was used to tell Heroku which variableS are required to run the app. The following config vars were added: 
-        *  **_IP_** 
-        *  **_PORT_**
-        * **_SECRET_KEY_**
-        * **_MONGO_URI_**
-    7. In GitPod, a check was completed to ensure the master branch was up to date and all commits had been pushed to GitHub, ready for Heroku to deploy.
+       ![Heroku Config Vars](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/images/heroku-config-vars.png "Heroku Config Vars screenshot")
+    7. Set up new database in settings.py
+        * import dj_database_url
+        * Dump SQlite database to json file with the following command :
+        ```bash
+        python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json
+        ```
+        * Comment out current 'DATABASES' - replace with the following : 
+       ```bash
+        DATABASES = {
+                'default': dj_database_url.parse("<your Postrgres database URL>")
+            }
+        ```
+    8. Migrate models to Postgres by running :
+        ```bash
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        ```
+    9. Load the json MySQLlite dump to Postgres :
+        ```bash
+        python3 manage.py loaddata db.json
+        ```
+    10. Replace the code added in step 7 for DATABASES with:
+        ```bash
+        if 'DATABASE_URL' in os.environ:
+            DATABASES = {
+                'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+            }
+        else:
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+                }
+            }
+        ```
+    11. Add the hostname of the Heroku app to allowed hosts,
+        * In settings.py:
+        ```bash
+        ALLOWED_HOSTS = ['wild-mile-ms4.herokuapp.com', 'localhost']
+        ```
+
+    12. In GitPod, a check was completed to ensure the master branch was up to date and all commits had been pushed to GitHub, ready for Heroku to deploy. 
+    13. Automatic deployment was set up on Heroku - On the app dashboard, in the deploy menu. Connect to GitHub section. The GitHub repository was searched for and connected to the app.
     8. Clicked the **_Enable Automatic Deploys_** button located in the **_Deploy_** section of Heroku to allow for automatic deploys.
     13. Clicked the **_Deploy Branch_** button located in the **_Deploy_** section of Heroku to finally deploy this project.
     14. Clicked the **_View_** button to launch this project's app.
 
-    <!-- * The deployed site on Heroku will update automatically upon new commits to the master branch in the GitHub Repo : [REPO](https://github.com/jamie120/ms3-eat-eat_vegan_recipes). -->
+   The deployed site on Heroku will now update automatically upon new commits to the master branch in the GitHub Repo : [REPO](https://github.com/jamie120/ms4-wild-mile). -->
 
+### Hosting Files with AWS
+
+In order to host static files and media with AWS, an AWS account is required. 
+
+Within AWS the following was required:
+
+* AWS S3 Bucket
+* Bucket Policy
+* Group
+* Access Policy
+* User
+
+The process undertaken is detailed in the documentation below - 
+
+Amazon Simple Storage Service. 
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html
+
+Connecting Django to S3.
+https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
 
 ### Cloning
 
 To run this code locally, you can clone this repository directly into the editor of your choice by following the steps below:
 
+Please note, no products or conversion listing data will be uploaded in this guide. Only the DB models will be uplodaed to MySQLlite. You can add products and/or listings once you have the Webapp up and running.
+
+Additionally you will need a free Stripe account set up, for your testing keys.
+
 1. Open Terminal.
 2. Change the current working directory to the location when you want the cloned directory.
-3. Type the following into your Terminal:  
-    <!-- git clone https://github.com/jamie120/ms3-eat-vegan-recipes.git -->
+3. Type the following into your Terminal:
+    ``` bash
+    git clone https://github.com/jamie120/ms4-wild-mile.git
+    ```
 4. Press Enter to create a local clone.
 
-* To cut ties with this GitHub repository, type git remote rm origin into the terminal.
+* To cut ties with this GitHub repository, type the following into the terminal:
+    ```bash 
+    git remote rm origin 
+    ```
+5. Set up your environment variables
+    * create .env file in the root directory
+    * add .env to .gitignore file in your root directory
+    * add the following code to your .env file:
+        ```bash
+        import os
+        os.environ["DEVELOPMENT"] = "True"
+        os.environ["SECRET_KEY"] = "<Your Key>"
+        os.environ["STRIPE_PUBLIC_KEY"] = "<Your Key>"
+        os.environ["STRIPE_SECRET_KEY"] = "<Your Key>"
+        os.environ["STRIPE_WH_SECRET"] = "<Your Key>"
+        ```
+6. Use the following command to install the requirements:
+    ``` bash
+    pip3 install -r requirements.txt
+    ```
+
+7. Migrate the models to create the MySQLlite database:
+    ``` bash
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
+
+8. Create a superuser (user with admin rights)
+
+    ```bash
+    python3 manage.py createsuperuser
+    ```
+
+9. Run the webapp:
+    ```bash
+    python3 manage.py runserver
+    ```
+
+10. Django admin can be accessed at /admin from your live server. Login using the details you created in step 8.
+
 
 ##### For more information regarding cloning of a repository click [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
