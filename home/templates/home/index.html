@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-
+<!-- Site Entry Overlay -->
 <div id="overlay-site-entry">
     <div id="site-entry-content" class="row h-100 text-center">
         <div class="col">
@@ -25,6 +25,7 @@
     </div>
 </div>
 
+<!-- Main Page content -->
 <div class="container h-100">
     <div class="row h-100">
         <div id="title-column" class="col">
@@ -43,7 +44,7 @@
 
 {% block postloadjs %}
 
-<!---- Site entry overlay ----->
+<!---- Site entry overlay JavaScript ----->
 <script>
 
     $('#overlay-site-entry').height($(document).height());
@@ -60,7 +61,7 @@
             $(this).css('opacity', 0);
             setTimeout(function(){
                 $('#overlay-site-entry').remove();
-            }, 1000);
+            }, 1500);
         });
     });
 </script>
