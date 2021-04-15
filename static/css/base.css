@@ -419,6 +419,11 @@ a {
     a#mobile-bag {
         font-size: 0.8rem;
     }
+
+    #accountdropdown {
+    font-size: 0.8rem;
+    width: 100%;
+    }
 }
 
 /* Remove Hover effect on collapsed navbar */
