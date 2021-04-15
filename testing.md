@@ -47,13 +47,9 @@
 
 # **Search Bar**
 * Check an existing search term to achieve render the conversions template with search query applied - :white_check_mark:
-
-- Search term = Mary
 ![Search - True](documentation/testing/img/search-true.png) 
 
 * Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
-
-- Search term = Tree
 ![Search - False](documentation/testing/img/search-false.png) 
 
 ----------------------------
