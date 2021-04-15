@@ -1,16 +1,10 @@
 
 # Wild Mile Conversions
-## Code Institute: Milestone Project 4 - Jamie Rolls - 
+## Code Institute: Milestone Project 4 - Jamie Rolls
+
+![Desktop](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/images/readme_main_title_image.png "README Title Image")
+
 A live version of the site is available [here.](https://wild-mile-ms4.herokuapp.com/)
-
-Stripe Test transaction details:
-
-credit card: 4242 4242 4242 4242
-expiration date: 04 / 24
-CVC: 424
-ZIP: 42424
-
-![Desktop](insert - responsive screenshots here)
 
 Wild Mile Conversions is a site dedicated to the advertisement of bespoke vehicle conversions for leisure and business. Listings are added by site users, with the aim to attract buyers and complete a selling transaction off-site. Users purchase a listing fee to advertise on the site. Wild Mile merchansise is also available for purchase. The site is designed to be easy to navigate, promotes ease of use and have intuitive features for both buyers and sellers to enhance the user experience.
 
@@ -20,7 +14,7 @@ Build a full-stack site based around business logic used to control a centrally-
 Required Technologies : 
 * HTML, CSS, JavaScript, Django + Django
 * Relational database (MySQL or Postgres)
-* Stripe Payments
+* Stripe Payments - Test card details can be found [HERE](#test-card)
 
 Optional: Include use of additional libraries and external APIs.
 
@@ -564,6 +558,12 @@ The site has been designed to operate well on all screen sizes. Special care has
 * The checkout template will self populate default delivery information if this is present and set in the user profile.
 * Users may check the 'save my delivery information to my profile' checkbox, to update or add this information to their profile.
 * A Stripe payment element will render below the delivery information form. With appropriate Stripe validation.
+* Stripe Test transaction details:
+### Test Card
+    - credit card: 4242 4242 4242 4242
+    - expiration date: 04 / 24
+    - CVC: 424
+    - ZIP: 42424
 * An summary of items being purchased is displayed on the page for the user.
 * The 'Complete Order' button will check all data is validated, process the order and direct the user to a 'checkout_success' page.
 * The 'Adjust Bag' button will take the user back to the bag page, if they require to make any changes.
