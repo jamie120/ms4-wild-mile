@@ -152,26 +152,32 @@
                 <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
                     <section>
                         {% if image_list %}
-                        <!--- Grid for images 0:6 --->
-                        <div class="gallery">
-                            {% for image in image_list|slice:"0:6" %}
-                                    <figure class="gallery__item gallery__item--{{ forloop.counter }}">
-                                        <a href="{{ image.image.url }}" target="_blank">
-                                            <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
-                                        </a>
-                                    </figure>
-                            {% endfor %}
-                        </div>
-                        <!--- Addtional images in carousel --->
-                                                    
-                            <div class="owl-carousel">
-                                {% for image in image_list|slice:"6:" %}
-                                    <a href="{{ image.image.url }}" target="_blank">
-                                        <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
-                                    </a>
-                                 {% endfor %}
+                            <!--- Grid for images 0:6 --->
+                            <div class="gallery">
+                                {% for image in image_list|slice:"0:6" %}
+                                        <figure class="gallery__item gallery__item--{{ forloop.counter }}">
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
+                                            </a>
+                                        </figure>
+                                {% endfor %}
                             </div>
-                           
+                            <!--- Addtional images in carousel --->
+                            <div class="row">
+                                <div class="col-12">             
+                                    <div class="owl-carousel p-2 {% if image_list|length > 6 %}border-muted br-1{% endif %}">
+                                        {% for image in image_list|slice:"6:" %}
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {% if image_list|length > 6 %}
+                                <h2 class="text-white text-center mt-4">Click and Drag The<br>Images to scroll</h2>
+                            {% endif %}
                         {% endif %}
                     </section>
                 </div>
@@ -327,26 +333,32 @@
                 <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
                     <section>
                         {% if image_list %}
-                        <!--- Grid for images 0:6 --->
-                        <div class="gallery">
-                            {% for image in image_list|slice:"0:6" %}
-                                    <figure class="gallery__item gallery__item--{{ forloop.counter }}">
-                                        <a href="{{ image.image.url }}" target="_blank">
-                                            <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
-                                        </a>
-                                    </figure>
-                            {% endfor %}
-                        </div>
-                        <!--- Addtional images in carousel --->
-                                                    
-                            <div class="owl-carousel">
-                                {% for image in image_list|slice:"6:" %}
-                                    <a href="{{ image.image.url }}" target="_blank">
-                                        <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
-                                    </a>
-                                 {% endfor %}
+                            <!--- Grid for images 0:6 --->
+                            <div class="gallery">
+                                {% for image in image_list|slice:"0:6" %}
+                                        <figure class="gallery__item gallery__item--{{ forloop.counter }}">
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
+                                            </a>
+                                        </figure>
+                                {% endfor %}
                             </div>
-                           
+                            <!--- Addtional images in carousel --->
+                            <div class="row">
+                                <div class="col-12">             
+                                    <div class="owl-carousel p-3 {% if image_list|length > 6 %}col-border{% endif %}">
+                                        {% for image in image_list|slice:"6:" %}
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {% if image_list|length > 6 %}
+                                <h2 class="text-white text-center mt-4">Click and Drag The<br>Images to scroll</h2>
+                            {% endif %}
                         {% endif %}
                     </section>
                 </div>
@@ -380,7 +392,7 @@
     $(document).ready(function(){
         $('.owl-carousel').owlCarousel({
         loop:true,
-        margin:10,
+        margin:15,
         nav:true,
         responsive:{
             0:{
