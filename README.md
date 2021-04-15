@@ -336,33 +336,43 @@ Other installed apps supporting the site features are:
 
 ## Database Design and structure
 
-* Database design and structure is handled through the creation of Models using Django. The following main models have been designed for this project:
+Database design and structure is handled through the creation of Models using Django. 
 
-Conversions - 4 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
+The diagram below was created using : django-schema-graph-1.2.0
 
-1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
-2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
-3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
-4. PostImage model, created for the functionality of additional image uploading. This model has a foreign key relating back to the main conversion model.
+It shows the relationship between the database/models in its simplest form. Further detail can be found below this diagram.
 
-Orders - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+![Django models - diagram](documentation/images/django-models-diagram.png "Django models diagram")
 
-1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
-2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
+The following main models have been designed for this project:
 
-Products - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
+* Conversions - 4 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
 
-1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
-2. Product model, foreignkey to category, contains all product information fields.
+    1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
+    
+    2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
+    
+    3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
+    
+    4. PostImage model, created for the functionality of additional image uploading. This model has a foreign key relating back to the main conversion model.
 
-Profiles - 2 Models
-Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+* Orders - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
 
-1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
-2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
+    1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
+
+    2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
+
+* Products - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
+
+    1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
+
+    2. Product model, foreignkey to category, contains all product information fields.
+
+* Profiles - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
+
+    1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
+    
+    2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
