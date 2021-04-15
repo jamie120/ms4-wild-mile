@@ -91,11 +91,6 @@ def conversion_detail(request, conversion_id):
     electrics = conversion.electrics.all()
     image_list = conversion.images.all()
 
-    print(f'list{conversion.images.all()}')
-
-    for image in image_list:
-        print(image.image.url)
-
     context = {
         'conversion': conversion,
         'electrics': electrics,
@@ -107,14 +102,16 @@ def conversion_detail(request, conversion_id):
 
 @login_required
 def add_conversion(request):
-    """ Add a conversion request to the admin """
+    """ Add a conversion to the database """
     ImageFormSet = modelformset_factory(PostImage, form=ImageForm, extra=5)
 
     if request.method == 'POST':
 
+        # Main conversion form
         form = ConversionForm(request.POST, request.FILES)
-        print(form)
+        # Additional image upload form
         formset = ImageFormSet(request.POST, request.FILES, queryset=PostImage.objects.none())
+
         if form.is_valid() and formset.is_valid():
             post_form = form.save(commit=False)
             user = request.user.id
@@ -174,12 +171,11 @@ def edit_conversion(request, conversion_id):
 
             # Check if new photos are to replace exisiting photos, delete and update as required.
 
-            #Track deleted images
+            # Track deleted images
             deleted = 0
 
             for index, f in enumerate(formset):
                 if f.cleaned_data:
-                    print(1)
                     if f.cleaned_data['id'] is None:
                         pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image')) 
                         pic.save()
@@ -234,13 +230,15 @@ def delete_conversion(request, conversion_id):
 
 @login_required
 def approve_conversions(request):
+
+    # Check if current user is superuser
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only site admin can approve conversions')
         return redirect(reverse('home'))
 
     conversions = CamperConversion.objects.all()
+    conversions = conversions.filter(is_active=False)
     require_approval = conversions.filter(is_active=False).exists()
-    print(require_approval)
     template = 'conversions/approve_conversions.html'
     context = {
         'conversions': conversions,
@@ -251,6 +249,8 @@ def approve_conversions(request):
 
 @login_required
 def manage_conversions(request):
+
+    # Check if current user is superuser
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only site admin can manage conversions')
         return redirect(reverse('home'))

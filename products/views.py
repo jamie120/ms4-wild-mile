@@ -14,7 +14,7 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products = Product.objects.all()
-    products = products.exclude(sku='12345678')
+    products = products.exclude(sku='12345678')  # Remove listing token from displaying on merchandise page
     current_category = None
     sort = None
     direction = None
@@ -55,16 +55,18 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show product details """
+
     product = get_object_or_404(Product, pk=product_id)
     my_listings = None
     if product.sku == '12345678':
         try:
             username = request.user.username
             profile = UserProfile.objects.get(user__username=username)
+            # Find 'inactive' listings associated to user
             my_listings = CamperConversion.objects.all().filter(user=profile).filter(is_active=False)
         except UserProfile.DoesNotExist:
             messages.info(request, 'Please login to view this product.')
-            return redirect(reverse('products'))
+            return redirect(reverse('listing_levels'))
 
     context = {
         'product': product,
@@ -90,10 +92,11 @@ def view_plan(request, product_id):
     try:
         username = request.user.username
         profile = UserProfile.objects.get(user__username=username)
+        # Find 'inactive' listings associated to user
         my_listings = CamperConversion.objects.all().filter(user=profile).filter(is_active=False)
     except UserProfile.DoesNotExist:
         messages.info(request, 'Please login to view this product.')
-        return redirect(reverse('products'))
+        return redirect(reverse('listing_levels'))
     context = {
         'product': product,
         'from_listing_fees_page': True,

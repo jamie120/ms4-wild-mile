@@ -8,8 +8,6 @@ from conversions.models import CamperConversion
 
 from checkout.models import Order
 
-import time
-
 
 @login_required
 def profile(request):
@@ -37,9 +35,11 @@ def profile(request):
 
     return render(request, template, context)
 
+
 @login_required
 def saved_listings(request):
     """ Display the users saved listings """
+
     username = request.user.username
     profile = UserProfile.objects.get(user__username=username)
     saved_listings = SavedListings.objects.all().filter(user=profile)
@@ -50,9 +50,11 @@ def saved_listings(request):
 
     return render(request, template, context)
 
+
 @login_required
 def remove_saved_listing(request, conversion_id):
     """ Delete a saved listing from the users saved listings """
+
     username = request.user.username
     profile = UserProfile.objects.get(user__username=username)
     saved_listings = SavedListings.objects.all().filter(user=profile)
@@ -68,9 +70,11 @@ def remove_saved_listing(request, conversion_id):
     }
     return render(request, template, context)
 
+
 @login_required
 def my_listings(request):
     """ Display the users conversion listings """
+
     username = request.user.username
     profile = UserProfile.objects.get(user__username=username)
     my_listings = CamperConversion.objects.all().filter(user=profile)
@@ -80,6 +84,7 @@ def my_listings(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def view_order_history(request):
@@ -96,6 +101,7 @@ def view_order_history(request):
 
     return render(request, template, context)
 
+
 @login_required
 def order_history(request, order_number):
     """ Display a particular order detail by
@@ -110,6 +116,7 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def message_portal(request):
