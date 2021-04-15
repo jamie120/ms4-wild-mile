@@ -16,9 +16,15 @@
         <div class="row mt-3">
             <div class="col"> 
                 <h2 class="logo-font mt-5 mb-4 text-white text-center text-md-left">Edit Conversion</h2>
+                {% if not request.user.is_superuser %}
                 <a class="text-white" href="{% url 'my_listings' %}">
                     <span><i class="fas fa-chevron-left text-white"></i> BACK TO MY LISTINGS</span>
                 </a>
+                {% else %}
+                <a class="text-white" href="{% url 'manage_conversions' %}">
+                    <span><i class="fas fa-chevron-left text-white"></i> BACK TO CONVERSION MANAGEMENT</span>
+                </a>
+                {% endif %}
                 <hr>
             </div>
         </div>
