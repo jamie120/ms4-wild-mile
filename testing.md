@@ -39,10 +39,13 @@
 * Verify the 'grow' animation on the logo in the site-overlay functions as expected - :white_check_mark:
 * Check all links in index.html direct users to the correct routes - :white_check_mark:
 
-# **Nabvar**
-* Verify hover effect is present on all nav links - :white_check_mark:
+# **Nabvar & Banner **
+* Verify hover effects are present on all nav links - :white_check_mark:
 * Check all links in the nav element direct users to expected pages - :white_check_mark:
 * Check all links in the mobile nav element direct users to the expected pages - :white_check_mark:
+* Verify login and register links remove once a user is logged into the site - :white_check_mark:
+* Verify admin/superuser specific links appear in 'My Account' dropdown - :white_check_mark:
+* Verify scrolling banner displays and is animated - :white_check_mark:
 
 # **Search Bar**
 * Check an existing search term to achieve render the conversions template with search query applied - :white_check_mark:
@@ -51,15 +54,68 @@
 * Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
 ![Search - False](documentation/testing/img/search-false.png) 
 
-# ** Sign Up**
+# **Sign Up**
 * Check signup process functions as expected, including verification email being sent to a new user - :white_check_mark:
-![Email - Sent](documentation/testing/img/verify-email-sent.png)
-* Verification email - :white_check_mark:
-![Email - Recieved](documentation/testing/img/verify-email.png)
+* Verification email received - :white_check_mark:
 * User Confirmed - :white_check_mark:
-![User - Confirmed](documentation/testing/img/email-confirmed.png) 
+
+    ![Email - Sent](documentation/testing/img/verify-email-sent.png)
+    ![Email - Recieved](documentation/testing/img/verify-email.png)
+    ![User - Confirmed](documentation/testing/img/email-confirmed.png) 
+
+# **Conversions Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+
+* Check all buttons/links function as expected :
+    1. Filter category buttons - :white_check_mark:
+    2. View Details button - :white_check_mark:
+    3. Save to Profile button - :white_check_mark:
+    4. Sort by dropdown - :white_check_mark:
+    5. Pagination links - :white_check_mark:
+    6. Back to top link - :white_check_mark:
+    7. Carousel controls - :white_check_mark:
+
+* Verify pagination is active, four listings (max) are present per page - :white_check_mark:
+
+* Verify carousel displays the listings first three images :white_check_mark:
+
+# **Conversion Detail**
+
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+
+* Check all buttons/links function as expected :
+    1. Contact Seller button - :white_check_mark:
+    2. Save to profile button - :white_check_mark:
+    3. Image links open in new tab - :white_check_mark:
+    4. Back to conversions link - :white_check_mark:
+    5. Back to top link - :white_check_mark:
+    6. Carousel controls - :white_check_mark:
+
+* Verify 'inactive' listing can only be viewed by listing owner or admin - :white_check_mark:
+
+    ![Inactive - listing - regular user](documentation/testing/img/inactive-listing.png)
+
+* Verify 'inactive' listing is labelled to admin and listing owner - :white_check_mark:
+
+    ![Inactive - listing - regular user](documentation/testing/img/inactive-listing-admin.png)
+
+* Verify listings with more than six images have additional images within an owl-carousel element with controls, which is rendered below the CSS image grid :x:
+* Verify the owl-carousel contains ALL listing images with controls on viewports below 768px, the CSS image grid is not displayed :white_check_mark:
+
+## Conversion Detail Fixes
+
+* Add 'owl-carousel' controls on viewports larger than 767px
 
 
+# **Save to Profile Feature**
+
+* Verify listings can only be added to the user profile once (toast messages provide feedback to user) - :white_check_mark:
+    ![User - Confirmed](documentation/testing/img/save-item-first.png)
+
+    ![User - Confirmed](documentation/testing/img/save-item-false.png)
+
+    ![User - Confirmed](documentation/testing/img/save-item-true.png)
+    
 ----------------------------
 ----------------------------
 ----------------------------
