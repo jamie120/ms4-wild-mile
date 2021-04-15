@@ -31,7 +31,7 @@ tr {
 .profile-listing-image {
     height: auto;
     border-radius: 20px;
-    max-height: 270px;
+    max-height: 325px;
     width: 100%;
     object-fit: cover;
 }

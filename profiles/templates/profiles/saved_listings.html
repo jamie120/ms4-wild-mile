@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <h2 class="mt-3 text-white text-center">{{ listing.conversion.listing_title }}</h2>
                         <p class="text-white larger-font text-center">£{{ listing.conversion.price }}</p>
-                        <div class="p-2 image-container d-flex justify-content-center mt-4">
+                        <div class="p-0 image-container d-flex justify-content-center mt-3">
                             {% if listing.conversion.main_image %}
                                 <a class="profile-listing-image-link" href="{{ listing.conversion.main_image.url }}" target="_blank">
                                     <img class="profile-listing-image img-fluid" src="{{ listing.conversion.main_image.url }}" alt="{{ conversion.name }}">
@@ -50,16 +50,19 @@
                             <button class="btn border-dark btn-outline-black border-white text-white">View Listing</button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn border-dark btn-outline-black border-white text-white">Remove Listing</button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white">Remove Listing</button>
                         </a>
+                        <hr class="border-muted">
                         {% else %}
                         <a href="#">
                             <button class="btn border-dark btn-outline-black border-white text-white"><strike>View Listing</strike></button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn border-dark btn-outline-black border-white text-white">Remove Listing</button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white">Remove Listing</button>
                         </a>
+                        <hr class="border-muted">
                         <p class="text-danger mt-3 mb-1">Sorry this listing is no longer live on the site</p>
+                        <hr class="border-muted">
                         {% endif %}
                     </div>
                 </div>

@@ -117,6 +117,12 @@ hr {
     border-top-right-radius: 20px !important;
 }
 
+.br-1-top {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+
 .br-2-bottom {
     border-bottom-left-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
