@@ -133,7 +133,29 @@ Optional: Include use of additional libraries and external APIs.
 
 #### User Stories
 
-A detailed list of user stories has been complied to help steer the design process.
+An overview of user stories is displayed below:
+
+##### Buying:
+
+- Visitors will be able to purchase ‘Wild Mile’ merchandise from the site directly.
+- Registered users will be able to request contact with sellers to make purchases of conversions.
+- Registered users may save / favorite listings to their profile
+
+#### Sellers:
+	
+- Users will be able to list their conversion onto the site for sale.
+- Requests to list will be via an online form, which will gather all required information and includes a photo file upload service.
+- A fee will be charged to list an item for a specified length of time.
+- Once the fee is paid, the submission is reviewed by and authorised by the site admin, prior to publishing. At which point the listing duration commences.
+- Sellers can edit or delete their listings
+
+#### Admin:
+
+- Ability to manage listings, edit and delete.
+- Ability to add merchandise listings to the site, edit and delete as required.
+- Ability to review listing submissions and approve the publishing of them to the site.
+
+### A detailed list of over 30 specific user stories has been complied to help steer the design process.
  * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
 
 <div align="right">
@@ -366,6 +388,9 @@ The following fonts were applied to the site.
 
 - pwscratchedfont - Used for conversion listing titles and home page brand title.
     - The hand drawn style of the font works well to bring the concept of creativity forward.
+    - https://www.dafont.com/pwscratchedfont.font
+    - A webfontkit was generated using this font - to maximize compatibility between browsers -  - https://www.fontsquirrel.com/tools/webfont-generator
+
 - Raleway - Used throughout the site as main parent font.
     - The clean, modern look compliments the dark backgrounds and theme of the site.
 
@@ -875,6 +900,47 @@ All the written content of the website has been written by myself.
 
 The following images used for this app/website were taken from Unsplash:
 
+#### Campervans
+
+- https://unsplash.com/photos/AGIDtNQbtWM
+- https://unsplash.com/photos/kdUqP23Hznc
+- https://unsplash.com/photos/lswn2ftWDxI
+- https://unsplash.com/photos/jWl7xpm2q64
+- https://unsplash.com/photos/6YmwlYnvZdA
+- https://unsplash.com/photos/lTwogC-C9OA
+- https://unsplash.com/photos/zG5wi9kP15s
+- https://unsplash.com/photos/hBz0sYwk6w0
+- https://unsplash.com/photos/ObweQkF5w30
+
+#### Camper interiors
+
+- https://unsplash.com/photos/PRU6-3v8n7I
+- https://unsplash.com/photos/flWsg878m_I
+- https://unsplash.com/photos/pK8HjaLjBXM
+- https://unsplash.com/photos/cqRhyG4l2PU
+- https://unsplash.com/photos/ip1dbWAMmOs
+- https://unsplash.com/photos/jY9iBYG6MJ8
+- https://unsplash.com/photos/N6ddvRFtIxk
+- https://unsplash.com/photos/MdW0c6A93YI
+
+#### Other Uses
+
+- https://images.unsplash.com/photo-1511350224460-4a95f1cf2e88
+
+- https://unsplash.com/photos/_-q9qibhjVI
+
+- https://unsplash.com/photos/OxPtEsYUNAc
+
+
+#### Image Tools
+
+Merchandise Mockups were generated for free using the following site:
+
+- https://placeit.net/
+
+Images were compressed to improve loading times throughout the site
+
+- https://tinypng.com/
 
 All other images were contributed from personal sources, of which no acknowledgement is required.
 
@@ -887,10 +953,10 @@ All other images were contributed from personal sources, of which no acknowledge
 * [W3schools](https://www.w3schools.com/)
 * [CSS Tricks](#https://css-tricks.com)
 * [JQuery Documentation](https://api.jquery.com/)
-* [Start Bootstrap](#https://startbootstrap.com/)
 * [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 * [JS Commenting](https://jsdoc.app/about-getting-started.html)
 * [Python Documentation](https://docs.python.org/3/)
+* [Django Documentation](https://docs.djangoproject.com/en/3.2/)
 
 #### I received advice and support from
    * Oluwafemi Medale (mentor)
