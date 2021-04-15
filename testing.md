@@ -44,13 +44,21 @@
 * Check all links in the nav element direct users to expected pages - :white_check_mark:
 * Check all links in the mobile nav element direct users to the expected pages - :white_check_mark:
 
-
 # **Search Bar**
 * Check an existing search term to achieve render the conversions template with search query applied - :white_check_mark:
 ![Search - True](documentation/testing/img/search-true.png) 
 
 * Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
 ![Search - False](documentation/testing/img/search-false.png) 
+
+# ** Sign Up**
+* Check signup process functions as expected, including verification email being sent to a new user - :white_check_mark:
+![Email - Sent](documentation/testing/img/verify-email-sent.png)
+* Verification email - :white_check_mark:
+![Email - Recieved](documentation/testing/img/verify-email.png)
+* User Confirmed - :white_check_mark:
+![User - Confirmed](documentation/testing/img/email-confirmed.png) 
+
 
 ----------------------------
 ----------------------------
