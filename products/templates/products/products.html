@@ -104,7 +104,7 @@
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3 float-right">
                                                     <a class="br-1 p-2 bg-white border-muted" href="{% url 'edit_product' product.id %}">Edit</a>
-                                                    <a class="br-1 p-2 ml-1 bg-white text-danger border-muted" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                    <a class="br-1 p-2 ml-1 bg-white text-danger border-muted" onclick="document.getElementById('id{{ forloop.counter }}').style.display='block'">Delete</a>
                                                 </small>
                                             {% endif %}
                                         </div>
@@ -132,9 +132,25 @@
                                 <hr>
                             </div>
                         {% endif %}
+                        <!--- Delete Product Modal --->
+                        <div id="id{{ forloop.counter }}" class="modal">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close-modal close" title="Close Modal">&times;</span>
+                            <form class="modal-content" action="/action_page.php">
+                                <div class="container container-modal">
+                                <h1>Delete Product</h1>
+                                <p>Are you sure you want to delete {{ product.name }}?</p>
+
+                                <div class="clearfix">
+                                    <button type="button" onclick="document.getElementById('id{{ forloop.counter }}').style.display='none'" class="cancelbtn button-modal">Cancel</button>
+                                    <a href="{% url 'delete_product' product.id %}"><button type="button" class="deletebtn button-modal">Delete</button></a>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
+            
         </div>
     </div>
     <div class="btt-button shadow-sm rounded-0 border border-white">
