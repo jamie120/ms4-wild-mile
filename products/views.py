@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models.functions import Lower
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category
 from conversions.models import CamperConversion
@@ -18,10 +19,21 @@ def all_products(request):
     current_category = None
     sort = None
     direction = None
+    query = None
     all_categories = Category.objects.all()
     all_categories = all_categories.exclude(name='listing_fee')
 
     if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query)
+            products = products.filter(queries)
+
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
