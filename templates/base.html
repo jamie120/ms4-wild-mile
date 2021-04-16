@@ -44,26 +44,13 @@
   <body>
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-dark pt-lg-2 d-none d-lg-flex">
-            <div class="col-12 pl-5 col-lg-4 col-xl-5 my-auto py-1 py-lg-0 text-center text-lg-left">
+            <div class="col-12 pl-5 col-lg-6 col-xl-6 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <img id="logo-img" src="{{ MEDIA_URL }}wild_mile_logo_square.png" alt="wild mile logo">
                 </a>
             </div>
-            <div class="col-12 col-lg-4 col-xl-2 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'conversions' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-muted rounded-3" type="text" name="q" placeholder="Search conversions">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border-muted rounded-3" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-12 pr-5 col-lg-4 col-xl-5 my-auto py-1 py-lg-0">
+            
+            <div class="col-12 pr-5 col-lg-6 col-xl-6 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled mt-3 text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
                         <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,9 +108,8 @@
                               
             </div>            
         </div>
-    </header>
-    
-    {% if messages %}
+
+        {% if messages %}
         <div class="message-container">
             {% for message in messages %}
                 {% with message.level as level %}
@@ -140,6 +126,9 @@
             {% endfor %}
         </div>
     {% endif %}
+    </header>
+    
+    
 
     {% block page_header %}
     {% endblock %}

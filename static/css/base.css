@@ -57,7 +57,7 @@ hr {
 }
 
 #special-message-banner {
-    z-index: -999;
+    z-index: 2;
     position: relative;
     background-color: #263d41;
     border-bottom: 1px solid rgba(255,255,255,.5);
@@ -410,6 +410,10 @@ a {
 .dropdown-item:focus {
     background: #263d41;
     color:rgb(255, 255, 255);
+}
+
+a.dropdown-item {
+    z-index: 4;
 }
 
 @media(min-width:1200px){
@@ -901,7 +905,15 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
     position: fixed;
     top: 72px;
     right: 15px;
-    z-index: 99999999999;
+    z-index: 3;
+}
+
+.toast-header.bg-white.text-dark {
+    z-index: 1031;
+}
+
+.toast-body.bg-white {
+    z-index: 1031;
 }
 
 .custom-toast {
@@ -1050,10 +1062,10 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
 
 @media (max-width: 1920px) {
 #logo-img {
-    width: 16%;
+    width: 14%;
     position: absolute;
-    left: 6rem;
-    top: -23px;
+    left: 4rem;
+    top: -40px;
     }
 }
 

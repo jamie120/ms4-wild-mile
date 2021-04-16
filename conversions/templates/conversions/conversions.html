@@ -48,6 +48,21 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="col-12 col-lg-4 col-xl-2 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'conversions' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-muted rounded-3" type="text" name="q" placeholder="Search conversions">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border-muted rounded-3" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-white mt-3 text-center text-md-left">
                             {{ total_listings }} Conversion{% if total_listings is not 1 %}s{% endif %}
