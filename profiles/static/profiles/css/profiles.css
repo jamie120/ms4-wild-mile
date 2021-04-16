@@ -31,9 +31,21 @@ tr {
 .profile-listing-image {
     height: auto;
     border-radius: 20px;
-    max-height: 325px;
+    height: 220px;
     width: 100%;
     object-fit: cover;
+}
+
+.profile-listing-button {
+    font-size: 0.8rem;
+    width: 30%;
+    height: 50px;
+}
+
+.profile-saved-listing-button {
+    font-size: 0.8rem;
+    width: 40%;
+    height: 50px;
 }
 
 .card {
@@ -46,10 +58,34 @@ tr {
     border-bottom-left-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
+   
 }
 
-@media(max-width: 990px) {
-    .saved-listing-image {
-    height: 400px;
+.card-footer-my-listings {
+    border: unset;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    min-height: 261px;
+}
+
+@media(max-width: 991px) {
+    .saved-listing-image,
+    .profile-listing-image  {
+    height: 425px;
+    }
+}
+
+@media(max-width: 568px) {
+    .saved-listing-image,
+    .profile-listing-image  {
+    height: 375px;
+    }
+}
+
+@media(max-width: 440px) {
+    .saved-listing-image,
+    .profile-listing-image  {
+    height: 250px;
     }
 }

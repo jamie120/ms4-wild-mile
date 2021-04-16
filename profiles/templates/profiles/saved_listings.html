@@ -47,18 +47,18 @@
                     <div class="card-footer card-footer-profile-listing text-center">
                         {% if listing.conversion.is_active %}
                         <a href="{% url 'conversion_detail' listing.conversion.id %}">
-                            <button class="btn border-dark btn-outline-black border-white text-white">View Listing</button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white profile-saved-listing-button">View Listing</button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white">Remove Listing</button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white profile-saved-listing-button">Remove Listing</button>
                         </a>
                         <hr class="border-muted">
                         {% else %}
                         <a href="#">
-                            <button class="btn border-dark btn-outline-black border-white text-white"><strike>View Listing</strike></button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white profile-saved-listing-button"><strike>View Listing</strike></button>
                         </a>
                         <a href="{% url 'remove_saved_listing' listing.conversion.id %}">
-                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white">Remove Listing</button>
+                            <button class="btn border-dark btn-outline-black border-white mt-1 text-white profile-saved-listing-button">Remove Listing</button>
                         </a>
                         <hr class="border-muted">
                         <p class="text-danger mt-3 mb-1">Sorry this listing is no longer live on the site</p>

@@ -142,6 +142,7 @@ def add_conversion(request):
             return redirect(reverse('conversion_detail', args=[post_form.id]))
         else:
             messages.error(request, 'Failed to submit form.')
+            return redirect(reverse('add_conversion'))
 
     else:
         form = ConversionForm()
