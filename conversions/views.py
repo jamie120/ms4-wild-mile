@@ -229,25 +229,6 @@ def delete_conversion(request, conversion_id):
 
 
 @login_required
-def approve_conversions(request):
-
-    # Check if current user is superuser
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry only site admin can approve conversions')
-        return redirect(reverse('home'))
-
-    conversions = CamperConversion.objects.all()
-    conversions = conversions.filter(is_active=False)
-    require_approval = conversions.filter(is_active=False).exists()
-    template = 'conversions/approve_conversions.html'
-    context = {
-        'conversions': conversions,
-        'require_approval': require_approval,
-    }
-    return render(request, template, context)
-
-
-@login_required
 def manage_conversions(request):
 
     # Check if current user is superuser
@@ -256,15 +237,22 @@ def manage_conversions(request):
         return redirect(reverse('home'))
 
     conversions = CamperConversion.objects.all()
-    live_listings = conversions.filter(is_active=True)
-    require_approval = conversions.filter(is_active=False).exists()
-    pending_approval_listings = conversions.filter(is_active=False)
+    require_approval = len(conversions.filter(is_active=False))
+    live_listings = len(conversions) - require_approval
+
+    if 'approve' in request.GET:
+        conversions = conversions.filter(is_active=False)
+        approval_page = True
+    else:
+        conversions = conversions.filter(is_active=True)
+        approval_page = False
+
     template = 'conversions/manage_conversions.html'
     context = {
         'conversions': conversions,
         'require_approval': require_approval,
         'live_listings': live_listings,
-        'pending_approval_listings': pending_approval_listings,
+        'approval_page': approval_page,
     }
     return render(request, template, context)
 
@@ -279,10 +267,10 @@ def approve_conversion(request, conversion_id):
         conversion = get_object_or_404(CamperConversion, pk=conversion_id)
         conversion.is_active = True
         conversion.save()
-        return redirect(reverse('approve_conversions'))
+        return redirect(reverse('manage_conversions'))
     except UnboundLocalError:
         messages.error(request, 'Failed to approve listing')
-        return redirect(reverse('approve_conversions'))
+        return redirect(reverse('manage_conversions'))
 
 
 @login_required

@@ -47,10 +47,9 @@ hr {
     .page-header {
         padding-left: 8.5%;
     }
-}
-
-.page-sub-header {
+    .page-sub-header {
     padding-left: 8.5%;
+    }
 }
 
 .page-header-hr {
@@ -663,8 +662,17 @@ a.category-badge > span.badge:hover {
     width: 50%;
 }
 
-#back-to-approval-button {
-    margin-left: 8.5%;
+@media (min-width: 768px) {
+    #view-active-listings-button {
+        margin-left: 8.5%;
+    }
+}
+
+@media (max-width: 568px) {
+    #back-to-approval-button,
+    #view-active-listings-button {
+        font-size: 0.8rem;
+    }
 }
 
 .contact-info-row {
@@ -1094,8 +1102,3 @@ https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e
     }
 }
 
-@media (max-width: 568px) {
-    #back-to-approval-button {
-        font-size: 0.8rem;
-    }
-}
