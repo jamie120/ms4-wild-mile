@@ -90,11 +90,23 @@ def conversion_detail(request, conversion_id):
     conversion = get_object_or_404(CamperConversion, pk=conversion_id)
     electrics = conversion.electrics.all()
     image_list = conversion.images.all()
+    from_profile = None
+    from_admin = None
+
+    if 'from_profile' in request.GET:
+        from_profile = request.GET['from_profile']
+        print(from_profile)
+
+    if 'from_admin' in request.GET:
+        from_admin = request.GET['from_admin']
+        print(from_admin)
 
     context = {
         'conversion': conversion,
         'electrics': electrics,
-        'image_list': image_list
+        'image_list': image_list,
+        'from_profile': from_profile,
+        'from_admin': from_admin,
     }
 
     return render(request, 'conversions/conversion_detail.html', context)

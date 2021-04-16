@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="card-footer card-footer-profile-listing text-center">
-                        <a href="{% url 'conversion_detail' conversion.id %}">
+                        <a href="{% url 'conversion_detail' conversion.id %}?from_profile=True">
                             <button class="btn border-dark mt-1 btn-outline-black border-white text-white">Go To Listing</button>
                         </a>
                         <a href="{% url 'edit_conversion' conversion.id %}">

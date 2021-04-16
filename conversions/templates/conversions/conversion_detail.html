@@ -15,9 +15,19 @@
 
         <div class="row mt-3">
             <div class="col offset-xl-2 mt-5 mb-4">
-                <a class="text-white larger-font" href="{% url 'conversions' %}">
-                    <span><i class="fas fa-chevron-left text-white"></i> BACK TO CONVERSIONS</span>
-                </a>
+                {% if from_admin %}
+                 <a class="text-white larger-font" href="{% url 'manage_conversions' %}">
+                        <span><i class="fas fa-chevron-left text-white"></i> BACK TO MANAGE CONVERSIONS</span>
+                    </a>
+                {% elif from_profile %}
+                 <a class="text-white larger-font" href="{% url 'my_listings' %}">
+                        <span><i class="fas fa-chevron-left text-white"></i> BACK TO MY LISTINGS</span>
+                    </a>
+                {% else %}
+                    <a class="text-white larger-font" href="{% url 'conversions' %}">
+                        <span><i class="fas fa-chevron-left text-white"></i> BACK TO CONVERSIONS</span>
+                    </a>
+                {% endif %}
             </div>
         </div>
 
