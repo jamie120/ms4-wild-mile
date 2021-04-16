@@ -586,9 +586,23 @@ a.category-badge > span.badge:hover {
     border-radius: 20px;
 }
 
+#conversions-search-bar {
+    width: 50%;
+}
+
 @media (max-width:1199px){
     .img-conversions-page {
     border-bottom: unset;
+    }
+    #conversions-search-bar {
+    width: 75%;
+    }
+}
+
+@media (max-width:767px){
+    #conversions-search-bar {
+    margin: 0 auto;
+    width: 50%;
     }
 }
 
