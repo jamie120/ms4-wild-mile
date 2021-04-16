@@ -684,12 +684,13 @@ The site has been designed to operate well on all screen sizes. Special care has
 
 # Future Features
 1. Implement a message portal, for users to communicate with each other regarding the purchase of listings. Removing the need to display contact information on the listings.
-2. Display image thumbnails in the add / edit conversions forms, to improve the user experience.
+2. Display image thumbnails in the add / edit conversions forms, to improve the user experience when uploading, removing, updating image files.
 3. Introduce more conversion listing categories, create separate forms and database models to support the complexity of such feature.
 4. Introduce more conversion filter options, such as 'Electrics' or 'Mileage'. This will help users sort through listings more easily if there are many listings in the database.
 5. Develop an automatic de-list feature, which will change a listings 'isactive' value after a set period of time. Link this to the listing token duration.
 6. Set up recurring payment for paid listing tokens.
 7. Display featured listings on the home page - users may decide to purchase 'premium - featured' bolt on to a listing token.
+8. Implement more controls for Admin/Superuser to search & filter active lisings in the 'manage_conversions' template.
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
