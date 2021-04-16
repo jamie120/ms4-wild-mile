@@ -70,20 +70,7 @@
                             </div>
                         </div>
                         <!--- Delete Confirm Modal --->
-                        <div id="id{{ forloop.counter }}" class="modal">
-                            <span onclick="document.getElementById('id01').style.display='none'" class="close-modal close" title="Close Modal">&times;</span>
-                            <form class="modal-content" action="/action_page.php">
-                                <div class="container container-modal">
-                                <h1>Delete Conversion</h1>
-                                <p>Are you sure you want to delete {{ conversion.listing_title }}?</p>
-
-                                <div class="clearfix">
-                                    <button type="button" onclick="document.getElementById('id{{ forloop.counter }}').style.display='none'" class="cancelbtn button-modal">Cancel</button>
-                                    <a href="{% url 'delete_conversion' conversion.id %}"><button type="button" class="deletebtn button-modal">Delete</button></a>
-                                </div>
-                                </div>
-                            </form>
-                        </div>
+                        {% include "/workspace/ms4-wild-mile/templates/includes/delete-conversion-confirm-modal.html" %}
                 {% endfor %}
             </div>
         </div>

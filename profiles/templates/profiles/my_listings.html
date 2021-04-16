@@ -26,36 +26,36 @@
             </div>
         </div>
         <div class="row mt-5">
-            {% for listing in my_listings %}
+            {% for conversion in my_listings %}
             <div class="col-12 col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h2 class="mt-3 text-white text-center">{{ listing.listing_title }}</h2>
-                        <p class="text-white larger-font text-center">£{{ listing.price }}</p>
+                        <h2 class="mt-3 text-white text-center">{{ conversion.listing_title }}</h2>
+                        <p class="text-white larger-font text-center">£{{ conversion.price }}</p>
                         <div class="p-0 image-container d-flex justify-content-center mt-3">
-                            {% if listing.main_image %}
-                                <a class="profile-listing-image-link" href="{{ listing.main_image.url }}" target="_blank">
-                                    <img class="profile-listing-image img-fluid" src="{{ listing.main_image.url }}" alt="{{ listing.name }}">
+                            {% if conversion.main_image %}
+                                <a class="profile-listing-image-link" href="{{ conversion.main_image.url }}" target="_blank">
+                                    <img class="profile-listing-image img-fluid" src="{{ conversion.main_image.url }}" alt="{{ conversion.name }}">
                                 </a>
                             {% else %}
                                 <a class="profile-listing-image-link" href="">
-                                    <img class="profile-listing-image  img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ listing.name }}">
+                                    <img class="profile-listing-image  img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
                                 </a>
                             {% endif %}
                         </div>
                     </div>
                     <div class="card-footer card-footer-profile-listing text-center">
-                        <a href="{% url 'conversion_detail' listing.id %}">
+                        <a href="{% url 'conversion_detail' conversion.id %}">
                             <button class="btn border-dark mt-1 btn-outline-black border-white text-white">Go To Listing</button>
                         </a>
-                        <a href="{% url 'edit_conversion' listing.id %}">
+                        <a href="{% url 'edit_conversion' conversion.id %}">
                             <button class="btn border-dark mt-1 btn-outline-black border-white text-white">Edit Listing</button>
                         </a>
-                        <a href="{% url 'delete_conversion' listing.id %}">
-                            <button class="btn border-dark mt-1 btn-outline-black text-white">Delete Listing</button>
+                        <a>
+                            <button onclick="document.getElementById('id{{ forloop.counter }}').style.display='block'" class="btn border-dark mt-1 btn-outline-black text-white">Delete Listing</button>
                         </a>
                         <hr class="border-muted">
-                        {% if listing.is_active %}
+                        {% if conversion.is_active %}
                         <p class="text-success mt-3 mb-0">Listing is currently live on the site</p>
                         <hr class="border-muted">
                         {% else %}
@@ -68,6 +68,8 @@
                     </div>
                 </div>
             </div>
+            <!--- Delete Confirm Modal --->
+            {% include "/workspace/ms4-wild-mile/templates/includes/delete-conversion-confirm-modal.html" %}
             {% endfor %}
         </div>
     </div>
