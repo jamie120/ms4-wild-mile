@@ -28,6 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 DEBUG = 'DEVELOPMENT' in os.environ
 
+# DEBUG = True
+
 ALLOWED_HOSTS = ['wild-mile-ms4.herokuapp.com', 'localhost']
 
 

@@ -12,6 +12,10 @@ body {
     font-family: 'Raleway';
 }
 
+.w-20 {
+    width: 20% !important;
+}
+
 .flex-wrapper {
   display: flex;
   min-height: 100vh;

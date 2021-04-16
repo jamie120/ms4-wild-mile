@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="header-container container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-4 mb-5 d-flex flex-column align-items-center">
+                <h2 class="text-white text-center mt-3">You appear to have requested a page that no longer exists!</h2>
+                <a href="{% url 'home' %}"><button class="btn btn-outline-black rounded-2 btn-lg">BACK HOME</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
