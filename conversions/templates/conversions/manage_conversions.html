@@ -58,7 +58,7 @@
                             <div class="card-footer text-center text-lg-left">
                                 <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black rounded-2 text-white mb-2">View Details</a>
                                 <a href="{% url 'edit_conversion' conversion.id %}" class="btn btn-outline-black rounded-2 text-white ml-2 mb-2">Edit Conversion</a>
-                                <a href="{% url 'delete_conversion' conversion.id %}" class="btn btn-outline-black rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
+                                <a onclick="document.getElementById('id{{ forloop.counter }}').style.display='block'" class="btn btn-outline-black rounded-2 text-white ml-2 mb-2">Delete Conversion</a>
                                 <a class="ml-2 btn btn-outline-black rounded-2 text-white mb-2 contact-info-button">Contact Seller</a>
                                 {% if conversion.is_active %}
                                     <a href="{% url 'delist_conversion' conversion.id %}" class="ml-2 mb-2 btn btn-outline-black rounded-2 text-white">Delist Listing <i class="ml-1 fa fa-minus-circle"></i></a>
@@ -68,6 +68,21 @@
                                 <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
                                 <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
                             </div>
+                        </div>
+                        <!--- Delete Confirm Modal --->
+                        <div id="id{{ forloop.counter }}" class="modal">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close-modal close" title="Close Modal">&times;</span>
+                            <form class="modal-content" action="/action_page.php">
+                                <div class="container container-modal">
+                                <h1>Delete Conversion</h1>
+                                <p>Are you sure you want to delete {{ conversion.listing_title }}?</p>
+
+                                <div class="clearfix">
+                                    <button type="button" onclick="document.getElementById('id{{ forloop.counter }}').style.display='none'" class="cancelbtn button-modal">Cancel</button>
+                                    <a href="{% url 'delete_conversion' conversion.id %}"><button type="button" class="deletebtn button-modal">Delete</button></a>
+                                </div>
+                                </div>
+                            </form>
                         </div>
                 {% endfor %}
             </div>
