@@ -372,37 +372,26 @@ a {
 .nav-link::before {
   transition: 300ms;
   height: 2px;
-  left: 22%;
+  left: 23%;
   content: "";
   position: absolute;
   background-color: white;
 }
 
 .nav-link-faq::before {
-  transition: 300ms;
-  height: 2px;
   left: 31%;
-  content: "";
-  position: absolute;
-  background-color: white;
 }
 
 .nav-link-about::before {
-  transition: 300ms;
-  height: 2px;
-  left: 19%;
-  content: "";
-  position: absolute;
-  background-color: white;
+  left: 23%;
+}
+
+.nav-link-sell-conversion::before {
+  left: 25%;
 }
 
 .nav-link-home::before {
-  transition: 300ms;
-  height: 2px;
-  left: 18%;
-  content: "";
-  position: absolute;
-  background-color: white;
+  left: 22%;
 }
 
 .dropdown-item:hover,
@@ -416,9 +405,18 @@ a.dropdown-item {
     z-index: 4;
 }
 
+.logo-font.font-weight-bold.nav-link.text-white.mr-3,
+#faq-link {
+    font-size: 1.1rem;
+}
+
 @media(min-width:1200px){
     li.nav-item{
         font-size: 1.2rem;
+    }
+    .logo-font.font-weight-bold.nav-link.text-white.mr-3,
+    #faq-link {
+    font-size: 1.4rem;
     }
 }
 
@@ -728,7 +726,15 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
 @media (max-width:767px){
     #conversions-search-bar {
     margin: 0 auto;
-    width: 50%;
+    width: 65%;
+    }
+}
+
+
+@media (max-width:400px){
+    #conversions-search-bar {
+    margin: 0 auto;
+    width: 80%;
     }
 }
 
