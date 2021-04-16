@@ -222,7 +222,10 @@ def delete_conversion(request, conversion_id):
     if request.user == conversion.user.user or request.user.is_superuser:
         conversion.delete()
         messages.success(request, 'Listing successfully deleted')
-        return redirect(reverse('my_listings'))
+        if request.user == conversion.user.user:
+            return redirect(reverse('my_listings'))
+        else:
+            return redirect(reverse('manage_conversions'))
     else:
         messages.error(request, 'Sorry, you can only delete listings which you have created previously.')
         return redirect(reverse('my_listings'))
