@@ -5,7 +5,6 @@ from django.db.models.functions import Lower
 from django.db.models import Q
 from django.forms import modelformset_factory
 from django.core.paginator import Paginator
-from django.shortcuts import render
 
 from .models import CamperConversion, Category, PostImage
 from .forms import ConversionForm, ImageForm
