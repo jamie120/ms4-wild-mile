@@ -1,16 +1,12 @@
 # Testing
 
-[back to README.md](https://github.com/jamie120/ms4-wild-mile/blob/master/README.md)
+
+#### [<< Return to Readme](https://github.com/jamie120/ms4-wild-mile/blob/master/README.md)
+
 
 ## Contents
 
 1. [Manual Testing](#manual-testing)
-    * [Home Page](#home-page)
-    * [Recipes Page](#recipes-page)
-    * [Recipe Page](#recipe-page)
-    * [Add Recipe Page](#add-recipe-page)
-    * [Edit Recipe Page](#edit-recipe-page)
-    * [Site Wide](#site-wide)
 2. [DevTools](#devtools)
 3. [Automated Testing](#automated-testing)
     * [Code Validation](#code-validation)
@@ -21,7 +17,46 @@
     * [User review](#user-review)
 6. [Post Review Changes](#post-review-changes)
 
-## Manual Testing
+# Manual Testing
+
+### **The following checks were completed on all browsers, any issues have been captured and documented below with screenshots.**
+
+ 
+**<details><summary>Sitewide</summary>**
+
++ [Navbar & Banner](#navbar-and-banner)
++ [Footer](#footer)
++ [Search bar](#search-bar)
+    
+</details>
+
+**<details><summary>Home / About / Faq</summary>**
+
++ [Home Page](#home-page)
++ [About](#about-page)
++ [FAQ](#faq-page)
+    
+</details>
+
+**<details><summary>Authorisation</summary>**
+
++ [Sign In / Logout](#sign-in-and-logout)
++ [Register](#register)
++ [Allauth templates](#allauth-templates)
+    
+</details>
+
+**<details><summary>Conversions</summary>**
+
++ [Conversions Page](#conversions-page)
++ [Conversion Detail Page](#conversion-detail-page)
++ [Save to Profile Feature](#save-to-profile-feature)
++ [Add a conversion Page](#add-conversion-page)
++ [Edit conversion Page](#edit-conversion-page)
++ [Delete conversion function](#delete-conversion-function)
++ [Listing token Page](#listing-token-page)
+
+</details>
 
 ### Testing completed using the following browsers: 
 
@@ -30,7 +65,28 @@
 * Apple iPad Pro 11" -  Safari and Google Chrome - latest build at 29/01/2021.
 * Apple iPhone X - Safari and Google Chrome - latest build at 29/01/2021.
 
-### **The following checks were completed on all browsers, any issues have been captured and documented below with screenshots.**
+#  **Sitewide**
+
+### Navbar and Banner
+
+* Verify hover effects are present on all nav links - :white_check_mark:
+* Check all links in the nav element direct users to expected pages - :white_check_mark:
+* Check all links in the mobile nav element direct users to the expected pages - :white_check_mark:
+* Verify login and register links remove once a user is logged into the site - :white_check_mark:
+* Verify admin/superuser specific links appear in 'My Account' dropdown - :white_check_mark:
+* Verify scrolling banner displays and is animated - :white_check_mark:
+
+### Footer
+* Verify social icons link to the corresponding social media websites and that they open in a new window when clicked :white_check_mark:
+* Verify the year is rendered as the current year in the copyright caption :white_check_mark:
+
+### Search Bar
+* Check an existing search term to achieve render the conversions template with search query applied - :white_check_mark:
+![Search - True](documentation/testing/img/search-true.png) 
+
+* Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
+![Search - False](documentation/testing/img/search-false.png) 
+
 
 # **Home Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -39,22 +95,23 @@
 * Verify the 'grow' animation on the logo in the site-overlay functions as expected - :white_check_mark:
 * Check all links in index.html direct users to the correct routes - :white_check_mark:
 
-# **Nabvar & Banner **
-* Verify hover effects are present on all nav links - :white_check_mark:
-* Check all links in the nav element direct users to expected pages - :white_check_mark:
-* Check all links in the mobile nav element direct users to the expected pages - :white_check_mark:
-* Verify login and register links remove once a user is logged into the site - :white_check_mark:
-* Verify admin/superuser specific links appear in 'My Account' dropdown - :white_check_mark:
-* Verify scrolling banner displays and is animated - :white_check_mark:
+# **About Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify images load as expected and scale accordingly based on browser - :white_check_mark:
 
-# **Search Bar**
-* Check an existing search term to achieve render the conversions template with search query applied - :white_check_mark:
-![Search - True](documentation/testing/img/search-true.png) 
+# **FAQ Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify questions are clickable, to toggle display of relevant answers to users. -:white_check_mark:
 
-* Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
-![Search - False](documentation/testing/img/search-false.png) 
+# **Sign In and Logout**
+* Verify pages load as expected and responsively on all device sizes. - :white_check_mark:
+* Check all links operate as required -:white_check_mark:
 
-# **Sign Up**
+### Sign in and logout Fixes
+- Remove home link from sign in page - Not required
+
+
+# **Register**
 * Check signup process functions as expected, including verification email being sent to a new user - :white_check_mark:
 * Verification email received - :white_check_mark:
 * User Confirmed - :white_check_mark:
@@ -62,6 +119,12 @@
     ![Email - Sent](documentation/testing/img/verify-email-sent.png)
     ![Email - Recieved](documentation/testing/img/verify-email.png)
     ![User - Confirmed](documentation/testing/img/email-confirmed.png) 
+
+# **Allauth templates**
+* Check page styling is adjusted for all templates provided from allauth, to match the site theme -:x:
+
+### Allauth template Fixes
+- Various templates do not contain white text or appropriate margin and padding - AMEND AS REQUIRED
 
 # **Conversions Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -79,7 +142,7 @@
 
 * Verify carousel displays the listings first three images :white_check_mark:
 
-# **Conversion Detail**
+# **Conversion Detail Page**
 
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 
@@ -99,23 +162,62 @@
 
     ![Inactive - listing - regular user](documentation/testing/img/inactive-listing-admin.png)
 
-* Verify listings with more than six images have additional images within an owl-carousel element with controls, which is rendered below the CSS image grid :x:
+## Images
+* CSS image grid displays 6 conversion images in the bottom section of the page (viewports 768px and above) -:white_check_mark:
+* Verify listings with more than six images have an owl-carousel element with controls rendered below the CSS image grid :x:
 * Verify the owl-carousel contains ALL listing images with controls on viewports below 768px, the CSS image grid is not displayed :white_check_mark:
 
 ## Conversion Detail Fixes
 
 * Add 'owl-carousel' controls on viewports larger than 767px
 
-
 # **Save to Profile Feature**
 
+* Verify only registered users can use the save to profile feature (users will be prompted to sign in) -:white_check_mark:
 * Verify listings can only be added to the user profile once (toast messages provide feedback to user) - :white_check_mark:
     ![User - Confirmed](documentation/testing/img/save-item-first.png)
 
     ![User - Confirmed](documentation/testing/img/save-item-false.png)
 
     ![User - Confirmed](documentation/testing/img/save-item-true.png)
-    
+
+# **Add Conversion Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify only logged in users can access the 'add_conversion' template -:white_check_mark:
+* Verify links work as expected 
+    * Go to profile - :white_check_mark:
+    * View listing token - :white_check_mark:
+* Verify form validation prevents user from submitting the form with errors -:white_check_mark:
+* Verfify that once the form is submitted and validated, the user is redirected to the newly created listing - rendering the conversion_detail template -:white_check_mark: 
+* Verify the newly created listing is NOT active -:white_check_mark:
+* Verify the newly created listing is viewable in the user profile 'my_listings' template :white_check_mark:
+
+# **Edit Conversion Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify users can only access the 'edit_conversion' template for listings which they have previously created (exception - Admin/superuser can edit all listings) -:white_check_mark:
+* Verify 'back-to' link is dynamically rendered to the template:
+    * Admin/Superuser - BACK TO CONVERSION MANAGEMENT -:white_check_mark:
+    * Listing creator - BACK TO MY LISTINGS -:white_check_mark:
+* Check all listing content is rendered to the form, ready for a user to edit -:white_check_mark:
+* Check all images have the ability to 'delete' if desired -:white_check_mark:
+* Check that three NEW image upload elements are present at the bottom of the form -:white_check_mark:
+* Verify users are able to add/remove/update image files and save changes -:x:
+
+## Edit form fixes
+* It is not possible to update an image file if the delete checkbox is active - add note to users in the form
+
+# **Delete Conversion Function**
+* Verify users may request deletion only of listings which they have previously created (exception - Admin/superuser can delete all listings) -:white_check_mark:
+* Verify a modal to confirm deletion is displayed to the user before commencing with deletion of listing -:white_check_mark:
+* Verfify listings are deleted from the database once the process is confirmed and completed -:white_check_mark:
+
+# **Listing Token Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify links work as expected 
+    * Standard Listing - :white_check_mark:
+    * Extended Listing (disabled) - :white_check_mark:
+    * Quarterly Listing (disabled) - :white_check_mark:
+
 ----------------------------
 ----------------------------
 ----------------------------
@@ -129,161 +231,7 @@ CONTINUE BELOW - COMPLETED UP TO THIS POINT
 ----------------------------
 ----------------------------
 
-### Not logged in
 
-![CTA - Before](documentation/testing/img/home-cta-message.png) 
-
-### Logged in
-
-![CTA - Logged In](documentation/testing/img/home-cta-message-logged-in.png)
-
-
-### **Home Page - Fixes**
-
-* Incorrect font style on call to action button caption, when user not logged in to the site. 
-
-# **Recipes Page**
-
-* Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify all fonts are applied as expected - :white_check_mark:
-* Verify the message and call to action button at the bottom of the page changes, if a user is logged in - :white_check_mark:
-* Verify recipe cards render to the page correctly - :white_check_mark:
-* Verify recipe cards redirect users to the individual recipe pages when clicked - :white_check_mark:
-* Verify the four category buttons function correctly - re-rendering the page with only recipes from the selected category - :white_check_mark:
-* Verify selected category has applied CSS outline and HTML page header indicates the category with text - :white_check_mark:
-
-![missing image - recipes page](documentation/testing/img/missing-image-recipes.png)
-
-### Category selection - Dinner
-
-![Category-dinner](documentation/testing/img/category-dinner.png)
-
-
-### Pagination 
-* Verify page pagination functions correctly. At the time of testing there are 10 recipes - with a pagination setting of 6 recipes per page - :white_check_mark:
-* Verify hover effect is present on recipe cards - :white_check_mark:
-
-
-### Screenshots
-
-![Pagination - 1](documentation/testing/img/pagination-test-1.png)
-![Pagination - 2](documentation/testing/img/pagination-test-2.png)
-
-### Search function
-
-* Verify the search function operates as expected. Tested search term (avacado)  - :white_check_mark:
-* Verify 'see all recipes' button functions correctly - rerenders the page with all recipes - :white_check_mark:
-
-![Search](documentation/testing/img/avacado-search.png)
-
-
-# **Recipe Page**
-
-
-### General
-* Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify all fonts are applied as expected - :white_check_mark:
-* Verify all recipe info is rendered from the database correctly and in full - :white_check_mark:
-* Verify the message and call to action button at the bottom of the page changes, if a user is logged in - :white_check_mark:
-
-### Image
-* Verify backup image renders if recipe IMG/URL path generates an error - :white_check_mark:
-    * To test - the image URL was replaced with string 'testing' on the 'No fish and chips recipe.
-
-![missing image - recipe page](documentation/testing/img/missing-image-recipe.png)
-
-### Buttons
-* Verify 'edit recipe' button is linked to the route 'edit-recipe' for the corresponding recipe - :white_check_mark:
-* Verify 'delete recipe' button is linked to the route 'delete-recipe' for the corresponding recipe, and that the corresponding recipe is removed from the database if clicked - :white_check_mark:
-* Verify 'delete' button in the comments section of the page - deletes the comment it corresponds to from the database - :white_check_mark:
-* Verify buttons appear as required, based on authentication - :white_check_mark:
-    * User logged in - viewing a recipe they are NOT author of - 
-    ![missing image - recipe page](documentation/testing/img/recipe-buttons-not-author.png)
-    * User logged in - viewing a recipe they ARE the author of - 
-    ![missing image - recipe page](documentation/testing/img/recipe-buttons-author.png)
-    * User logged in - viewing a comment/rating they ARE the author of -
-    ![missing image - recipe page](documentation/testing/img/comment-author-button.png)
-
-### Comments & rating
-* Verify comments and ratings can only be added by users logged in with authentication - :white_check_mark:
-* Verify users are not able to submit blank comments - :x:
-* Verify the contents of the comments textarea is submitted to the database and renders to the page correctly once 'Add Comment & Rating' is clicked - :white_check_mark:
-
-
-### **Recipe Page - Fixes**
-* Add required attribute to ensure users cannot submit blank comments to the page.
-
-
-
-# **Add Recipe Page**
-
-### General
-
-* Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify all fonts are applied as expected - :x:
-
-### Form Fields
-* Verify call categories are rendered from the database, into the select menu - :white_check_mark:
-* Verify all labels are responsive, when a user focusses on corresponding input field - :white_check_mark:
-* Verify all validation is present throughout the form as specified below:
-    * Recipe Name - Minimum 5 characters :white_check_mark:
-    * Short Description - Minimum 50 characters :white_check_mark:
-    * Yield (Servings) - Maximum integer of 8 - must not be blank :white_check_mark:
-    * Preptime - Integer - multiple of 5 - must not be blank :white_check_mark:
-    * Cooktime - Integer - multiple of 5 - must not be blank :white_check_mark:
-    * Ingredients - No maximum - must not be blank :white_check_mark:
-    * Method - No maximum - must not be blank :white_check_mark:
-    * Img URL - No maximum - must not be blank :white_check_mark:
-
-### Form Buttons
-
-#### Ingredients
-* Add ingredient button - appends an empty input to the page, below the last ingredient input :white_check_mark:
-* Remove ingredient button - removes the last input in the ingredients section, unless it is the only input present on the page :white_check_mark:
-* Reset button - removes all but the first ingredient input field from the section and empties the first ingredient input field of any text :white_check_mark:
-
-#### Method
-* Add step button - appends an empty text area to the page, below the last step textarea :white_check_mark:
-* Remove step button - removes the last textarea in the method section, unless it is the only textarea on the page :white_check_mark:
-* Reset button - removes all but the first textarea from the section and empties the textarea field of any text :white_check_mark:
-
-#### Add Recipe
-* Verify if any form validation is not passed, the form will not submit, the user is indicated at field level of the criteria for the input field :white_check_mark:
-* Verify if all validation is passed for the form, the data is submitted to the database 'Recipes' hosted with MongoDB :white_check_mark:
-
-
-### **Add Recipe Page - Fixes**
-* Style/font style missing from the call to action button and caption at the bottom of the page.
-
-
-# **Edit Recipe Page**
-
-* Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify all fonts are applied as expected - :white_check_mark:
-* Verify all validation is in place as specified for the 'Add Recipe' page - detailed [HERE](#form-fields)- :white_check_mark:
-* Verify all fields are automatically filled in from the database, with corresponding recipe information :white_check_mark:
-* Verify all buttons function the same as the 'Add Recipe Page' - detailed [HERE](#form-buttons) :white_check_mark:
-* Verify any changes are submitted to the database when the 'Submit Changes' button is clicked :white_check_mark:
-
-
-# **Site Wide**
-
-### Navbar
-* Verify navbar is collapsed at all times -  :white_check_mark:
-* Verify the scroll up arrow takes a user back to the top of the page when clicked (this is found bottom right of the viewport) - :white_check_mark:
-* Verify the following links do NOT display in the navbar if logged out :
-    * Logout :white_check_mark:
-    * Add Recipe :white_check_mark:
-* Verify the following links do NOT display in the navbar if logged in :
-    * Register :white_check_mark:
-    * Login :white_check_mark:
-* Verify recipe categories are "display:none" class is toggled when 'Recipes' link is clicked :white_check_mark:
-* Verify social icons link to the corresponding social media websites and that they open in a new window when clicked :white_check_mark:
-
-
-### Footer
-* Verify social icons link to the corresponding social media websites and that they open in a new window when clicked :white_check_mark:
-* Verify the year is rendered as the current year in the copyright caption :white_check_mark:
 
 
 # **DevTools**
@@ -367,22 +315,18 @@ All changes are documented in Section 6 of this document (Post Review Changes)
 
 ## **User Testing**
 
-A fellow Code Institute student took the time to thoroughly review the site content and code. They provided me with several ideas to improve both the user experience and improve code efficiency.
 
 All changes are documented in Section 6 of this document (Post Review Changes)
 
 # Post Review Changes
 
-* The following was addressed post-testing and feedback. (changes are detailed in commit history dated 30/01/2021 onwards) :
-    1. Change image on the recipe page to occupy less page width ( change div class from container-fluid to a container ) - fixes image sharpness.
-    2. Change ingredients and recipe info font style to match directions font style on the recipe page.
-    3. Make the navbar menu button and scroll up button smaller on mobile.
-    4. Adjust the spacing between 'search' and 'all recipes' buttons on the recipes page.
-    5. Change the colour of the range, rating input on the recipes page, to match the track colour.
-    6. Add page headers to add-recipe and edit-recipe pages - remove 'eat vegan' heading from both.
-    7. Change all app routes to contain hyphens, not underscores.
-    8. Sort recipes in app.py to display in ascending order of date added on the recipes template.
-    9. Do not display image container on recipe page if 'image URL' entry is blank.
-    10. Remove the required attribute from the 'image URL' field on both add and edit recipe forms.
-    11. Add comment and rating made visible to all site visitors, redirect to login if attempt to add comment without authentication.
- 
+* The following was addressed post-testing and feedback. (changes are detailed in commit history dated 15/04/2021 onwards) :
+    1. Remove sitewide search functionality for conversions - implement function into conversions page only.
+    2. Add search function to merchandise/products page.
+    3. Add further conditional coding to site navigation, to improve user experience.
+    4. Combine manage conversions and approve conversions pages, to create one dynamic page for displaying listings to site admin.
+    5. Make fixed height cards in 'my_listings' and 'saved_listings' templates.
+    6. Add confirm delete modals for merchandise and products throughout the site.
+    7. Remove home link from sign in page.
+    8. Adjust z-index on 'my-account' dropdown menu, to fix issue when empty toast messages element was preventing use of nav dropdown upon sign in.
+    9. Create error handling templates for 400,403,404,500 errors.
