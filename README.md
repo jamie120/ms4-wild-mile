@@ -6,56 +6,36 @@
 
 A live version of the site is available [here.](https://wild-mile-ms4.herokuapp.com/)
 
-Wild Mile Conversions is a site dedicated to the advertisement of bespoke vehicle conversions for leisure and business. Listings are added by site users, with the aim to attract buyers and complete a selling transaction off-site. Users purchase a listing fee to advertise on the site. Wild Mile merchansise is also available for purchase. The site is designed to be easy to navigate, promotes ease of use and have intuitive features for both buyers and sellers to enhance the user experience.
-
-#### **Project Requirements:**
-Build a full-stack site based around business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
-
-Required Technologies : 
-* HTML, CSS, JavaScript, Django + Django
-* Relational database (MySQL or Postgres)
-* Stripe Payments - Test card details can be found [HERE](#test-card)
-
-Optional: Include use of additional libraries and external APIs.
-
-#### Mandatory Requirements
-
-1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
-2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
-3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course
-4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
-5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
-6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
-7. Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
-8. Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
-9. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
-10. Version Control: Use Git & GitHub for version control.
-11. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
-12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
-13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
+Wild Mile Conversions is a site dedicated to the advertisement of bespoke vehicle conversions for leisure and business.
+Listings can be created by registered site users, with the aim of attracting buyers and complete a selling transaction off-site. Once created, users may edit or delete listing content. 
+Users wishing to list a conversion will purchase a 'listing token' to make their listings active and viewable to others on the site.
+Wild Mile merchansise is available for purchase to all site visitors, including un-registered users.
+Site admin will have full CRUD access to conversion listings and merchandise, aswell as the ability to manage 'active' status of conversion listings.
+The site is designed to be easy to navigate, promotes ease of use and have intuitive features for both buyers and sellers to enhance the user experience.
 
 # Table of Contents
 
-1.  [Strategy & Scope](#strategy-and-scope)
-    * [UX](#ux)
+- [Project Requirements](#project-requirements)
+- [Strategy & Scope](#strategy-and-scope)
+    - [UX](#ux)
         * [Business Objectives](#business-objectives)
         * [User Objectives](#user-objectives)
         * [Project goals](#project-goals)
         * [User Stories](#user-stories)
-2.  [Structure](#structure)
+- [Structure](#structure)
     * [Design Process](#design-process)
         * [Page Structure](#page-structure)
         * [Page Summaries](#page-summaries)
-        * [Django Apps](#django-apps)
+        * [Django Apps & Packages](#django-apps-and-packages)
         * [Database Design & Structure](#database-design-and-structure)
-3.  [Surface](#surface)
+- [Surface](#surface)
     * [Colors](#colours)
     * [Fonts](#font-choice)
-4.  [Skeleton](#skeleton)
+- [Skeleton](#skeleton)
     * [Wireframe Designs](#wireframe-designs)
     * [Final Project Design Differences](#wireframe-and-final-project-differences)
     * [Responsive Design](#responsive-page-design)
-5.  [Features](#features)
+- [Features](#features)
     * [Sitewide](#sitewide)
         * [Navbar](#nav-bar)
         * [Banner](#banner)
@@ -81,19 +61,46 @@ Optional: Include use of additional libraries and external APIs.
     * [Add Product](#add-product)
     * [Edit Product](#edit-product)
     * [Authentication](#authentication)
-6.  [Future Features](#future-features)
-7.  [Technologies Used](#technologies-used)
-8.  [Testing](#testing)
-9. [Deployment](#deployment)
+- [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
     * [Hosting on Heroku](#hosting-on-heroku)
     * [Cloning](#cloning)
-10. [Credits](#credits)
+- [Credits](#credits)
     * [Content](#content)
     * [Media](#media)
         * [Images](#images)
-    * [Acknowledgements](#acknowledgements)
-        * [Sites used](#sites-used-for-information-and-support)
-        * [Advice & Support](#i-received-advice-and-support-from)
+- [Acknowledgements](#acknowledgements)
+    * [Sites used](#sites-used-for-information-and-support)
+    * [Advice & Support](#i-received-advice-and-support-from)
+
+
+# Project Requirements
+Build a full-stack site based around business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
+
+Required Technologies : 
+* HTML, CSS, JavaScript, Django + Django
+* Relational database (MySQL or Postgres)
+* Stripe Payments - Test card details can be found [HERE](#test-card)
+
+Optional: Include use of additional libraries and external APIs.
+
+## Mandatory Requirements
+
+1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
+2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
+3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course
+4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
+5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
+6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
+7. Structure and Navigation: Incorporate a main navigation menu and structured layout (you might want to use Bootstrap to accomplish this).
+8. Use of JavaScript: The frontend should contain some JavaScript logic you have written to enhance the user experience.
+9. Documentation: Write a README.md file for your project that explains what the project does and the value that it provides to its users.
+10. Version Control: Use Git & GitHub for version control.
+11. Attribution: Maintain clear separation between code written by you and code from external sources (e.g. libraries or tutorials). Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README.
+12. Deployment: Deploy the final version of your code to a hosting platform such as Heroku.
+13. Security: Make sure to not include any passwords or secret keys in the project repository. Make sure to turn off the Django DEBUG mode, which could expose secrets.
 
 
 # Strategy and Scope
@@ -131,7 +138,11 @@ Optional: Include use of additional libraries and external APIs.
 
 - Fulfil all mandatory project minimum requirements. (these are listed [HERE](#mandatory-requirements))
 
-#### User Stories
+## User Stories
+
+#### A detailed list of over 30 specific user stories has been complied to help steer the design process.
+ * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
+
 
 An overview of user stories is displayed below:
 
@@ -151,12 +162,9 @@ An overview of user stories is displayed below:
 
 #### Admin:
 
-- Ability to manage listings, edit and delete.
-- Ability to add merchandise listings to the site, edit and delete as required.
-- Ability to review listing submissions and approve the publishing of them to the site.
-
-### A detailed list of over 30 specific user stories has been complied to help steer the design process.
- * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
+- Ability to manage all listings, with edit and delete functions.
+- Ability to add merchandise to the site, edit and delete as required.
+- Ability to review listing submissions and approve the publishing of them to the site. (manage the 'active' status of conversion listings)
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
@@ -314,10 +322,10 @@ An overview of user stories is displayed below:
 
 #### Authentication Pages
 
-* Various authentication pages, login, logout, register ... and other associated will be provided from the allauth library.
+* Various authentication pages, login, logout, register ... and other associated templates are provided from the allauth library and styled accordingly.
 
 
-## Django Apps
+## Django Apps and Packages
 
 The Wild Mile WebApp consists of 6 Django applications that host the main site features.
 
@@ -328,7 +336,7 @@ The Wild Mile WebApp consists of 6 Django applications that host the main site f
 - 'bag'
 - 'checkout'
 
-Other installed apps supporting the site features are: 
+Other installed django packages supporting the site features are: 
 - 'crispy_forms'
 - 'smartfields'
 - 'storages'
@@ -344,11 +352,11 @@ It shows the relationship between the database/models in its simplest form. Furt
 
 ![Django models - diagram](documentation/images/django-models-diagram.png "Django models diagram")
 
-The following main models have been designed for this project:
+The following main models have been designed and detailed below for this project:
 
 * Conversions - 4 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
 
-    1. Main conversion model, containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier and an 'is_active' boolean field to manage active listings.
+    1. Main conversion model(CamperConversion), containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier (used by admin to identify listing token assignment) and an 'is_active' boolean field to manage active listings.
     
     2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
     
@@ -412,7 +420,7 @@ The following fonts were applied to the site.
 
 ## Wireframe designs
 
-Wireframes were designed using Figma, for three primary breakpoints - Desktop, Tablet and Mobile.
+Wireframes were designed using Figma for all user pages (not including admin functions).
 
 - [Figma Wireframes](https://www.figma.com/file/UHdbvOVwqO7qNSWGQC7sWG/MS4-WILD-MILE?node-id=0%3A1)
 
@@ -452,7 +460,7 @@ Wireframes were designed using Figma, for three primary breakpoints - Desktop, T
 - Product Detail Page
     * Removed background colour for product information, made all text white.
     * Removed carousel, as only single images for products present.
-   
+
 ## Responsive Page Design
 
 The site has been designed to operate well on all screen sizes. Special care has been taken to ensure site content and layouts support a positive user experience. Bootstrap responsive classes are used to acheive this and are referenced in the terminology below.
@@ -554,6 +562,14 @@ The site has been designed to operate well on all screen sizes. Special care has
 * Users may upload a main image, which is captured in the conversion model. As well as an additional 5 images using the PostForm model. (Further images may be added to listings later using the edit conversion template)
 * Once a listing is saved, it is available to view, edit or delete in the users 'My Listings' area of their profile.
 
+### Approval Process
+
+* The flowchart below displays the process of approval for conversion listings.
+
+![Listing approval flowchart](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/images/approval-flowchart.png "Listing approval flowchart")
+
+* Users may only checkout with a listing token if an 'inactive' listing is attached at the product page.
+* Site admin will use django admin pages to review orders and respective UUID numbers, to ensure the correct listing is made active.
 
 ## Edit Conversion
 * The form rendered on this page is the same as the add_conversion template, detailed above. The same features and validation remain.
@@ -690,7 +706,9 @@ The site has been designed to operate well on all screen sizes. Special care has
 5. Develop an automatic de-list feature, which will change a listings 'isactive' value after a set period of time. Link this to the listing token duration.
 6. Set up recurring payment for paid listing tokens.
 7. Display featured listings on the home page - users may decide to purchase 'premium - featured' bolt on to a listing token.
-8. Implement more controls for Admin/Superuser to search & filter active lisings in the 'manage_conversions' template.
+8. Implement more controls for Admin/Superuser
+    * Abilty to search & filter active lisings in the 'manage_conversions' template.
+    * View orders with listing tokens and UUIDs associated, to remove the need to use django admin pages. 
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
@@ -841,11 +859,19 @@ https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
 
 ### Cloning
 
-To run this code locally, you can clone this repository directly into the editor of your choice by following the steps below:
+To run this code locally, you can clone this repository directly into the IDE of your choice by following the steps below:
+
+Ensure to have at least the following installed:
+Python3 - to run the application.
+Pip - to install any requirements.
+GIT - required for version control.
+
+Additionally you will need a free Stripe account set up, for your testing keys.
+
 
 Please note, no products or conversion listing data will be uploaded in this guide. Only the DB models will be uplodaed to MySQLlite. You can add products and/or listings once you have the Webapp up and running.
 
-Additionally you will need a free Stripe account set up, for your testing keys.
+* Steps
 
 1. Open Terminal.
 2. Change the current working directory to the location when you want the cloned directory.
@@ -862,7 +888,7 @@ Additionally you will need a free Stripe account set up, for your testing keys.
 5. Set up your environment variables
     * create .env file in the root directory
     * add .env to .gitignore file in your root directory
-    * add the following code to your .env file:
+    * add the following code to your .env file with your personal credentials:
         ```bash
         import os
         os.environ["DEVELOPMENT"] = "True"
