@@ -58,12 +58,45 @@
 
 </details>
 
+**<details><summary>Merchandise</summary>**
+
++ [Merchandise Page](#merchandise-page)
++ [Product Detail Page](#product-detail-page)
++ [Add Product Page](#save-to-profile-feature)
++ [Edit Product Page](#add-conversion-page)
+
+</details>
+
+**<details><summary>Bag / Checkout</summary>**
+
++ [Shopping Bag Page](#shopping-bag-page)
++ [Checkout Page](#checkout-page)
++ [Checkout Success Page](#checkout-success-page)
+
+</details>
+
+**<details><summary>Profiles</summary>**
+
++ [My Profile Page](#my-profile-page)
++ [Order History Page](#order-history-page)
++ [My Listings Page](#my-listings-page)
++ [Saved Listings Page](#saved-listings-page)
+
+</details>
+
+**<details><summary>Management Pages</summary>**
+
++ [Conversion Management Page](#conversion-management-page)
+
+
+</details>
+
 ### Testing completed using the following browsers: 
 
-* Google Chrome (Version 87.0.4280.88) using MacOS on a monitor running at 1920 x 1080.
-* Safari (Version 11.1.2 (13605.3.8)) using MacOS on a monitor running at 1920 x 1080.
-* Apple iPad Pro 11" -  Safari and Google Chrome - latest build at 29/01/2021.
-* Apple iPhone X - Safari and Google Chrome - latest build at 29/01/2021.
+* Google Chrome (Version  88.0.4324.192) using MacOS on a monitor running at 1920 x 1080.
+* Safari (Version 14.0.3 (16610.4.3.1.4)) using MacOS on a monitor running at 1920 x 1080.
+* Apple iPad Pro 11" -  Safari and Google Chrome.
+* Apple iPhone X - Safari and Google Chrome.
 
 #  **Sitewide**
 
@@ -218,21 +251,118 @@
     * Extended Listing (disabled) - :white_check_mark:
     * Quarterly Listing (disabled) - :white_check_mark:
 
-----------------------------
-----------------------------
-----------------------------
-----------------------------
-----------------------------
-CONTINUE BELOW - COMPLETED UP TO THIS POINT
+# **Merchandise Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify links work as expected 
+    1. Filter category buttons - :white_check_mark:
+    2. View Product Details (product card) - :white_check_mark:
+    3. Edit product button (visible to admin/superuser only) - :white_check_mark:
+    4. Delete product button (visible to admin/superuser only) - :white_check_mark:
+    5. Sort by dropdown - :white_check_mark:
+    6. Back to top link - :white_check_mark:
 
-----------------------------
-----------------------------
-----------------------------
-----------------------------
-----------------------------
+# **Product Detail Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify links/buttons work as expected 
+    1. Keep Shopping - :white_check_mark:
+    2. Add to bag - :white_check_mark:
+    3. Product Image (opens in new tab - large) - :white_check_mark:
+    4. Product quantity buttons (not able to reduce quantity to below 1) - :white_check_mark:
+    5. Edit product button (visible to admin/superuser only) - :white_check_mark:
+    6. Delete product button (visible to admin/superuser only) - :white_check_mark:
+* Verify sizes dropdown is rendered for products which include sizes -:white_check_mark:
 
+## Product Detail - Listing Token
+* Verfiy 'inactive' listings dropdown is rendered if product is a listing token -:white_check_mark:
+* Verify quantity buttons are removed for 'listing token' product -:white_check_mark:
+* Verfify quantity of item cannot be manual adjusted from the default of 1 -:white_check_mark:
+* Verify 'keep shopping' button is changed to 'back to listing levels' button -:white_check_mark:
 
+# **Add Product Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify only logged admin/superusers can access the 'add_product' template -:white_check_mark:
+* Verify form validation prevents user from submitting the form with errors -:white_check_mark:
+* Verfify that once the form is submitted and validated, the user is redirected to the newly created product - rendering the product_detail template -:white_check_mark: 
 
+# **Edit Product Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify only superusers can access the 'edit_product' template for -:white_check_mark:
+* Check all product content is rendered to the form, ready for a superuser to edit -:white_check_mark:
+* Verfify the 'clear' image checkbox works as expected if checked when the form is submitted. -:white_check_mark:
+* Verify that once the form is submitted, the user is redirected to the product_detail template for the recently updated product -:white_check_mark:
+
+# **Shopping Bag Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify all session bag contents render to the shopping bag template -:white_check_mark:
+* Verify totals and delivery is accurately calculated and displayed to the user -:white_check_mark:
+* Verify links/buttons work as expected
+    1. Product quantity buttons (cannot be reduced below 1) -:white_check_mark:
+    2. Update / Remove product buttons -:white_check_mark:
+    3. Keep Shopping button -:white_check_mark:
+    4. Secure checkout button -:white_check_mark:
+* For listing tokens: -
+    * Verify update button is removed -:white_check_mark:
+    * Verify quantity cannot be adjusted -:white_check_mark:
+
+# **Checkout Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify the order summary displays as expected -:white_check_mark:
+* User details populate from userprofile (default delivery info, name and email) if registered user -:white_check_mark:
+* Save delivery infomation checkbox - if checked form data is added/updated to user profile -:white_check_mark:
+* Stripe card element verification/validation works as expected -:white_check_mark:
+* Verify buttons work as expected
+    1. Adjust bag (returns user to shopping bag) -:white_check_mark:
+    2. Complete Order (generates order, redirects to checkout_success) -:white_check_mark:
+* If bag total is £0.00 -
+    1. Stripe element is not present on the page (checkout_free template rendered) - payment not required to complete order -:white_check_mark:
+
+# **Checkout Success Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify the order details displayed are as expected -:white_check_mark:
+* Verify all links work as expected -:white_check_mark:
+
+# **My Profile Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify all links to other profile pages work as expected -:white_check_mark:
+* Default delivery information is displayed in the rendered form, if present.
+* Verify the 'update information' feature works as expected for the default delivery information -:white_check_mark:
+
+# **Order History Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verfify all previous orders associated with the userprofile display on this page -:white_check_mark:
+* Verify order number links work as expected, rendering checkout_success template with corresponding order details -:white_check_mark:
+
+# **My Listings Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify all listings created by the user, are displayed within card elements on this page -:white_check_mark:
+* Verify all buttons on listing cards work as expected 
+    1. Goto listing(conversion_detail template) -:white_check_mark:
+    2. Edit listing(edit_conversion template) -:white_check_mark:
+    3. Delete listing(delete_conversion function) -:white_check_mark:
+* Verify the listing status is displayed to the user in the card footer 
+    1. Active listing (green text) -:white_check_mark:
+    2. Inactive listing (orange text + button to view pricing) -:white_check_mark:
+
+# **Saved Listings Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify all listings saved to the userprofile, are displayed within card elements on this page -:white_check_mark:
+* Verify all buttons on listing cards work as expected 
+    1. View Listing(conversion_detail template) -:white_check_mark:
+    2. Remove Listing(remove_saved_listing function) -:white_check_mark:
+* Verify the listing status is displayed to the user in the card footer if inactive - :white_check_mark:
+* Verify listing cannot be viewed if inactive (View listing button disabled) -:white_check_mark
+
+# **Conversion Management Page**
+* Verify the page loads responsively on all device sizes. - :white_check_mark:
+* Verify access to this template is limited to superusers only -:white_check_mark:
+* Verify all conversion listings are able to be displayed on this template - Using the buttons 'Active Listings' & 'Awaiting Approval' the user will filter displayed content based on the listing status -:white_check_mark:
+* Each listing summary is displayed in a card element.
+* Card elements contain the following buttons in their footer, buttons function as expected:
+    1. View Details (conversion_detail template) -:white_check_mark:
+    2. Edit Conversion (edit_conversion template) -:white_check_mark:
+    3. Delete Conversion (delete_conversion function) -:white_check_mark:
+    4. Contact Seller (displays contact into the card element footer) -:white_check_mark:
+    4. Delist / Approve listing (changes listing 'isactive' status) -:white_check_mark:
 
 # **DevTools**
 
@@ -262,47 +392,115 @@ All of my code passed the following validation tests/services:
 
 # **User Stories**
 
+## Viewing and Navigation
+### User Story 1
 
-#### User Story 1
-##### As a visitor to the site, I want to easily find a recipe for lunch and dinner. The recipe should have reviews.
+### As a site visitor: View a list of products/conversions available
+    
+* The site navigation is clear and easily allows access to both merchandise and conversions listing pages.
+* The home page has a call to action button - allowing users direct access to to conversion page, without the use of the navbar.  
 
-* Upon visiting the site it was clear to me which recipes had been recommended most times, as there was a top recipe panel on the home page. It also indicated the type of meal it was. ie: lunch or dinner.
-* The navbar was easily found and contained links to show only recipes from a certain category, this helped me find a recipe much quicker. 
-* Each recipe had a comments section at the bottom of its page. This helped me decide if I should try to cook the recipe myself.
+### User Story 2
 
-#### User Story 2
-##### As a visitor to the site, I want to share one of my favourite vegan recipes with others.
-
-* The home page indicates to me as a user, that the site is a place to share recipes. I am presented with a get started button upon visiting the site, which prompts me to make an account with 'Eat Vegan'. Upon signing up I am taken to the recipes page, at the bottom of which there is an 'add recipe' button.
-* At the bottom of the home page, there is a message informing me as a user 'Sign up to Eat Vegan, to add and review our recipes', alongside a button to 'Get Started'.
-* Once signing up, these buttons took me to an add-recipe form. The form was simple and easy to use, it was clear what information was required.
-
-#### User Story 3
-##### As a visitor to the site, I want to search for a light snack to make for some Vegan friends.
-
-* Upon vising the site, I was presented with a link to see all recipes. This took me to a page full of different recipes.
-* I was able to select lunch as a filter for the recipes, this made it easy to find a suitable meal. 
-* I know that my friends enjoy avocado, I was able to search for a recipe containing avocado easily.
+### As a site visitor: View individual product / listing details
+    
+* In the conversions listings page, each listing has a 'view details' button, it can be clicked to gain access to the conversion_detail template.
+* Each product image in the merchandise listings can be clicked to gain access to the product_detail template
 
 
-#### User Story 4
-##### As a previous visitor to the site, I want to edit a recipe that I added to the site on a previous visit.
+### User Story 3
 
-* Upon revisiting the site, I was able to search for the recipe I added easily.
-* To edit the recipe, I had to be logged in. Although this was not clear initially.
-* Once logged in, two buttons appeared below the recipe image, edit and delete the recipe.
-* Once clicked, the edit recipe form appears with all the recipe information populated. I was able to easily edit the details and hit 'submit changes' at the bottom of the page. The recipe updated immediately.
+### As a site visitor: Easily view my shopping bag with a total of my purchases at any time.
+
+* In the top-nav element which is fixed to the top of each page, a shopping bag icon is present, it can be clicked to gain access to the bag template to view bag contents.
+
+### User Story 4
+
+### As a site visitor: Learn more about the business and services offered
+
+* Upon visiting the site intitally, the site purpose is clearly displayed to users ('WILD MILE CONVERSIONS - A platform to buy and sell unique converted vehicles')
+* A scrolling banner at the top of each page promotes services and news to keep the user informed.
+
+## Registration and User Accounts
+
+### User Story 5
+
+### As a site visitor: Easily register for an account
+
+* In the top-nav element, a my_account icon is displayed. When clicked a dropdown will display a link to register.
+* Restricted areas of the site for registered users only, will prompt users to sign in or register and provide them with the relevant pages/information to achieve this.
+
+### User Story 6
+
+### As a site visitor: Easily login or logout of the site
+
+* In the top-nav element, a my_account icon is displayed. When clicked a dropdown will display a link to login or to logout.
+
+### User Story 7
+
+### As a site visitor: Easily recover my password in case I forget it
+
+* On the sign in page a 'forgot password' link will direct the user to input their registered email address, associated with their user account. A link will be emailed to the user to reset their password.
+
+### User Story 8
+
+### Receive an email confirmation after registering to verify my registration was successful
+
+* Newly registered users will need to confirm their email address as part of the signup process. In order to validate their account, they will receive an email from wildmileconversions@gmail.com
+
+### User Story 9
+
+### As a registered user: Have a personalized user profile
+
+* All registered users will have access to 'my_profile' template. This will contain information unique to their user profile, such as order history, saved listings, delivery information and more.
+
+## Sorting and Searching
+
+### User Story 10
+
+### As a site visitor: Sort listings or products - Easily find listings based on price or category which fit my criteria
+
+* Category filtering functionality is embedded into both conversions and merchandise pages, to allow users to display results of matching category criteria.
+* Displayed products or listings can be sorted by name, price, category on the page. Merchandise can further be sorted by rating.
+
+### User Story 11
+
+### As a site visitor: Search for a listing using keywords - Easily see what I've searched for and the number of results
+
+* A search bar is present on the conversions page, users may use this to search listing titles and descriptions. 
+* The search will return all matching listings and display them on the page. As well as a summary of the search term and the amount of matches found.
+* This feature has been extended to the merchandise products page.
+
+### User Story 12 + 13
+
+### As a registered user: Save a listing to my profile to easily view the listing at a later date from my profile
+
+* Users can easily use the button 'save to profile' on any active listing on the site. The button is present on both the conversions template and the conversion_detail template.
+* Users can easily manage all saved listings in their profile, in the 'saved_listings' page. Easily remove them from the save listings page, using the 'remove_listing' button.
+
+## Selling as a registered user
+
+### User Story 14
+
+### As a registered user: List a conversion on the site Easily
+
+* The site navigation offers users a direct link to 'sell a conversion'. 
+* Adding a listing to the platform is completed using a single form, with clear instructions on the 'sell_conversion' template.
+
+### User Story 15
+
+### As a registered user: Receive an email when my conversion is submitted for approval, to verify my listing token has been recieved and the order confirmed
+
+* The site will automatically generate an order summary during the checkout page. Clear instructions are 
+* Adding a listing to the platform is completed using a single form, with clear instructions on the 'sell_conversion' template.
 
 
-#### User Story 5
-##### As a previous visitor to the site, I want to review a recipe that I cooked last week. It would be good to be able to search for the recipe, as I remember the name of it.
 
-* Upon visiting the site, I searched for the recipe I had cooked earlier in the week. 
-* At the bottom of the page, a banner informed me that I should 'Sign up to add and review recipes'.
-* I clicked the 'get started' button, which was next to this message.
-* I easily signed up and relocated myself to the recipe, where I now found an 'add comment and rating' section at the bottom of the page. 
-* I was easily able to rate the recipe out of 5 and leave a comment. Which was added to the page once I clicked 'Add Comment & Rating'. 
-* I could also see a 'delete' button next to my newly added comment. It would be good if I could also edit this comment if I desired to do so.
+
+
+
+
+
 
 
 # User Testing
