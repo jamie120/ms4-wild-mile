@@ -59,9 +59,9 @@ class CamperConversion(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     transmission_type = models.CharField(
         max_length=254, choices=TRANSMISSION_TYPES)
-    vehicle_length = models.IntegerField()
-    vehicle_width = models.IntegerField()
-    vehicle_height = models.IntegerField()
+    vehicle_length = models.DecimalField(max_digits=3, decimal_places=2)
+    vehicle_width = models.DecimalField(max_digits=3, decimal_places=2)
+    vehicle_height = models.DecimalField(max_digits=3, decimal_places=2)
     current_mileage = models.IntegerField()
     belted_seats = models.IntegerField()
     vehicle_description = models.TextField()
