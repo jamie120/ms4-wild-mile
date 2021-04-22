@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -8,140 +7,134 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col mt-2"> 
-                <h2 class="logo-font mt-5 mb-4 text-white text-center text-lg-left">FAQ</h2>
-                <hr>
+<div class="container">
+    <div class="row">
+        <div class="col mt-2">
+            <h2 class="logo-font mt-5 mb-4 text-white text-center text-lg-left">FAQ</h2>
+            <hr>
+        </div>
+    </div>
+    <!--QUESTIONS -->
+    <div class="row mt-4 text-white">
+        <!--QUESTION COLUMN 1-->
+        <div class="col-lg-6 text-center">
+            <div class="q-a-content">
+                <div class="question" id="question-1">
+                    <a>Do you mix / master all genres of audio?</a>
+                    <a href="#" id="icon-1">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
+                </div>
+                <div class="answer" id="answer-1">
+                    <p>At SOMA Audio Services, we have vast experience working with many genres of music. Therefore we happily accept music from all genres. If you would like to hear some of our work related to the genre you have in mind, please get in touch using our contact form.</p>
+                </div>
+            </div>
+            <div class="q-a-content">
+                <div class="question" id="question-2">
+                    <a>How do I get in touch with you?</a>
+                    <a href="#" id="icon-2">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
+                </div>
+                <div class="answer" id="answer-2">
+                    <p>You can leave us a message using our contact form, send us an email here: contact@somapostproduction.com</p>
+                    <p>Alternatively give Jamie a call on +447720902039</p>
+                </div>
+            </div>
+            <div class="q-a-content">
+                <div class="question" id="question-3">
+                    <a>Do you offer an discounts?</a>
+                    <a href="#" id="icon-3">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
+                </div>
+                <div class="answer" id="answer-3">
+                    <p>Head over to our rates page, to see our multi track discount (upto 20%). The more work you need completing, the cheaper the price per track!</p>
+                </div>
+            </div>
+            <div class="q-a-content">
+                <div class="question" id="question-4">
+                    <a>How long does mastering / mixing take to complete?</a>
+                    <a href="#" id="icon-4">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
+                </div>
+                <div class="answer" id="answer-4">
+                    <p>We aim to complete all work within 7 working days, but this is dependant on workload. If your project is expected to take more than 7 days, a member of the team will get in touch with you.</p>
+                    <p>If your seeking a quicker service, we offer priority mastering on all services. This incurrs a surcharge - check out the rates page for more detail.</p>
+                </div>
             </div>
         </div>
-
-        <!--QUESTIONS -->
-        <div class="row mt-4 text-white">
-
-            <!--QUESTION COLUMN 1-->
-            <div class="col-lg-6 text-center">
-                <div class="q-a-content">
-                    <div class="question" id="question-1">
-                        <a>Do you mix / master all genres of audio?</a>
-                        <a href="#" id="icon-1">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-1">
-                        <p>At SOMA Audio Services, we have vast experience working with many genres of music. Therefore we happily accept music from all genres. If you would like to hear some of our work related to the genre you have in mind, please get in touch using our contact form.</p>
-                    </div>
+        <!--QUESTION COLUMN 2-->
+        <div class="col-lg-6 text-center">
+            <div class="q-a-content">
+                <div class="question" id="question-5">
+                    <a>Can I discuss my project with you before you begin working on the audio?</a>
+                    <a href="#" id="icon-5">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
                 </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-2">
-                        <a>How do I get in touch with you?</a>
-                        <a href="#" id="icon-2">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-2">
-                        <p>You can leave us a message using our contact form, send us an email here: contact@somapostproduction.com</p>
-                        <p>Alternatively give Jamie a call on +447720902039</p>
-                    </div>
-                </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-3">
-                        <a>Do you offer an discounts?</a>
-                        <a href="#" id="icon-3">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-3">
-                        <p>Head over to our rates page, to see our multi track discount (upto 20%). The more work you need completing, the cheaper the price per track!</p>
-                    </div>
-                </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-4">
-                        <a>How long does mastering / mixing take to complete?</a>
-                        <a href="#" id="icon-4">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-4">
-                        <p>We aim to complete all work within 7 working days, but this is dependant on workload. If your project is expected to take more than 7 days, a member of the team will get in touch with you.</p>
-                        <p>If your seeking a quicker service, we offer priority mastering on all services. This incurrs a surcharge - check out the rates page for more detail.</p>
-                    </div>
+                <div class="answer" id="answer-5">
+                    <p>Our main priority is getting the best out of our services for our customers, so understanding your requirements is a key part in acheiving this</p>
+                    <p>Once you are ready to go ahead with any of our services, give us a call to discuss your needs.</p>
                 </div>
             </div>
-
-            <!--QUESTION COLUMN 2-->
-            <div class="col-lg-6 text-center">
-                <div class="q-a-content">
-                    <div class="question" id="question-5">
-                        <a>Can I discuss my project with you before you begin working on the audio?</a>
-                        <a href="#" id="icon-5">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-5">
-                        <p>Our main priority is getting the best out of our services for our customers, so understanding your requirements is a key part in acheiving this</p>
-                        <p>Once you are ready to go ahead with any of our services, give us a call to discuss your needs.</p>
-                    </div>
+            <div class="q-a-content">
+                <div class="question" id="question-6">
+                    <a>How do I send you audio files and what format is required?</a>
+                    <a href="#" id="icon-6">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
                 </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-6">
-                        <a>How do I send you audio files and what format is required?</a>
-                        <a href="#" id="icon-6">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-6">
-                        <p>Once an order is placed, we will send over a confirmation email with links to upload to either our Google Drive, or DropBox directories, as well as details on how to name your files and the formats we require files to be.</p>
-                    </div>
+                <div class="answer" id="answer-6">
+                    <p>Once an order is placed, we will send over a confirmation email with links to upload to either our Google Drive, or DropBox directories, as well as details on how to name your files and the formats we require files to be.</p>
                 </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-7">
-                        <a>Do I pay before the work is started?</a>
-                        <a href="#" id="icon-7">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-7">
-                        <p>Yes, all payments must be recieved in full to commission the work on your audio files</p>
-                    </div>
+            </div>
+            <div class="q-a-content">
+                <div class="question" id="question-7">
+                    <a>Do I pay before the work is started?</a>
+                    <a href="#" id="icon-7">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
                 </div>
-                <div class="q-a-content">
-                    <div class="question" id="question-8">
-                        <a>Can you make revisions once the work is complete?</a>
-                        <a href="#" id="icon-8">
-                        <i class="fa-plus fas ml-2">
-                        <span class="sr-only">Expand</span>
-                        </i>
-                        </a>
-                    </div>
-                    <div class="answer" id="answer-8">
-                        <p>We want our customers to be happy with how their final product. That being said, if you feel that you'd like some changes to be made to the sound, then get in touch. We will work with you to ensure its how you imagined.</p>
-                    </div>
+                <div class="answer" id="answer-7">
+                    <p>Yes, all payments must be recieved in full to commission the work on your audio files</p>
+                </div>
+            </div>
+            <div class="q-a-content">
+                <div class="question" id="question-8">
+                    <a>Can you make revisions once the work is complete?</a>
+                    <a href="#" id="icon-8">
+                    <i class="fa-plus fas ml-2">
+                    <span class="sr-only">Expand</span>
+                    </i>
+                    </a>
+                </div>
+                <div class="answer" id="answer-8">
+                    <p>We want our customers to be happy with how their final product. That being said, if you feel that you'd like some changes to be made to the sound, then get in touch. We will work with you to ensure its how you imagined.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
-
 {% block postloadjs %}
 {{ block.super }}
 {% include 'home/includes/faq_expand_answers.html' %}
 {% endblock %}
-
