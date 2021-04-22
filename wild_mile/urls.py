@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 handler400 = 'home.views.bad_request'
 handler403 = 'home.views.permission_denied'
 handler404 = 'home.views.page_not_found'
-# handler500 = 'home.views.server_error'
+handler500 = 'home.views.server_error'
 
 
 urlpatterns = [
