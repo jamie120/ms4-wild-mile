@@ -9,7 +9,10 @@ Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
 Grand Total: £{{ order.grand_total }}
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+Please note, if you have purchased a listing token, it can take upto 24 hours for your listing to become active -
+you can check the status of the listing in your profile - https://wild-mile-ms4.herokuapp.com/profile/my_listings/
+
+If your order contains physical items, it will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
 We've got your phone number on file as {{ order.phone_number }}.
 
