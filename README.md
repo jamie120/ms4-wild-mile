@@ -15,32 +15,47 @@ The site is designed to be easy to navigate, promotes ease of use and have intui
 
 # Table of Contents
 
+**<details><summary>Project Requirements</summary>**
 - [Project Requirements](#project-requirements)
-- [Strategy & Scope](#strategy-and-scope)
-    - [UX](#ux)
-        * [Business Objectives](#business-objectives)
-        * [User Objectives](#user-objectives)
-        * [Project goals](#project-goals)
-        * [User Stories](#user-stories)
-- [Structure](#structure)
-    * [Design Process](#design-process)
-        * [Page Structure](#page-structure)
-        * [Page Summaries](#page-summaries)
-        * [Django Apps & Packages](#django-apps-and-packages)
-        * [Database Design & Structure](#database-design-and-structure)
-- [Surface](#surface)
-    * [Colors](#colours)
-    * [Fonts](#font-choice)
-- [Skeleton](#skeleton)
-    * [Wireframe Designs](#wireframe-designs)
-    * [Final Project Design Differences](#wireframe-and-final-project-differences)
-    * [Responsive Design](#responsive-page-design)
-- [Features](#features)
-    * [Sitewide](#sitewide)
-        * [Navbar](#nav-bar)
-        * [Banner](#banner)
-        * [Footer](#footer)
-    * [Homepage](#homepage)
+</details>
+
+**<details><summary>Strategy & Scope</summary>**
+* [UX](#ux)
+    * [Business Objectives](#business-objectives)
+    * [User Objectives](#user-objectives)
+    * [Project goals](#project-goals)
+    * [User Stories](#user-stories)
+</details>
+
+**<details><summary>Structure</summary>**
+* [Design Process](#design-process)
+    * [Page Structure](#page-structure)
+    * [Page Summaries](#page-summaries)
+    * [Django Apps & Packages](#django-apps-and-packages)
+    * [Database Design & Structure](#database-design-and-structure)
+
+</details>
+
+**<details><summary>Surface</summary>**
+* [Colors](#colours)
+* [Fonts](#font-choice)
+
+</details>
+
+**<details><summary>Skeleton</summary>**
+* [Wireframe Designs](#wireframe-designs)
+* [Final Project Design Differences](#wireframe-and-final-project-differences)
+* [Responsive Design](#responsive-page-design)
+
+</details>
+
+**<details><summary>Features</summary>**
+
+* [Sitewide](#sitewide)
+    * [Navbar](#nav-bar)
+    * [Banner](#banner)
+    * [Footer](#footer)
+* [Homepage](#homepage)
     * [Conversions](#conversions)
         * [Conversion Detail](#conversion-detail)
     * [Add Conversion](#add-conversion)
@@ -61,12 +76,23 @@ The site is designed to be easy to navigate, promotes ease of use and have intui
     * [Add Product](#add-product)
     * [Edit Product](#edit-product)
     * [Authentication](#authentication)
-- [Future Features](#future-features)
-- [Technologies Used](#technologies-used)
+    - [Future Features](#future-features)
+</details>
+
+**<details><summary>Technologies</summary>**
+* [Technologies Used](#technologies-used)
+</details>
+
+**<details><summary>Testing</summary>**
 - [Testing](#testing)
-- [Deployment](#deployment)
-    * [Hosting on Heroku](#hosting-on-heroku)
-    * [Cloning](#cloning)
+</details>
+
+**<details><summary>Deployment</summary>**
+* [Hosting on Heroku](#hosting-on-heroku)
+* [Cloning](#cloning)
+</details>
+
+**<details><summary>Credits & Acknowledgements</summary>**
 - [Credits](#credits)
     * [Content](#content)
     * [Media](#media)
@@ -74,7 +100,7 @@ The site is designed to be easy to navigate, promotes ease of use and have intui
 - [Acknowledgements](#acknowledgements)
     * [Sites used](#sites-used-for-information-and-support)
     * [Advice & Support](#i-received-advice-and-support-from)
-
+</details>
 
 # Project Requirements
 Build a full-stack site based around business logic used to control a centrally-owned dataset. Set up an authentication mechanism and provide paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
@@ -761,7 +787,7 @@ The site has been designed to operate well on all screen sizes. Special care has
 
 # Testing
 
-All-testing has been documented [testing.md](insert link here)
+All-testing has been documented here-  [testing.md](https://github.com/jamie120/ms4-wild-mile/blob/master/testing.md)
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
