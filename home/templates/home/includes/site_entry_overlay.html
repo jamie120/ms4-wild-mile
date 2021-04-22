@@ -1,0 +1,20 @@
+<!-- Site entry overlay JavaScript -->
+<script>
+    $('#overlay-site-entry').height($(document).height());
+    
+    $(document).ready(function(){
+    
+        // Check session storage to show overlay if first visit to site in browser tab //
+        if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
+            sessionStorage.setItem( 'doNotShow', true );
+            $ ('#overlay-site-entry').show();
+        };
+        // Fade overlay and remove overlay div when clicked //
+        $('#overlay-site-entry').click(function() {
+            $(this).css('opacity', 0);
+            setTimeout(function(){
+                $('#overlay-site-entry').remove();
+            }, 1500);
+        });
+    });
+</script>
