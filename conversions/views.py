@@ -189,7 +189,7 @@ def edit_conversion(request, conversion_id):
             for index, f in enumerate(formset):
                 if f.cleaned_data:
                     if f.cleaned_data['id'] is None:
-                        pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image')) 
+                        pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image'))
                         pic.save()
                     elif f.cleaned_data.get('image') == False:
                         pic = PostImage.objects.get(id=data[index].id)
