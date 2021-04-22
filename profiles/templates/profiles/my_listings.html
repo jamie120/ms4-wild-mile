@@ -45,26 +45,18 @@
                         </div>
                     </div>
                     <div class="card-footer card-footer-my-listings text-center">
-                        <a href="{% url 'conversion_detail' conversion.id %}?from_profile=True">
-                            <button class="btn border-dark mt-1 btn-outline-black border-white text-white profile-listing-button">Go To Listing</button>
-                        </a>
-                        <a href="{% url 'edit_conversion' conversion.id %}">
-                            <button class="btn border-dark mt-1 btn-outline-black border-white text-white profile-listing-button">Edit Listing</button>
-                        </a>
-                        <a>
-                            <button onclick="document.getElementById('id{{ forloop.counter }}').style.display='block'" class="btn border-dark mt-1 btn-outline-black text-white profile-listing-button">Delete Listing</button>
-                        </a>
+                        <a class="btn border-dark mt-1 btn-outline-black border-white text-white profile-listing-button" href="{% url 'conversion_detail' conversion.id %}?from_profile=True">Go To Listing</a>
+                        <a class="btn border-dark mt-1 btn-outline-black border-white text-white profile-listing-button" href="{% url 'edit_conversion' conversion.id %}">Edit Listing</a>
+                        <a href="#" onclick="document.getElementById('id{{ forloop.counter }}').style.display='block'" class="btn border-dark mt-1 btn-outline-black border-white text-white profile-listing-button">Delete Listing</a>
                         <div class="{% if conversion.is_active %}mt-5 {% else %}mt-4{% endif %}">
                             <hr class="border-muted">
                             {% if conversion.is_active %}
-                            <p class="text-success mt-3 mb-0">Listing is currently live on the site</p>
-                            <hr class="border-muted">
+                                <p class="text-success mt-3 mb-0">Listing is currently live on the site</p>
+                                <hr class="border-muted">
                             {% else %}
-                            <p class="text-warning mt-3 mb-2">Listing is NOT currently live on the site</p>
-                            <a href="{% url 'listing_levels' %}">
-                                <button class="btn border-dark btn-outline-black text-white mt-2 profile-listing-button">View Pricing</button>
-                            </a>
-                            <hr class="border-muted">
+                                <p class="text-warning mt-3 mb-2">Listing is NOT currently live on the site</p>
+                                <a class="btn border-dark btn-outline-black border-white text-white mt-2 profile-listing-button" href="{% url 'listing_levels' %}">View Pricing</a>
+                                <hr class="border-muted">
                             {% endif %}
                         </div>
                     </div>
