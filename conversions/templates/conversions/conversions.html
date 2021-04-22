@@ -48,7 +48,6 @@
                             </select>
                         </div>
                     </div>
-
                   
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-white mt-3 text-center text-md-left">
@@ -75,80 +74,80 @@
 
                 {% for conversion in conversions %}
                     {% if conversion.is_active %}
-                    <div class="row mt-1 mb-4 {% if forloop.counter == 1 %}mt-2{% else %}mt-4{% endif %}"></div>
-                        <div class="row conversion-listing">
-                            <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-xl-last{% endif %} d-flex align-items-start mb-3">
-                                <div class="mx-auto">
-                                    {% if conversion.main_image %}
-                                    <!-- Carousel of first three conversion images -->
-                                    <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide carousel-all-conversions" data-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active mr-2">
-                                                <a href="{% url 'conversion_detail' conversion.id %}">
-                                                    <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
-                                                </a>
-                                            </div>
-                                            {% for image in conversion.images.all %}
-                                                {% if forloop.counter < 3 %}
-                                                    <div class="carousel-item">
+                        <div class="row mt-1 mb-4 {% if forloop.counter == 1 %}mt-2{% else %}mt-4{% endif %}"></div>
+                            <div class="row conversion-listing">
+                                <div class="col-12 col-xl-4 {% if forloop.counter|divisibleby:2 %}order-xl-last{% endif %} d-flex align-items-start mb-3">
+                                    <div class="mx-auto">
+                                        {% if conversion.main_image %}
+                                            <!-- Carousel of first three conversion images -->
+                                            <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide carousel-all-conversions" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active mr-2">
                                                         <a href="{% url 'conversion_detail' conversion.id %}">
-                                                            <img class="img-fluid img-conversions-page" src="{{ image.image.url }}" alt="{{ conversion.listing_title }}">
+                                                            <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
                                                         </a>
                                                     </div>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                        <a class="carousel-control-prev" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="prev">
-                                            <i style="font-size: 40px" class="fas fa-arrow-alt-circle-left ml-2"></i>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="next">
-                                            <i style="font-size: 40px" class="fas fa-arrow-alt-circle-right mr-2"></i>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                        </div>
-                                    {% else %}
-                                    <a href="{% url 'conversion_detail' conversion.id %}">
-                                        <img class="img-fluid img-conversions-page" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.listing_title }}">
-                                    </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="col-12 col-xl-8 d-flex justify-content-center">
-                                <div class="card no-border w-100 h-100">
-                                    <div class="card-header bg-none no-border text-white">
-                                        <a href="{% url 'conversion_detail' conversion.id %}">
-                                            <h3 class="mb-0 p-2 title">{{ conversion.listing_title }}</h3>
-                                            <h4 class="mb-2 p-2 text-left font-weight-bold">£{{ conversion.price }}</h4>
-                                        </a>
-                                    </div>
-                                    <div class="card-body px-0 h-100 text-white conversion-detail-border">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Vehicle</span> - {{ conversion.vehicle_make_and_model }} - {{ conversion.year }}</p>
+                                                    {% for image in conversion.images.all %}
+                                                        {% if forloop.counter < 3 %}
+                                                            <div class="carousel-item">
+                                                                <a href="{% url 'conversion_detail' conversion.id %}">
+                                                                    <img class="img-fluid img-conversions-page" src="{{ image.image.url }}" alt="{{ conversion.listing_title }}">
+                                                                </a>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                <a class="carousel-control-prev" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="prev">
+                                                    <i style="font-size: 40px" class="fas fa-arrow-alt-circle-left ml-2"></i>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="next">
+                                                    <i style="font-size: 40px" class="fas fa-arrow-alt-circle-right mr-2"></i>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Location</span> - {{ conversion.location }}</p>
-                                                <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Berths</span> - {{ conversion.berths }}</p>
-                                                <p class="mb-0 p-2 text-left font-weight-bold">{{ conversion.vehicle_description|truncatechars:250 }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer px-0 no-border bg-none text-left">
-                                        <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black border-white rounded-2 mb-2 ml-2">View Details</a>
-                                        <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}?from_conversions=True" class="ml-2 btn btn-outline-black border-white rounded-2 mb-2">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
-                                        <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
-                                        <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
+                                        {% else %}
+                                            <a href="{% url 'conversion_detail' conversion.id %}">
+                                                <img class="img-fluid img-conversions-page" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.listing_title }}">
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-12 col-xl-8 d-flex justify-content-center">
+                                    <div class="card no-border w-100 h-100">
+                                        <div class="card-header bg-none no-border text-white">
+                                            <a href="{% url 'conversion_detail' conversion.id %}">
+                                                <h3 class="mb-0 p-2 title">{{ conversion.listing_title }}</h3>
+                                                <h4 class="mb-2 p-2 text-left font-weight-bold">£{{ conversion.price }}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="card-body px-0 h-100 text-white conversion-detail-border">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Vehicle</span> - {{ conversion.vehicle_make_and_model }} - {{ conversion.year }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Location</span> - {{ conversion.location }}</p>
+                                                    <p class="mt-1 mb-0 p-2 text-left font-weight-bold"><span class="large-font">Berths</span> - {{ conversion.berths }}</p>
+                                                    <p class="mb-0 p-2 text-left font-weight-bold">{{ conversion.vehicle_description|truncatechars:250 }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer px-0 no-border bg-none text-left">
+                                            <a href="{% url 'conversion_detail' conversion.id %}" class="btn btn-outline-black border-white rounded-2 mb-2 ml-2">View Details</a>
+                                            <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}?from_conversions=True" class="ml-2 btn btn-outline-black border-white rounded-2 mb-2">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
+                                            <p class="mt-3 text-white large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
+                                            <p class="mt-3 text-white large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                         <hr class="text-white mt-3">
                     {% endif %}
                 {% endfor %}
-
+                <!--- Pagination Navigation --->
                 <div class="pagination larger-font text-white">
                     <span class="step-links">
                         {% if conversions.has_previous %}
@@ -166,9 +165,11 @@
                         {% endif %}
                     </span>
                 </div>
+                <!------>
             </div>
         </div>
     </div>
+
     <div class="btt-button shadow-sm rounded-0 border border-white">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
