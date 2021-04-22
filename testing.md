@@ -20,7 +20,6 @@
 # Manual Testing
 
 ### **The following checks were completed on all browsers, any issues have been captured and documented below with screenshots.**
-
  
 **<details><summary>Sitewide</summary>**
 
@@ -98,6 +97,10 @@
 * Apple iPad Pro 11" -  Safari and Google Chrome.
 * Apple iPhone X - Safari and Google Chrome.
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 #  **Sitewide**
 
 ### Navbar and Banner
@@ -120,6 +123,9 @@
 * Check a non-existent search term to render the conversions template with search query applied - :white_check_mark:
 ![Search - False](documentation/testing/img/search-false.png) 
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Home Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -135,6 +141,10 @@
 # **FAQ Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify questions are clickable, to toggle display of relevant answers to users. -:white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Sign In and Logout**
 * Verify pages load as expected and responsively on all device sizes. - :white_check_mark:
@@ -159,6 +169,10 @@
 ### Allauth template Fixes
 - Various templates do not contain white text or appropriate margin and padding - AMEND AS REQUIRED
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Conversions Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 
@@ -174,6 +188,10 @@
 * Verify pagination is active, four listings (max) are present per page - :white_check_mark:
 
 * Verify carousel displays the listings first three images :white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Conversion Detail Page**
 
@@ -204,6 +222,10 @@
 
 * Add 'owl-carousel' controls on viewports larger than 767px
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Save to Profile Feature**
 
 * Verify only registered users can use the save to profile feature (users will be prompted to sign in) -:white_check_mark:
@@ -213,6 +235,10 @@
     ![User - Confirmed](documentation/testing/img/save-item-false.png)
 
     ![User - Confirmed](documentation/testing/img/save-item-true.png)
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Add Conversion Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -224,6 +250,10 @@
 * Verfify that once the form is submitted and validated, the user is redirected to the newly created listing - rendering the conversion_detail template -:white_check_mark: 
 * Verify the newly created listing is NOT active -:white_check_mark:
 * Verify the newly created listing is viewable in the user profile 'my_listings' template :white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Edit Conversion Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -239,10 +269,18 @@
 ## Edit form fixes
 * It is not possible to update an image file if the delete checkbox is active - add note to users in the form
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Delete Conversion Function**
 * Verify users may request deletion only of listings which they have previously created (exception - Admin/superuser can delete all listings) -:white_check_mark:
 * Verify a modal to confirm deletion is displayed to the user before commencing with deletion of listing -:white_check_mark:
 * Verfify listings are deleted from the database once the process is confirmed and completed -:white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Listing Token Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -250,6 +288,10 @@
     * Standard Listing - :white_check_mark:
     * Extended Listing (disabled) - :white_check_mark:
     * Quarterly Listing (disabled) - :white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Merchandise Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -260,6 +302,10 @@
     4. Delete product button (visible to admin/superuser only) - :white_check_mark:
     5. Sort by dropdown - :white_check_mark:
     6. Back to top link - :white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Product Detail Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -278,6 +324,10 @@
 * Verfify quantity of item cannot be manual adjusted from the default of 1 -:white_check_mark:
 * Verify 'keep shopping' button is changed to 'back to listing levels' button -:white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Add Product Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify only logged admin/superusers can access the 'add_product' template -:white_check_mark:
@@ -290,6 +340,10 @@
 * Check all product content is rendered to the form, ready for a superuser to edit -:white_check_mark:
 * Verfify the 'clear' image checkbox works as expected if checked when the form is submitted. -:white_check_mark:
 * Verify that once the form is submitted, the user is redirected to the product_detail template for the recently updated product -:white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Shopping Bag Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -304,6 +358,10 @@
     * Verify update button is removed -:white_check_mark:
     * Verify quantity cannot be adjusted -:white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Checkout Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify the order summary displays as expected -:white_check_mark:
@@ -316,10 +374,23 @@
 * If bag total is £0.00 -
     1. Stripe element is not present on the page (checkout_free template rendered) - payment not required to complete order -:white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Checkout Success Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify the order details displayed are as expected -:white_check_mark:
 * Verify all links work as expected -:white_check_mark:
+* Verify a confirmation order email is sent to the user :x:
+
+## Checkout Success Fixes
+* Order confirmation email was not being received in the deployed webapp for all orders.
+    * The code used to trigger sending an email was relocated into the checkout_success view from the paymentintent.successful webhook. Making this change ensured emails were being sent for all orders, including those of £0.00 value.
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **My Profile Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -327,10 +398,18 @@
 * Default delivery information is displayed in the rendered form, if present.
 * Verify the 'update information' feature works as expected for the default delivery information -:white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Order History Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verfify all previous orders associated with the userprofile display on this page -:white_check_mark:
 * Verify order number links work as expected, rendering checkout_success template with corresponding order details -:white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **My Listings Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -343,6 +422,10 @@
     1. Active listing (green text) -:white_check_mark:
     2. Inactive listing (orange text + button to view pricing) -:white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Saved Listings Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify all listings saved to the userprofile, are displayed within card elements on this page -:white_check_mark:
@@ -351,6 +434,10 @@
     2. Remove Listing(remove_saved_listing function) -:white_check_mark:
 * Verify the listing status is displayed to the user in the card footer if inactive - :white_check_mark:
 * Verify listing cannot be viewed if inactive (View listing button disabled) -:white_check_mark
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **Conversion Management Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -363,6 +450,10 @@
     3. Delete Conversion (delete_conversion function) -:white_check_mark:
     4. Contact Seller (displays contact into the card element footer) -:white_check_mark:
     4. Delist / Approve listing (changes listing 'isactive' status) -:white_check_mark:
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **DevTools**
 
@@ -378,6 +469,10 @@ Google DevTools was used within Google Chrome on macOS throughout the developmen
     * Upon site completion - the console was checked for any errors
     * Once the site was completed, the console was checked for any errors on each page :white_check_mark:
 
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
+
 # **Automated Testing**
 
 ## Validating the HTML, CSS and JS code
@@ -389,6 +484,17 @@ All of my code passed the following validation tests/services:
 - JS: [jshint](https://jshint.com/)
 
 * There were various HTML and CSS validation issues to resolve. These mainly referred to formatting my code and were easily fixable across the site.
+
+
+## Lighthouse Performance Testing
+
+* The site was testing using Lighthouse in Google Chrome Devtools, with no concerning issued highlighted.
+
+![Lighthouse performance results](documentation/testing/img/lighthouse-testing.png)
+
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # **User Stories**
 
@@ -491,17 +597,79 @@ All of my code passed the following validation tests/services:
 
 ### As a registered user: Receive an email when my conversion is submitted for approval, to verify my listing token has been recieved and the order confirmed
 
-* The site will automatically generate an order summary during the checkout page. Clear instructions are 
-* Adding a listing to the platform is completed using a single form, with clear instructions on the 'sell_conversion' template.
+* The site will automatically generate an order summary and display this to the user at the checkout success page.
+* Users will receive an email order confirmation upon completion of an order. The email contains information about listing tokens and how to check the status of a listing in their profile.
+
+### User Story 16 + 17
+
+### As a registered user: Edit, Remove my listings - to keep listings upto date or remove if no longer available for sale.
+
+* In the user profile - my_listings . Users can easily edit their listings by clicking the 'Edit Listing' button, present on the listing card element.
+* In the user profile - my_listings . Users can easily delete their listings by clicking the 'Delete Listing' button, present on the listing card element. A confirmation modal will pop up when this is pressed, to confirm deletion with the user before removing it from the database.
+
+### User Story 18
+
+### As a registered user: View how long my listing will be published for in my profile, so that i'm aware of when the item will no longer be advertised on the site.
+
+* This feature has been added to the future features list for the webapp. Due to time contstraints, this feature will not be available on launch. The user can still check if the listing is live or not, in the my_listings page of their profile.
+
+### User Story 19
+
+### As a registered user: Engage in conversation with potential buyers - to move forward will potential sale or learn more about a listing.
+
+* Site visitors may find contact information for a seller by clicking the 'contact seller' button on the respective conversion_detail page.
+* As a seller, I can update my contact information in the edit conversion page.
+* A future feature will allow two way conversion within the webapp between seller and potential buyer, in the form of a messaging system - Namely : Message Portal
+
+## Enquiring to purchase a conversion
+
+### User Story 20
+
+### As a site visitor: Easily locate contact information for the seller of a conversion.
+
+* This is covered in User Story 19, please review the content above.
+
+## Purchasing and Checkout
+
+### User Story 21
+
+### As a shopper: Easily select merchandise/items to purchase - size and qty if required.
+
+* The site merchandise section has intuitive filter and search functionality, to assist the user with finding relevant items/products.
+* Product detail pages display information clearly and include options for selecting sizes where applicable.
+* Product quantity is easily adjustable using the buttons on the product_detail page.
+
+### User Story 22 + 23
+
+### As a shopper: Be able to review items in my shopping bag before payment, Adjust product quantity.
+
+* The shopping bag page renders a full summary of all items currently in the users bag.
+* Product quantity can be adjusted on the shopping bag page.
+* Products can be completely removed from the bag on the shopping bag page.
+
+### User Story 24 + 25
+
+### As a shopper: Checkout easily, easily enter payment information, feel secure.
+
+* The checkout page is designed to be easily used, with information clear to the user and the page looks great on all screen sizes, due to a responsive design.
+* The payment input section is provided by a thirdparty recognised business called 'Stripe'. They are widely used and offer secure and fast payment authentication for users.
+
+### User Story 26
+
+### As a shopper: View an order confirmation after checkout.
+
+* Once checkout is complete, a checkout_success page is rendered for the user. It contains all order details and information required about payment and delivery.
+
+### User Story 27
+
+### As a shopper: Receive an email order confirmation after checkout.
+
+* As detailed in user story 15. Users will receive an order confirmation email upon checkout, this will provide users with all information required to review the order details.
 
 
-
-
-
-
-
-
-
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # User Testing
 
@@ -509,12 +677,12 @@ All of my code passed the following validation tests/services:
 
 A series of feedback and suggestions had been highlighted during a call on Saturday 30th January 2021. Action has been taken for all of these suggestions and changes to the site and code. 
 
-All changes are documented in Section 6 of this document (Post Review Changes)
-
-## **User Testing**
+Any changes are documented below in the section - (Post Review Changes)
 
 
-All changes are documented in Section 6 of this document (Post Review Changes)
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
 
 # Post Review Changes
 
@@ -528,3 +696,7 @@ All changes are documented in Section 6 of this document (Post Review Changes)
     7. Remove home link from sign in page.
     8. Adjust z-index on 'my-account' dropdown menu, to fix issue when empty toast messages element was preventing use of nav dropdown upon sign in.
     9. Create error handling templates for 400,403,404,500 errors.
+    10. Move confirmation email code to checkout_success view, to ensure emails are sent to users for all orders.
+<div align="right">
+    <a href="#contents"> ⇧ Back To Contents </a>
+</div>
