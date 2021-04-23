@@ -62,7 +62,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Merchandise Management</a>
+                                    <a href="{% url 'add_product' %}" class="dropdown-item">Add Merchandise</a>
                                     <a href="{% url 'manage_conversions'%}" class="dropdown-item">Conversion Listing Management</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>

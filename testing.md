@@ -247,9 +247,13 @@
     * Go to profile - :white_check_mark:
     * View listing token - :white_check_mark:
 * Verify form validation prevents user from submitting the form with errors -:white_check_mark:
+* Verify all validation is as expected and supports the user experience :x:
 * Verfify that once the form is submitted and validated, the user is redirected to the newly created listing - rendering the conversion_detail template -:white_check_mark: 
 * Verify the newly created listing is NOT active -:white_check_mark:
 * Verify the newly created listing is viewable in the user profile 'my_listings' template :white_check_mark:
+
+## Add conversion form fixes
+* Make vehicle dimensions able to be decimals - change IntegerField - DecimalField in model.
 
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
@@ -666,6 +670,21 @@ All of my code passed the following validation tests/services:
 
 * As detailed in user story 15. Users will receive an order confirmation email upon checkout, this will provide users with all information required to review the order details.
 
+### User Story 28 + 29
+
+### As site admin: Add/Edit/Delete merchandise products.
+
+* Site admin can easily find controls to edit and delete exisiting products on their respective product_detail pages and within the product card element on the products page.
+* Site admin can find a link to the 'add merchandise' page in the 'My Account' dropdown nav menu. This will render a simple form, which allows the user to add an item to the merchandise section of the site.
+
+### User Story 30 + 31
+
+### As site admin: Review and approve user listings.
+
+* Site admin can find a link to the  'conversion management' page in the 'My Account' drowndown nav menu.
+* The conversion management page hosts the functionality for site admin to view all listings in the database, with controls to display either 'active' or 'inactive' listings within card elements on the page.
+* Controls are available within each listing card element to 'approve' or 'delist' from the site as required, as well as controls to 'edit', 'delete', 'view' and 'contact seller'.
+
 
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
@@ -697,6 +716,8 @@ Any changes are documented below in the section - (Post Review Changes)
     8. Adjust z-index on 'my-account' dropdown menu, to fix issue when empty toast messages element was preventing use of nav dropdown upon sign in.
     9. Create error handling templates for 400,403,404,500 errors.
     10. Move confirmation email code to checkout_success view, to ensure emails are sent to users for all orders.
+    11. Update vehicle length, height and width fields in CamperConversion.model from IntegerField to DecimalField(max-digits=3, decimal_places=2)   - to allow upto 9.99 values to be entered.
+
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
 </div>
