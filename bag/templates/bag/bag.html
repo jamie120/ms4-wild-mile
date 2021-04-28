@@ -145,14 +145,14 @@
                                         </form>
                                         {% if item.product.sku != '12345678' %}
                                         <a class="update-link bg-dark p-1 border-muted br-1 text-white float-left"><small>Update</small></a>
-                                        <a class="remove-item bg-dark p-1 border-muted br-1 text-white float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
-                                        {% else %}
-                                        <a class="remove-item bg-dark p-1 border-muted br-1 text-white float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                         {% endif %}
                                          
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0 text-white">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    </td>
+                                    <td>
+                                        <a class="remove-item bg-dark p-1 border-muted br-1 text-white float-left" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                 </tr>
                             {% endfor %}

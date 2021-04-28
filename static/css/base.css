@@ -778,6 +778,31 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
     border-bottom-right-radius: 3px;
 }
 
+.remove-item {
+    margin-top: 1rem;
+}
+
+.update-link {
+    margin-left: 40%;
+}
+
+hr.bag-break {
+    margin-top: 5rem;
+    color: grey;
+}
+
+@media(min-width:768px) {
+    .update-link {
+        margin-left: 35%;
+    }
+}
+
+@media(min-width:1250px) {
+    .update-link {
+        margin-left: 40%;
+    }
+}
+
 /* ------- All Conversion Listings Page ------- */
 
 .card {
