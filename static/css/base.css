@@ -710,8 +710,7 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
 /* ------ All conversions page ------ */
 
 .img-conversions-page {
-    padding: 7px;
-    border-radius: 20px;
+    padding: 2px;
 }
 
 #conversions-search-bar {
@@ -721,6 +720,7 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
 @media (max-width:1199px){
     .img-conversions-page {
     border-bottom: unset;
+    height: auto !important;
     }
     #conversions-search-bar {
     width: 75%;
@@ -734,13 +734,13 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
     }
 }
 
-
 @media (max-width:400px){
     #conversions-search-bar {
     margin: 0 auto;
     width: 80%;
     }
 }
+
 
 /* ------ ADD/EDIT conversion page ------ */
 
@@ -790,16 +790,24 @@ a.br-1.ml-1.p-2.bg-white.text-danger {
 
 .carousel-all-conversions {
     border:1px solid #627072;
-    border-radius: 20px;
 }
 
-/* @media (max-width:1199px){
-    .carousel-all-conversions {
-    border-bottom: unset;
-    border-bottom-left-radius: unset;
-    border-bottom-right-radius: unset;
+.carousel-item {
+    max-height: 400px !important;
+}
+
+.carousel {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+
+@media (max-width:1199px){
+    .carousel-item {
+    max-height: 650px !important;
     }
-} */
+}
 
 .carousel {
     align-self: center;
