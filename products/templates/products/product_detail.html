@@ -16,11 +16,11 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if product.image %}
-                    {% if product.sku != '12345678' %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                    {% else %}
-                        <a href="#"></a>
-                    {% endif %}
+                        {% if product.sku != '12345678' %}
+                            <a href="{{ product.image.url }}" target="_blank">
+                        {% else %}
+                            <a href="#"></a>
+                        {% endif %}
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                     {% else %}
