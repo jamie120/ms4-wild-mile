@@ -9,8 +9,8 @@ A live version of the site is available [here.](https://wild-mile-ms4.herokuapp.
 Wild Mile Conversions is a site dedicated to the advertisement of bespoke vehicle conversions for leisure and business.
 Listings can be created by registered site users, with the aim of attracting buyers and complete a selling transaction off-site. Once created, users may edit or delete listing content. 
 Users wishing to list a conversion will purchase a 'listing token' to make their listings active and viewable to others on the site.
-Wild Mile merchansise is available for purchase to all site visitors, including un-registered users.
-Site admin will have full CRUD access to conversion listings and merchandise, aswell as the ability to manage 'active' status of conversion listings.
+Wild Mile merchandise is available for purchase to all site visitors, including unregistered users.
+Site admin will have full CRUD access to conversion listings and merchandise, as well as the ability to manage the 'active' status of conversion listings.
 The site is designed to be easy to navigate, promotes ease of use and have intuitive features for both buyers and sellers to enhance the user experience.
 
 # Table of Contents
@@ -116,7 +116,7 @@ Optional: Include use of additional libraries and external APIs.
 
 1. Django Full Stack Project: Build a Django project backend by a relational database to create a website that allows users to store and manipulate data records about a particular domain.
 2. Multiple Apps: The project must be a brand new Django project, composed of multiple apps (an app for each potentially reusable component in your project).
-3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom django models beyond the examples shown on the course
+3. Data Modeling: Put some effort into designing a relational database schema well-suited for your domain. Make sure to put some thought into the relationships between entities. Create at least 2 custom Django models beyond the examples shown on the course
 4. User Authentication: The project should include an authentication mechanism, allowing a user to register and log in, and there should be a good reason as to why the users would need to do so. e.g., a user would have to register to persist their shopping cart between sessions (otherwise it would be lost).
 5. User Interaction: Include at least one form with validation that will allow users to create and edit models in the backend (in addition to the authentication mechanism).
 6. Use of Stripe: At least one of your Django apps should contain some e-commerce functionality using Stripe. This may be a shopping cart checkout or single payments, or donations, etc. After paying successfully, the user would then gain access to additional functionality/content on the site. Note that for this project you should use Stripe's test functionality, rather than actual live payments.
@@ -143,7 +143,7 @@ Optional: Include use of additional libraries and external APIs.
 #### User Objectives
 
 - Users may be using the site to find bespoke conversions, as potential buyers.
-- Users may like to list/advertise a conversion for sale on the site, this should be easily acheived with a clear, straightforward method.
+- Users may like to list/advertise a conversion for sale on the site, this should be easily achieved with a clear, straightforward method.
 - Users may like to purchase 'Wild Mile' merchandise using the site. The store should make this easy, with clear pricing and checkout functionality.
 
 #### Project Goals
@@ -166,7 +166,7 @@ Optional: Include use of additional libraries and external APIs.
 
 ## User Stories
 
-#### A detailed list of over 30 specific user stories has been complied to help steer the design process.
+#### A detailed list of over 30 specific user stories has been compiled to help steer the design process.
  * The list can be viewed using this link to a Google Drive Sheets file - [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing)
 
 
@@ -176,7 +176,7 @@ An overview of user stories is displayed below:
 
 - Visitors will be able to purchase ‘Wild Mile’ merchandise from the site directly.
 - Registered users will be able to request contact with sellers to make purchases of conversions.
-- Registered users may save / favorite listings to their profile
+- Registered users may save / favourite listings to their profile
 
 #### Sellers:
 	
@@ -202,13 +202,13 @@ An overview of user stories is displayed below:
 
 ## Page Structure
 
-* The site is designed to feel familar throughout it's pages in style and functionality. It contains straight-forward navigation elements, further filtering/manipulation of site content can be completed within individual pages by utilising features such as search, filter and multiple pages. This design allows users to quickly and easily engage with and locate relevant content from within the site.
+* The site is designed to feel familiar throughout its pages in style and functionality. It contains straightforward navigation elements, further filtering/manipulation of site content can be completed within individual pages by utilising features such as search, filter and multiple pages. This design allows users to quickly and easily engage with and locate relevant content from within the site.
 
-* The site theme and code was developed from the ground up, with elements of the site layout inspired from 'boutique-ado' mini project that was put together during the teaching/learning of the 'Code Institute - Software Developer' course.
+* The site theme and code was developed from the ground up, with elements of the site layout inspired by 'boutique-ado' mini project that was put together during the teaching/learning of the 'Code Institute - Software Developer' course.
             
-* To maintain familarity between pages and improve site usability, the filter and sort elements implemented accross the site are displayed and work in the same way throughout the site.
+* To maintain familiarity between pages and improve site usability, the filter and sort elements implemented across the site are displayed and work in the same way throughout the site.
 
-* Research into optimal page layouts was conducted accross various sites/businesses which advertise/list products. The research helped to develop page layouts which present information clearly to the user accross multiple devices sizes with success.
+* Research into optimal page layouts was conducted across various sites/businesses which advertise/list products. The research helped to develop page layouts that present information clearly to the user across multiple devices sizes with success.
 
 * To support [User Stories](https://docs.google.com/spreadsheets/d/1g_SrmtPI9fuqDBbD-NZnR5lpJLmGJHU5aqLjB80KybA/edit?usp=sharing) and taking input from research, the following pages were chosen to be created:
 
@@ -251,7 +251,7 @@ An overview of user stories is displayed below:
 * Accompanying the navbar, a 'My Account' and 'Shopping Bag' button will be present on all pages:
     * My Account (dropdown) ----- Register ----- Login / My Profile ----- Logout
 
-    * My Account for admin/superuser with contain addition navlinks when logged in:
+      * My Account for admin/superuser contain additional nav links when logged in:
         * Product Management
         * Conversion Listing Management
     
@@ -316,11 +316,11 @@ An overview of user stories is displayed below:
 
 #### Profile Page
 
-* The profile page will contain a host of links to other registered site features, as well as the users default delivery information which can be updated.
+* The profile page will contain a host of links to other registered site features, as well as the user’s default delivery information which can be updated.
 
 #### Order History Page
 
-* This page will display all previous orders associated with the logged in user profile.
+* This page will display all previous orders associated with the logged-in user profile.
 
 #### My Listings Page
 
@@ -328,7 +328,7 @@ An overview of user stories is displayed below:
 
 #### Saved Listings Page
 
-* The saved listings page will render any listings the user has chosed to save/favorite whilst browsing the site.
+* The saved listings page will render any listings the user has chosen to save/favourite whilst browsing the site.
 
 #### Message Portal Page
 
@@ -362,7 +362,7 @@ The Wild Mile WebApp consists of 6 Django applications that host the main site f
 - 'bag'
 - 'checkout'
 
-Other installed django packages supporting the site features are: 
+Other installed Django packages supporting the site features are: 
 - 'crispy_forms'
 - 'smartfields'
 - 'storages'
@@ -372,7 +372,7 @@ Other installed django packages supporting the site features are:
 
 Database design and structure is handled through the creation of Models using Django. 
 
-The diagram below was created using : django-schema-graph-1.2.0
+The diagram below was created using: django-schema-graph-1.2.0
 
 It shows the relationship between the database/models in its simplest form. Further detail can be found below this diagram.
 
@@ -382,9 +382,9 @@ The following main models have been designed and detailed below for this project
 
 * Conversions - 4 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/conversions/models.py
 
-    1. Main conversion model(CamperConversion), containing all conversion data fields, a foreignkey linking to a userprofile, a uuid field to generate a random unique identifier (used by admin to identify listing token assignment) and an 'is_active' boolean field to manage active listings.
+    1. Main conversion model(CamperConversion), containing all conversion data fields, a foreign-key linking to a user profile, a UUID field to generate a random unique identifier (used by admin to identify listing token assignment) and an 'is_active' boolean field to manage active listings.
     
-    2. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the conversion model.
+    2. Category model, used by admin to add future category options to the site. Serves as a foreign key to the conversion model.
     
     3. Electrics model, used by admin to add or remove options for users to select during the listing process. Serves as a M2M Field in the conversion model.
     
@@ -392,21 +392,21 @@ The following main models have been designed and detailed below for this project
 
 * Orders - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
 
-    1. Order model, handle orders for the store, all order information including payment and delivery, foreignkey to userprofile.
+    1. Order model, handle orders for the store, all order information including payment and delivery, foreign key to user profile.
 
-    2. Order Line Item model, foreignkey to order model and product model, used to record individual order items.
+    2. Order Line Item model, foreign key to order model and product model, used to record individual order items.
 
 * Products - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/products/models.py
 
-    1. Category model, used by admin to add future category options to the site. Serves as a foreignkey to the product model.
+    1. Category model, used by admin to add future category options to the site. Serves as a foreign key to the product model.
 
-    2. Product model, foreignkey to category, contains all product information fields.
+    2. Product model, foreign key to the category, contains all product information fields.
 
 * Profiles - 2 Models - Detail can be viewed in the GitHub Repo at this path = /workspace/ms4-wild-mile/checkout/models.py
 
-    1. User Profile model, contains a OneToOneField to the django User model from django.contrib.auth.models, as well as default delivery information.
+    1. User Profile model, contains a OneToOneField to the Django User model from django.contrib.auth.models, as well as default delivery information.
     
-    2. Saved Listings model, foreignkeys to both user and conversion models. Used to assign saved/favorite listings to users.
+    2. Saved Listings model, foreign keys to both user and conversion models. Used to assign saved/favourite listings to users.
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
@@ -423,15 +423,14 @@ Colour Palette - Three main colours that compliment the design of the site are:
  - ![#627072](https://via.placeholder.com/15/627072/000000?text=+) - `#627072` - Page buttons, card background
 
 * Other various shades of grey are used with white to highlight, surround and drop shadows on elements throughout the site.
-* The main colour was chosen to represent the road and take some relvance to the company name.
+* The main colour was chosen to represent the road and take some relevance to the company name.
 
 
-## Font Choice
 
 The following fonts were applied to the site. 
 
 - pwscratchedfont - Used for conversion listing titles and home page brand title.
-    - The hand drawn style of the font works well to bring the concept of creativity forward.
+    - The hand-drawn style of the font works well to bring the concept of creativity forward.
     - https://www.dafont.com/pwscratchedfont.font
     - A webfontkit was generated using this font - to maximize compatibility between browsers -  - https://www.fontsquirrel.com/tools/webfont-generator
 
@@ -460,7 +459,7 @@ Wireframes were designed using Figma for all user pages (not including admin fun
 ## Wireframe and Final Project Differences
     
 - Profile Page
-    * It was decided that the 'Message Portal' would remain a future feature of the site. This allowed increased focus on mandatory requirements of the project.
+    * It was decided that the 'Message Portal' would remain a future feature of the site. This allowed increased focus on the mandatory requirements of the project.
     * Saved listings link was added to the profile page.
    
 - Conversions Page
@@ -470,8 +469,8 @@ Wireframes were designed using Figma for all user pages (not including admin fun
   
 - Conversion Detail Page
     * More content sections added to support required conversion data - electrics, beds, etc....
-    * Display 6 images in varying size, within a CSS grid.
-    * Added a carousel of images at the bottom of the page, for image counts larger that 6 photos. On mobile, all images are in the carousel.
+    * Display 6 images of varying size, within a CSS grid.
+    * Added a carousel of images at the bottom of the page, for image counts larger than 6 photos. On mobile, all images are in the carousel.
     
 - FAQ Page
     * Display questions in two columns on desktop devices, as opposed to the wireframe displaying a single column.
@@ -481,7 +480,7 @@ Wireframes were designed using Figma for all user pages (not including admin fun
     * Add sorting to products (price, name, category), to allow users to easily manipulate the content as desired.
     * Add edit and delete buttons for superuser/admin for each product.
     * Display 4 products per row on desktop.
-    * Display product information in card footer - with defined background.
+    * Display product information in card footer - with a defined background.
    
 - Product Detail Page
     * Removed background colour for product information, made all text white.
@@ -489,7 +488,7 @@ Wireframes were designed using Figma for all user pages (not including admin fun
 
 ## Responsive Page Design
 
-The site has been designed to operate well on all screen sizes. Special care has been taken to ensure site content and layouts support a positive user experience. Bootstrap responsive classes are used to acheive this and are referenced in the terminology below.
+The site has been designed to operate well on all screen sizes. Special care has been taken to ensure site content and layouts support a positive user experience. Bootstrap responsive classes are used to achieve this and are referenced in the terminology below.
 
 - Home page
     * Font sizes, text breaks and padding and margin is adjusted for smaller devices to maintain clarity and a positive user experience.
@@ -503,7 +502,7 @@ The site has been designed to operate well on all screen sizes. Special care has
     * All photos are displayed in a responsive carousel with user controls at the medium breakpoint and below, the CSS grid image gallery is hidden.
 
 - Conversion Listing Prices Page
-    * The three card elements stack into a single column at the medium breakpoint and below.
+    * The card elements stack into a single column at the medium breakpoint and below.
 
 - Merchandise Page
     * Products are displayed in rows of 4 (xl), 3 (lg), 2 (m) & 1 (sm) based on the respective devices screen size 
@@ -511,29 +510,29 @@ The site has been designed to operate well on all screen sizes. Special care has
     
 - Product Detail Page
     * The product image stacks at the medium breakpoint and below, above the product information.
-    * For large devices, the two columns occupy only 4 parts of the grid, an offset of 2 is added to the image container to maintain proportions. This design helps bring content to the center of the screen.
+    * For large devices, the two columns occupy only 4 parts of the grid, an offset of 2 is added to the image container to maintain proportions. This design helps bring content to the centre of the screen.
 
 - Shopping Bag Page
     * The shopping bag displays a table with order information to the user at medium breakpoints and above.
     * At smaller breakpoints the table is hidden and the table content is rendered to the page using the Bootstrap grid, not in the constraints of a HTML table. This allows the information to be better displayed and styled on the smaller device size, resulting in a better user experience.
     
 - Checkout Page
-    * The shopping bag content stacks above the delivery and payment details at medium breakpoint and below. This makes best use of screen space and allows for the delivery and payment elements to remain clear and legible on mobile devices.
+    * The shopping bag content stacks above the delivery and payment details at the medium breakpoint and below. This makes best use of screen space and allows for the delivery and payment elements to remain clear and legible on mobile devices.
 
 - About Page
-    * The two column layout stacks into a single column at the medium breakpoint and below.
+    * The two-column layout stacks into a single column at the medium breakpoint and below.
 
 - FAQ Page
-    * The two column layout stacks into a single column at the medium breakpoint and below.
+    * The two-column layout stacks into a single column at the medium breakpoint and below.
 
 - Profile Page 
     * The profile navigation links stack above the default delivery information at the large breakpoint and below. Resulting in better use of space on mobile and tablet.
 
 - My Listings / Saved Listings
-    * The three card elements stack into a single column at the medium breakpoint and below.
+    * The card elements stack into a single column at the medium breakpoint and below.
 
 - Authentication Pages 
-    * The main column containing the allauth form/data occupies full width (12) at the medium breakpoint and smaller. Otherwise it's set at 6, at the left of the screen. The right hand column is empty space.
+    * The main column containing the allauth form/data occupies full width of the Bootstrap grid (12) at the medium breakpoint and smaller. Otherwise it's set at half width (6), at the left of the screen. The right hand column is empty space.
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
@@ -544,34 +543,34 @@ The site has been designed to operate well on all screen sizes. Special care has
 ## Sitewide
 
 ### Nav Bar
-* The navbar collapses at the Bootstrap medium breakpoint and below. It can be expanded by clicking the collapsed nav icon to access the navlinks.
+* The navbar collapses at the Bootstrap medium breakpoint and below. It can be expanded by clicking the collapsed nav icon to access the nav links.
 * Main nav items have a hover effect active, which displays a short white underline below each nav item.
-* Dropdown nav items have a hover effect which changes their text colour to white and changes the background color to the dark green used in the site banner.
+* Dropdown nav items have a hover effect which changes their text colour to white and changes the background colour to the dark green used in the site banner.
 
 ### Banner
-* The site banner features a marquee element which displays scrolling text accross the viewport. For the context of this project, it is conveying key business messages/offers to site users.
+* The site banner features a marquee element that displays scrolling text across the viewport. For the context of this project, it is conveying key business messages/offers to site users.
 
 ### Footer
 * The footer contains social media links and is at the bottom of each page.
 
 ## Homepage
-* The home page features a call to action button which is labelled 'SEE CONVERSIONS'. This button when clicked, will render the conversions.html template. Displaying all active conversion listings to the user.
+* The home page features a call to action button which is labelled 'SEE CONVERSIONS'. This button when clicked will render the conversions.html template. Displaying all active conversion listings to the user.
 
 ## Conversions
 * The conversions page handles search terms, categories and sorting to provide users with a fully customisable experience when browsing conversions on the site.
 * Conversion category can be selected by clicking one of the category buttons, which will filter the results respectively.
 * The selected category button increases in size relative to the others, to indicate the selected category.
 * Sorting of conversions by Price, Name & Category is possible with the sort by dropdown menu.
-* A dynamically coded text caption, below the category buttons lets the user know the number of conversions that have been found from the database. This updates if a user changes category or submits a search term.
+* A dynamically coded text caption, below the category buttons lets the user know the number of conversions that have been found from the database. This updates if a user changes a category or submits a search term.
 * Pagination is set to return four listings per page. Page controls are present below the fourth conversion listing.
-* A return to top arrow is present at the bottom righthand area of the page. It remains in place as the user browses the page.
+* A return to top arrow is present at the bottom right-hand area of the page. It remains in place as the user browses the page.
 * Users can engage with the image carousel on each returned listing by using the navigation arrows within the carousel element, the carousel displays three images per listing.
 * To view the conversion detail, users can click the carousel, listing title or the 'view details' button, to render the respective conversion_detail.html template.
-* A save to profile button will save the respective conversion to the users 'Saved Listings' in thier profile. If the user is not logged it, they will be redirected to the sign in page.
+* A save to profile button will save the respective conversion to the users 'Saved Listings' in their profile. If the user is not logged in, they will be redirected to the sign-in page.
 
 ## Conversion Detail
 * The conversion_detail page features a contact seller button directly below the vehicle description. When this button is clicked, contact information appears below it for the seller.
-* A save to profile button is featured next to the 'contact seller' button. This saves the respective conversion to the users 'Saved Listings' in their profile. As above, if the user isn't logged in they will be redirected to the sign in page.
+* A save to profile button is featured next to the 'contact seller’ button. This saves the respective conversion to the users 'Saved Listings' in their profile. As above, if the user isn't logged in they will be redirected to the sign-in page.
 * The image carousel at the top of the page features all images, the user can use the controls to scroll between previous and next images.
 * The image gallery at the bottom of the page consists of two parts. 
     1. A 6 image CSS Grid (only renders min-width: 768px)
@@ -583,8 +582,8 @@ The site has been designed to operate well on all screen sizes. Special care has
         * The template will render a small message at the top of the page informing the user 'this listing is not live' - the listing content will render below this message.
 
 ## Add Conversion
-* This page is protected with a login decorator, it requires users to be authorised and logged in to view. Otherwise redirects to the sign in page.
-* The form has been rendered using django crispy forms. With custom layout and custom labels.
+* This page is protected with a login decorator, it requires users to be authorised and logged in to view. Otherwise redirects to the sign-in page.
+* The form has been rendered using Django crispy forms. With a custom layout and custom labels.
 * Users may upload a main image, which is captured in the conversion model. As well as an additional 5 images using the PostForm model. (Further images may be added to listings later using the edit conversion template)
 * Once a listing is saved, it is available to view, edit or delete in the users 'My Listings' area of their profile.
 
@@ -594,17 +593,17 @@ The site has been designed to operate well on all screen sizes. Special care has
 
 ![Listing approval flowchart](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/images/approval-flowchart.png "Listing approval flowchart")
 
-* Users may only checkout with a listing token if an 'inactive' listing is attached at the product page.
-* Site admin will use django admin pages to review orders and respective UUID numbers, to ensure the correct listing is made active.
+* Users may only checkout with a listing token if an 'inactive' listing is selected at the product page.
+* Site admin will use Django admin pages to review orders and respective UUID numbers, to ensure the correct listing is made active.
 
 ## Edit Conversion
 * The form rendered on this page is the same as the add_conversion template, detailed above. The same features and validation remain.
 * In addition to the points above, the form self populates with an instance of a conversion listing, including all the images associated with the listing.
-* Users may delete previously uploaded images, overwrite images and upload upto three additional images.
+* Users may delete previously uploaded images, overwrite images and upload up to three additional images.
 * Each time the form is accessed, three new empty 'choose file' fields will render.
 
 ## Add Conversion Pricing
-* Links are currently diabled for 'paid' listing tokens.
+* Links are currently disabled for 'paid' listing tokens.
 * The standard listing token is currently set as 'free - £0.00'. When clicked, the user is directed to a product detail page, rendering the listing token details. 
 
 ## Merchandise
@@ -613,19 +612,19 @@ The site has been designed to operate well on all screen sizes. Special care has
 * The selected category button increases in size relative to the others, to indicate the selected category.
 * A text caption, below the category buttons lets the user know the number of products that have been found in the selected category.
 * Site admin and superusers will see 'edit' and 'delete' buttons, within the footer of each product card.
-* Only merchandise products will display, listing tokens are not displayed on this template. This is acheived by removing specific SKUs from rendering on this page with conditional HTML code.
+* Only merchandise products will display, listing tokens are not displayed on this template. This is achieved by removing specific SKUs from rendering on this page with conditional HTML code.
 
 ## Product Detail
 * Products with sizes render a dropdown menu for users to select a size.
-* Lising token products will render a dropdown menu for users to select from any inactive listings associated with their profile. Add to bag button will only be enabled if there is a listing selected.
+* Listing token products will render a dropdown menu for users to select from any inactive listings associated with their profile. Add to bag button will only be enabled if there is a listing selected.
 * Images can be clicked to render full screen in a new tab.
 * Site admin and superusers will see 'edit' and 'delete' buttons, to the right of each product rating.
 * Quantity buttons can't be decreased below 1.
-    * If the product is a listing token, quantity is set to 1. No quantity adjustment buttons will render to the page.
+    * If the product is a listing token, the quantity is set to 1. No quantity adjustment buttons will render to the page.
 
 ## Shopping Bag
-* The shopping bag will allow users to adjust the quantity of bag items and update the bag. Users will also be able to remove bag items completely.
-* When update or remove buttons are clicked, the bag will refresh with any updated totals and delivery costs.
+* The shopping bag will allow users to adjust the number of bag items and update the bag. Users will also be able to remove bag items completely.
+* When the update or remove buttons are clicked, the bag will refresh with any updated totals and delivery costs.
 * Two buttons at the bottom of the page give the users choice to: 
     1. Keep shopping (back to products)
     2. Secure checkout (renders checkout page)
@@ -643,7 +642,7 @@ The site has been designed to operate well on all screen sizes. Special care has
     - ZIP: 42424
 * An summary of items being purchased is displayed on the page for the user.
 * The 'Complete Order' button will check all data is validated, process the order and direct the user to a 'checkout_success' page.
-* The 'Adjust Bag' button will take the user back to the bag page, if they require to make any changes.
+* The 'Adjust Bag' button will take the user back to the bag page if they require to make any changes.
 
 ## Checkout Success
 * The checkout success page will display order information to the user, including order items, cost, time and order number.
@@ -659,7 +658,7 @@ The site has been designed to operate well on all screen sizes. Special care has
 * The five links present on the profile page, simply redirect as expected to respective pages.
 
 ## Order History
-* All previous orders associated with the logged in user will display on this page.
+* All previous orders associated with the logged-in user will display on this page.
 * Orders are summarised over four columns, Order number, date, items and order total.
 * Users may click on an order number to render the checkout_success template to view full order details.
 * A back to profile link is rendered just below the heading, to allow easy navigation between pages.
@@ -672,7 +671,7 @@ The site has been designed to operate well on all screen sizes. Special care has
     2. Edit Listing (redirect - edit_conversion)
     3. Delete Listing (deletes listing from the database - reloads 'My Listing' template)
 * A status message will display below the buttons, informing the user if the listing is currently live or inactive on the site.
-* For inactive listings - an additional button 'View Listing Pricing' will render below the listig status message. This will redirect the use to the listing token pricing template.
+* For inactive listings - an additional button 'View Listing Pricing' will render below the listing status message. This will redirect the user to the listing token pricing template.
 * A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
 ## Saved Listings
@@ -680,13 +679,13 @@ The site has been designed to operate well on all screen sizes. Special care has
 * Each listing will be contained within a card element, containing the listing main image, listing title and price. 
 * The following buttons are present in the card footer:
     1. View listing (redirect - conversion_detail)
-    2. Remove Listing (remove listing from profile - reload 'Saved Listings')
+    2. Remove Listing (remove the listing from saved listings in profile - reload 'Saved Listings')
 * A status message will display below the buttons, informing the user if a listing is currently no longer active on the site. In this case, the 'View Listing' button will be disabled.
 * A back to profile link is rendered just below the heading, to allow easy navigation between pages.
 
 ## Conversion Management
 * This page is only accessible by superusers or admin user profile.
-* Below the header, a message will display current number of listings active and number of listings awating approval.
+* Below the header, a message will display the current number of listings active and the number of listings awaiting approval.
 * A link to 'Go To Approvals' will direct the user to the 'approve_conversions' template.
 * Each active listing will generate a card element on this page, each with the listing name, category and user(listing author) in the card body.
 * The card footer will host the following buttons:
@@ -717,7 +716,7 @@ The site has been designed to operate well on all screen sizes. Special care has
 ## Authentication
 * The site login/register authentication is handled by allauth.
 * When registering as a user with the site, a verification email is sent to the user.
-* Decorators throughout the site views to manage access of site content.
+* Decorators throughout the site views to manage access to the site’s content.
 * Conditional HTML code is written throughout templates, to provide a personalised user experience.
 
 <div align="right">
@@ -726,15 +725,15 @@ The site has been designed to operate well on all screen sizes. Special care has
 
 # Future Features
 1. Implement a message portal, for users to communicate with each other regarding the purchase of listings. Removing the need to display contact information on the listings.
-2. Display image thumbnails in the add / edit conversions forms, to improve the user experience when uploading, removing, updating image files.
+2. Display image thumbnails in the add/edit conversions forms, to improve the user experience when uploading, removing, updating image files.
 3. Introduce more conversion listing categories, create separate forms and database models to support the complexity of such feature.
 4. Introduce more conversion filter options, such as 'Electrics' or 'Mileage'. This will help users sort through listings more easily if there are many listings in the database.
 5. Develop an automatic de-list feature, which will change a listings 'isactive' value after a set period of time. Link this to the listing token duration.
-6. Set up recurring payment for paid listing tokens.
+6. Set up a recurring payment for paid listing tokens.
 7. Display featured listings on the home page - users may decide to purchase 'premium - featured' bolt on to a listing token.
 8. Implement more controls for Admin/Superuser
-    * Abilty to search & filter active lisings in the 'manage_conversions' template.
-    * View orders with listing tokens and UUIDs associated, to remove the need to use django admin pages. 
+    * Ability to search & filter active listings in the 'manage_conversions' template.
+    * View orders with listing tokens and UUIDs associated, to remove the need to use Django admin pages. 
 
 <div align="right">
     <a href="#table-of-contents"> ⇧ Back To Top </a>
@@ -814,7 +813,7 @@ All-testing has been documented here-  [testing.md](https://github.com/jamie120/
     5. Set Postgres plugin free plan from the resources tab in the newly created app.
     6. In the settings tab on the app dashboard, 'Reveal Config Vars' was used to tell Heroku which variableS are required to run the app. The following config vars were added: 
        ![Heroku Config Vars](https://github.com/jamie120/ms4-wild-mile/blob/master/documentation/images/heroku-config-vars.png "Heroku Config Vars screenshot")
-    7. Set up new database in settings.py
+    7. Set up a new database in settings.py
         * import dj_database_url
         * Dump SQlite database to json file with the following command :
         ```bash
@@ -892,10 +891,10 @@ Python3 - to run the application.
 Pip - to install any requirements.
 GIT - required for version control.
 
-Additionally you will need a free Stripe account set up, for your testing keys.
+Additionally, you will need a free Stripe account set up, for your testing keys.
 
 
-Please note, no products or conversion listing data will be uploaded in this guide. Only the DB models will be uplodaed to MySQLlite. You can add products and/or listings once you have the Webapp up and running.
+Please note, no products or conversion listing data will be uploaded in this guide. Only the DB models will be uploaded to MySQLlite. You can add products and/or listings once you have the Webapp up and running.
 
 * Steps
 
@@ -945,7 +944,7 @@ Please note, no products or conversion listing data will be uploaded in this gui
     python3 manage.py runserver
     ```
 
-10. Django admin can be accessed at /admin from your live server. Login using the details you created in step 8.
+10. Django admin can be accessed at /admin from your live server. Log in using the details you created in step 8.
 
 
 ##### For more information regarding cloning of a repository click [here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).

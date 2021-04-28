@@ -675,6 +675,7 @@ a.br-1.p-2.ml-1.bg-white.text-danger.border-muted {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 999;
 }
 
 .btt-link,

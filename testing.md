@@ -129,7 +129,7 @@
 
 # **Home Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
-* Verify site-entry overlay only loads on the intital page and does NOT load if refreshed in the same browser tab. :white_check_mark:
+* Verify site-entry overlay only loads on the initial page and does NOT load if refreshed in the same browser tab. :white_check_mark:
 * Verify When clicked the site-overlay fades (1500ms) and the element is removed - :white_check_mark:
 * Verify the 'grow' animation on the logo in the site-overlay functions as expected - :white_check_mark:
 * Check all links in index.html direct users to the correct routes - :white_check_mark:
@@ -151,7 +151,7 @@
 * Check all links operate as required -:white_check_mark:
 
 ### Sign in and logout Fixes
-- Remove home link from sign in page - Not required
+- Remove home link from sign-in page - Not required
 
 
 # **Register**
@@ -229,7 +229,7 @@
 # **Save to Profile Feature**
 
 * Verify only registered users can use the save to profile feature (users will be prompted to sign in) -:white_check_mark:
-* Verify listings can only be added to the user profile once (toast messages provide feedback to user) - :white_check_mark:
+* Verify listings can only be added to the user profile once (toast messages provide feedback to the user) - :white_check_mark:
     ![User - Confirmed](documentation/testing/img/save-item-first.png)
 
     ![User - Confirmed](documentation/testing/img/save-item-false.png)
@@ -246,14 +246,14 @@
 * Verify links work as expected 
     * Go to profile - :white_check_mark:
     * View listing token - :white_check_mark:
-* Verify form validation prevents user from submitting the form with errors -:white_check_mark:
+* Verify form validation prevents the user from submitting the form with errors -:white_check_mark:
 * Verify all validation is as expected and supports the user experience :x:
-* Verfify that once the form is submitted and validated, the user is redirected to the newly created listing - rendering the conversion_detail template -:white_check_mark: 
+* Verify that once the form is submitted and validated, the user is redirected to the newly created listing - rendering the conversion_detail template -:white_check_mark: 
 * Verify the newly created listing is NOT active -:white_check_mark:
 * Verify the newly created listing is viewable in the user profile 'my_listings' template :white_check_mark:
 
 ## Add conversion form fixes
-* Make vehicle dimensions able to be decimals - change IntegerField - DecimalField in model.
+* Make vehicle dimensions able to be decimals - change IntegerField - DecimalField in the model.
 
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
@@ -268,10 +268,10 @@
 * Check all listing content is rendered to the form, ready for a user to edit -:white_check_mark:
 * Check all images have the ability to 'delete' if desired -:white_check_mark:
 * Check that three NEW image upload elements are present at the bottom of the form -:white_check_mark:
-* Verify users are able to add/remove/update image files and save changes -:x:
+* Verify that users are able to add/remove/update image files and save changes -:x:
 
 ## Edit form fixes
-* It is not possible to update an image file if the delete checkbox is active - add note to users in the form
+* It is not possible to update an image file if the delete checkbox is active - add a note to users in the form
 
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
@@ -317,15 +317,15 @@
     1. Keep Shopping - :white_check_mark:
     2. Add to bag - :white_check_mark:
     3. Product Image (opens in new tab - large) - :white_check_mark:
-    4. Product quantity buttons (not able to reduce quantity to below 1) - :white_check_mark:
+    4. Product quantity buttons (not able to reduce the quantity to below 1) - :white_check_mark:
     5. Edit product button (visible to admin/superuser only) - :white_check_mark:
     6. Delete product button (visible to admin/superuser only) - :white_check_mark:
 * Verify sizes dropdown is rendered for products which include sizes -:white_check_mark:
 
 ## Product Detail - Listing Token
-* Verfiy 'inactive' listings dropdown is rendered if product is a listing token -:white_check_mark:
+* Verify 'inactive' listings dropdown is rendered if the product is a listing token -:white_check_mark:
 * Verify quantity buttons are removed for 'listing token' product -:white_check_mark:
-* Verfify quantity of item cannot be manual adjusted from the default of 1 -:white_check_mark:
+* Verify quantity of an item cannot be manually adjusted from the default of 1 -:white_check_mark:
 * Verify 'keep shopping' button is changed to 'back to listing levels' button -:white_check_mark:
 
 <div align="right">
@@ -336,7 +336,7 @@
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
 * Verify only logged admin/superusers can access the 'add_product' template -:white_check_mark:
 * Verify form validation prevents user from submitting the form with errors -:white_check_mark:
-* Verfify that once the form is submitted and validated, the user is redirected to the newly created product - rendering the product_detail template -:white_check_mark: 
+* Verify that once the form is submitted and validated, the user is redirected to the newly created product - rendering the product_detail template -:white_check_mark: 
 
 # **Edit Product Page**
 * Verify the page loads responsively on all device sizes. - :white_check_mark:
@@ -492,7 +492,7 @@ All of my code passed the following validation tests/services:
 
 ## Lighthouse Performance Testing
 
-* The site was testing using Lighthouse in Google Chrome Devtools, with no concerning issued highlighted.
+* The site was testing using Lighthouse in Google Chrome Devtools, with no concerning issues highlighted.
 
 ![Lighthouse performance results](documentation/testing/img/lighthouse-testing.png)
 
@@ -508,7 +508,7 @@ All of my code passed the following validation tests/services:
 ### As a site visitor: View a list of products/conversions available
     
 * The site navigation is clear and easily allows access to both merchandise and conversions listing pages.
-* The home page has a call to action button - allowing users direct access to to conversion page, without the use of the navbar.  
+* The home page has a call to action button - allowing users direct access to conversion page, without the use of the navbar.  
 
 ### User Story 2
 
@@ -528,7 +528,7 @@ All of my code passed the following validation tests/services:
 
 ### As a site visitor: Learn more about the business and services offered
 
-* Upon visiting the site intitally, the site purpose is clearly displayed to users ('WILD MILE CONVERSIONS - A platform to buy and sell unique converted vehicles')
+* Upon visiting the site initally, the site purpose is clearly displayed to users ('WILD MILE CONVERSIONS - A platform to buy and sell unique converted vehicles')
 * A scrolling banner at the top of each page promotes services and news to keep the user informed.
 
 ## Registration and User Accounts
@@ -542,15 +542,15 @@ All of my code passed the following validation tests/services:
 
 ### User Story 6
 
-### As a site visitor: Easily login or logout of the site
+### As a site visitor: Easily login or log out of the site
 
-* In the top-nav element, a my_account icon is displayed. When clicked a dropdown will display a link to login or to logout.
+* In the top-nav element, a my_account icon is displayed. When clicked a dropdown will display a link to login or to log out.
 
 ### User Story 7
 
 ### As a site visitor: Easily recover my password in case I forget it
 
-* On the sign in page a 'forgot password' link will direct the user to input their registered email address, associated with their user account. A link will be emailed to the user to reset their password.
+* On the sign-in page a 'forgot password' link will direct the user to input their registered email address, associated with their user account. A link will be emailed to the user to reset their password.
 
 ### User Story 8
 
@@ -578,7 +578,7 @@ All of my code passed the following validation tests/services:
 ### As a site visitor: Search for a listing using keywords - Easily see what I've searched for and the number of results
 
 * A search bar is present on the conversions page, users may use this to search listing titles and descriptions. 
-* The search will return all matching listings and display them on the page. As well as a summary of the search term and the amount of matches found.
+* The search will return all matching listings and display them on the page. As well as a summary of the search term and the number of matches found.
 * This feature has been extended to the merchandise products page.
 
 ### User Story 12 + 13
@@ -599,31 +599,31 @@ All of my code passed the following validation tests/services:
 
 ### User Story 15
 
-### As a registered user: Receive an email when my conversion is submitted for approval, to verify my listing token has been recieved and the order confirmed
+### As a registered user: Receive an email when my conversion is submitted for approval, to verify my listing token has been received and the order confirmed
 
 * The site will automatically generate an order summary and display this to the user at the checkout success page.
 * Users will receive an email order confirmation upon completion of an order. The email contains information about listing tokens and how to check the status of a listing in their profile.
 
 ### User Story 16 + 17
 
-### As a registered user: Edit, Remove my listings - to keep listings upto date or remove if no longer available for sale.
+### As a registered user: Edit, Remove my listings - to keep listings up to date or remove if no longer available for sale.
 
-* In the user profile - my_listings . Users can easily edit their listings by clicking the 'Edit Listing' button, present on the listing card element.
-* In the user profile - my_listings . Users can easily delete their listings by clicking the 'Delete Listing' button, present on the listing card element. A confirmation modal will pop up when this is pressed, to confirm deletion with the user before removing it from the database.
+* In the user profile - my_listings. Users can easily edit their listings by clicking the 'Edit Listing' button, present on the listing card element.
+* In the user profile - my_listings. Users can easily delete their listings by clicking the 'Delete Listing' button, present on the listing card element. A confirmation modal will pop up when this is pressed, to confirm deletion with the user before removing it from the database.
 
 ### User Story 18
 
-### As a registered user: View how long my listing will be published for in my profile, so that i'm aware of when the item will no longer be advertised on the site.
+### As a registered user: View how long my listing will be published in my profile so that I'm aware of when the item will no longer be advertised on the site.
 
-* This feature has been added to the future features list for the webapp. Due to time contstraints, this feature will not be available on launch. The user can still check if the listing is live or not, in the my_listings page of their profile.
+* This feature has been added to the future features list for the webapp. Due to time constraints this feature will not be available on launch. The user can still check if the listing is live or not, in the my_listings page of their profile.
 
 ### User Story 19
 
 ### As a registered user: Engage in conversation with potential buyers - to move forward will potential sale or learn more about a listing.
 
 * Site visitors may find contact information for a seller by clicking the 'contact seller' button on the respective conversion_detail page.
-* As a seller, I can update my contact information in the edit conversion page.
-* A future feature will allow two way conversion within the webapp between seller and potential buyer, in the form of a messaging system - Namely : Message Portal
+* As a seller, I can update my contact information on the edit conversion page.
+* A future feature will allow two-way conversion within the webapp between the seller and potential buyer, in the form of a messaging system - Namely: Message Portal
 
 ## Enquiring to purchase a conversion
 
@@ -639,7 +639,7 @@ All of my code passed the following validation tests/services:
 
 ### As a shopper: Easily select merchandise/items to purchase - size and qty if required.
 
-* The site merchandise section has intuitive filter and search functionality, to assist the user with finding relevant items/products.
+* The site merchandise section has an intuitive filter and search functionality, to assist the user with finding relevant items/products.
 * Product detail pages display information clearly and include options for selecting sizes where applicable.
 * Product quantity is easily adjustable using the buttons on the product_detail page.
 
@@ -647,16 +647,16 @@ All of my code passed the following validation tests/services:
 
 ### As a shopper: Be able to review items in my shopping bag before payment, Adjust product quantity.
 
-* The shopping bag page renders a full summary of all items currently in the users bag.
+* The shopping bag page renders a full summary of all items currently in the user's bag.
 * Product quantity can be adjusted on the shopping bag page.
 * Products can be completely removed from the bag on the shopping bag page.
 
 ### User Story 24 + 25
 
-### As a shopper: Checkout easily, easily enter payment information, feel secure.
+### As a shopper: Check out easily, easily enter payment information, feel secure.
 
 * The checkout page is designed to be easily used, with information clear to the user and the page looks great on all screen sizes, due to a responsive design.
-* The payment input section is provided by a thirdparty recognised business called 'Stripe'. They are widely used and offer secure and fast payment authentication for users.
+* The payment input section is provided by a third-party recognised business called 'Stripe'. They are widely used and offer secure and fast payment authentication for users.
 
 ### User Story 26
 
@@ -674,14 +674,14 @@ All of my code passed the following validation tests/services:
 
 ### As site admin: Add/Edit/Delete merchandise products.
 
-* Site admin can easily find controls to edit and delete exisiting products on their respective product_detail pages and within the product card element on the products page.
+* Site admin can easily find controls to edit and delete existing products on their respective product_detail pages and within the product card element on the products page.
 * Site admin can find a link to the 'add merchandise' page in the 'My Account' dropdown nav menu. This will render a simple form, which allows the user to add an item to the merchandise section of the site.
 
 ### User Story 30 + 31
 
 ### As site admin: Review and approve user listings.
 
-* Site admin can find a link to the  'conversion management' page in the 'My Account' drowndown nav menu.
+* Site admin can find a link to the  'conversion management' page in the 'My Account' drop-down nav menu.
 * The conversion management page hosts the functionality for site admin to view all listings in the database, with controls to display either 'active' or 'inactive' listings within card elements on the page.
 * Controls are available within each listing card element to 'approve' or 'delist' from the site as required, as well as controls to 'edit', 'delete', 'view' and 'contact seller'.
 
@@ -706,17 +706,18 @@ Any changes are documented below in the section - (Post Review Changes)
 # Post Review Changes
 
 * The following was addressed post-testing and feedback. (changes are detailed in commit history dated 15/04/2021 onwards) :
-    1. Remove sitewide search functionality for conversions - implement function into conversions page only.
+    1. Remove the sitewide search functionality for conversions - implement function into conversions page only.
     2. Add search function to merchandise/products page.
     3. Add further conditional coding to site navigation, to improve user experience.
     4. Combine manage conversions and approve conversions pages, to create one dynamic page for displaying listings to site admin.
     5. Make fixed height cards in 'my_listings' and 'saved_listings' templates.
     6. Add confirm delete modals for merchandise and products throughout the site.
-    7. Remove home link from sign in page.
-    8. Adjust z-index on 'my-account' dropdown menu, to fix issue when empty toast messages element was preventing use of nav dropdown upon sign in.
+    7. Remove the home link from sign-in page.
+    8. Adjust z-index on 'my-account' dropdown menu, to fix the issue when empty toast messages element was preventing the use of nav dropdown upon sign in.
     9. Create error handling templates for 400,403,404,500 errors.
     10. Move confirmation email code to checkout_success view, to ensure emails are sent to users for all orders.
     11. Update vehicle length, height and width fields in CamperConversion.model from IntegerField to DecimalField(max-digits=3, decimal_places=2)   - to allow upto 9.99 values to be entered.
+    12. Change the z-index of the back to top button, so that it works when overlapping the site footer.
 
 <div align="right">
     <a href="#contents"> ⇧ Back To Contents </a>
