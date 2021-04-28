@@ -1,4 +1,6 @@
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, HTML
 from .models import CamperConversion, Category, Electric, PostImage
 from django.forms.widgets import CheckboxSelectMultiple, ClearableFileInput
 from django.utils.translation import ugettext_lazy
@@ -53,7 +55,7 @@ class ImageForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # Making location required
         self.fields['image'].required = False
-        self.fields['image'].widget = MyClearableFileInput()
+        # self.fields['image'].widget = MyClearableFileInput()
 
     class Meta:
         model = PostImage

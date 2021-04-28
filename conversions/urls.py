@@ -7,6 +7,7 @@ urlpatterns = [
     path('save_listing/<int:conversion_id>&<conversion_unique_ref>/', views.save_listing, name='save_listing'),
     path('add/', views.add_conversion, name='add_conversion'),
     path('edit/<int:conversion_id>/', views.edit_conversion, name='edit_conversion'),
+    path('delete_image/<int:conversion_id>/<int:image_index>/', views.delete_conversion_image, name='delete_conversion_image'),
     path('delete/<int:conversion_id>/', views.delete_conversion, name='delete_conversion'),
     path('manage/', views.manage_conversions, name='manage_conversions'),
     path('approve/<conversion_id>', views.approve_conversion, name='approve_conversion'),

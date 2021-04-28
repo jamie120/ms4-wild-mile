@@ -109,14 +109,21 @@
                     <hr class="border-top-dark">
                     <!-- Image Upload Formset -->
                     {{ form.main_image| as_crispy_field }}
-                    
+                    <hr class="border-top-dark">
                     {{ formset | crispy }}
+
                     <div class="text-right mt-3 mb-3">
                         <a class="btn btn-lg btn-outline-black rounded-2" href="{% url 'profile' %}">Cancel</a>
                         <button class="btn btn-lg btn-light-green rounded-2" type="submit">Save Changes</button>
                     </div>
+                    <input type="hidden" id="conversion_id" name="variable" value="{{ conversion.id }}">
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'js/editFormDelete.js' %}"></script>
 {% endblock %}

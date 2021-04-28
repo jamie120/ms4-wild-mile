@@ -192,7 +192,9 @@ def edit_conversion(request, conversion_id):
                         pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image'))
                         pic.save()
                     elif f.cleaned_data.get('image') == False:
+                        print(data[index].id)
                         pic = PostImage.objects.get(id=data[index].id)
+                        print(pic)
                         pic.delete()
                         deleted += 1
                     else:
@@ -211,6 +213,7 @@ def edit_conversion(request, conversion_id):
         if request.user == conversion.user.user or request.user.is_superuser:
             form = ConversionForm(instance=conversion)
             formset = ImageFormSet(queryset=PostImage.objects.filter(conversion__pk=conversion_id))
+            print(formset)
             messages.info(request, f'You are editing {conversion.listing_title}')
         else:
             messages.error(request, 'Sorry, you can only edit listings which you have created previously.')
@@ -223,6 +226,21 @@ def edit_conversion(request, conversion_id):
     }
 
     return render(request, template, context)
+
+@login_required
+def delete_conversion_image(request, conversion_id, image_index):
+    """ Delete an image from the conversion """
+    conversion = get_object_or_404(CamperConversion, pk=conversion_id)
+    data = PostImage.objects.filter(conversion=conversion)
+
+    # Check if listing is currently active
+    previously_active = conversion.is_active
+
+    pic = PostImage.objects.get(id=image_index)
+    pic.delete()
+
+    messages.success(request, f'Succesfully deleted image : {conversion.listing_title}')
+    return redirect(reverse('edit_conversion', args=[conversion.id]))
 
 
 @login_required
