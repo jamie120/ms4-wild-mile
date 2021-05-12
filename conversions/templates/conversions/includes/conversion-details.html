@@ -1,0 +1,169 @@
+            <!-- Title and Price -->
+            
+            <div class="row mb-2">
+                <div class="br-1 bg-dark text-center col-12 col-xl-8 offset-xl-2 w-100 text-white p-3 mb-2 col-border mt-3">
+                    <h2 class="mb-0 mt-2 largest-font title">{{ conversion.listing_title }}</h2>
+                    <h4 class="lead mb-2 mt-2 text-center largest-font">£{{ conversion.price }}</h4>
+                </div>
+            </div>
+    
+            <!-- Main Conversion information -->
+            <div class="row">
+                <div class="col-12 col-xl-4 offset-xl-2 d-flex justify-content-center col-border-col-1">
+                    <div class="p-2 image-container d-flex justify-content-center mt-1 mb-3">
+                        {% if conversion.main_image %}
+                        <!-- Carousel of first three conversion images -->
+                        <div id="carousel{{ forloop.counter }}Indicators" class="carousel slide" data-ride="carousel">
+                            
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="{% url 'conversion_detail' conversion.id %}">
+                                        <img class="img-fluid img-conversions-page" src="{{ conversion.main_image.url }}" alt="{{ conversion.listing_title }}">
+                                    </a>
+                                </div>
+                                {% for image in conversion.images.all %}
+                                    <div class="carousel-item">
+                                        <a href="{% url 'conversion_detail' conversion.id %}">
+                                            <img class="img-fluid img-conversions-page" src="{{ image.image.url }}" alt="{{ conversion.listing_title }}">
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="prev">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-left ml-2"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel{{ forloop.counter }}Indicators" role="button" data-slide="next">
+                                <i style="font-size: 40px" class="fas fa-arrow-alt-circle-right mr-2"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        {% else %}
+                            <a href="">
+                                <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ conversion.name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="bg-white col-12 col-xl-4 col-border-col-2 d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center mb-3 mt-3">
+                        <div class="inner-container">
+                            <h3 class="mt-1">Vehicle Description</h3>
+                            <p class="mt-3 text-black">{{ conversion.vehicle_description }}</p>
+                            <a class="btn border-black rounded-2 text-black contact-info-button btn-outline-black">Contact Seller</a>
+                            <a href="{% url 'save_listing' conversion.id conversion.unique_ref %}" class="ml-2 btn border-black rounded-2 text-black btn-outline-black">Save to Profile <i class="ml-1 fa fa-plus-circle"></i></a>
+                            <p class="mt-5 text-black large-font contact-info-row d-none">{{ conversion.name }} - {{ conversion.phone_number }}</p>
+                            <p class="mt-3 text-black large-font contact-info-row d-none">Email - {{ conversion.user.user.email }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-12 col-xl-4 offset-xl-2 col-border-col-1 bg-white d-flex justify-content-center">
+                    <div class="p-3 d-flex align-items-center product-details-container">
+                        <div class="inner-container">
+                            <h3 class="mt-2">Conversion Description</h3>
+                            <p class="mt-3 text-black">{{ conversion.conversion_description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4 col-border-col-2">
+                    <div class="row">
+                        <div id="conversion-detail-container" class="col-12 col-sm-6 p-5 border-right-thin">
+                            <h3 class="text-white">Details</h3>
+                            <p class="mt-5 text-white">Transmission Type - {{ conversion.get_transmission_type_display }}</p>
+                            <p class="mt-4 text-white">Mileage - {{ conversion.current_mileage }} miles</p>
+                            <p class="mt-4 text-white">Belted Seats - {{ conversion.belted_seats }}</p>
+                            <p class="mt-4 text-white">Registered Vehicle Type - {{ conversion.get_registered_vehicle_type_display }}</p>
+                            <p class="mt-4 text-white">Gas Sign Off - {{ conversion.get_gas_sign_off_display }}</p>
+                        </div>
+                        <div id="electrics-detail-container" class="col-12 col-sm-6">
+                            <h3 class="text-white ml-3 mt-5">Electrics</h3>
+                            <div class="p-3 product-details-container mb-5 mt-4">
+                                {% for item in electrics %}
+                                    <p class="text-white"><i class="fas fa-check-circle mr-2"></i>{{ item }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col p-5 border-top-thin">
+                            <div class="mr-3">
+                                <h3 class="text-white">Dimensions / Weight</h3>
+                                <p class="mt-5 text-white">Vehicle (L,W,H) - {{ conversion.vehicle_length }}m, {{ conversion.vehicle_width }}m, {{ conversion.vehicle_height }}m</p>
+                                {% if conversion.unladen_weight_verified %}
+                                <p class="text-white">Unladed Weight - {{ conversion.unladen_weight }}</p>
+                            {% endif %}
+                            <p class="text-white">Max Weight - {{ conversion.max_weight }}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-12 col-xl-8 offset-xl-2 bg-white d-flex justify-content-center col-border">
+                    <div class="p-4 product-details-container">
+                        <h3 class="mt-2">Beds Description</h3>
+                        <p class="mt-3">Berths - {{ conversion.berths}}</p>
+                        <p class="mt-3 text-black">{{ conversion.beds_description }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Gallery Grid MD and above only -->
+            <div class="row mb-3">
+                <div class="col-12 col-xl-8 offset-xl-2">
+                    <h1 class="text-white mb-4 ml-4">Image Gallery</h1>
+                </div>
+            </div>
+            
+            <div class="row mt-2">
+                <div class="col-12 col-xl-8 offset-xl-2 d-none d-md-block w-100">
+                    <section>
+                        {% if image_list %}
+                            <!--- Grid for images 0:6 --->
+                            <div class="gallery">
+                                {% for image in image_list|slice:"0:6" %}
+                                        <figure class="gallery__item gallery__item--{{ forloop.counter }}">
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}" class="gallery__img" alt="Image 1">
+                                            </a>
+                                        </figure>
+                                {% endfor %}
+                            </div>
+                            <!--- Addtional images in carousel --->
+                            <div class="row">
+                                <div class="col-12">             
+                                    <div class="owl-carousel p-3 {% if image_list|length > 6 %}col-border{% endif %}">
+                                        {% for image in image_list|slice:"6:" %}
+                                            <a href="{{ image.image.url }}" target="_blank">
+                                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            {% if image_list|length > 6 %}
+                                <h2 class="text-white text-center mt-4">Click and Drag The<br>Images to scroll</h2>
+                            {% endif %}
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
+
+            <!-- Image Gallery no grid - ALL IMAGES - MD and BELOW only -->
+            <div class="row">
+                <div class="col-12 d-md-none">
+                    <div class="owl-carousel">
+                        {% for image in image_list|slice:"0:" %}
+                            <a href="{{ image.image.url }}" target="_blank">
+                                <img src="{{ image.image.url }}"  class="img-responsive" alt="additional_img">
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
