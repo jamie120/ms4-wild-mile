@@ -688,6 +688,27 @@ a.br-1.p-2.ml-1.bg-white.text-danger.border-muted {
     width: 50%;
 }
 
+.card-img-top {
+    object-fit: contain;
+    min-height: 275px;
+}
+
+@media (max-width:575px){
+    .card-img-top {
+        object-fit: contain;
+        min-height: 370px;
+    }
+}
+
+@media (min-width:1700px){
+    .card-img-top {
+        object-fit: contain;
+        min-height: 450px;
+        max-height: 450px;
+    }
+}
+
+
 @media (max-width:1199px){
     #product-search-bar {
     width: 75%;
