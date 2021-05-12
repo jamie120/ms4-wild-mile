@@ -31,6 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="{% static 'js/owlcarousel/owl.carousel.min.js' %}"></script>
+
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
@@ -49,7 +50,7 @@
                     <img id="logo-img" src="{{ MEDIA_URL }}wild_mile_logo_square.png" alt="wild mile logo">
                 </a>
             </div>
-            
+            <!-- Nav -->
             <div class="col-12 pr-5 col-lg-6 col-xl-6 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled mt-3 text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
@@ -108,7 +109,7 @@
                               
             </div>            
         </div>
-
+        <!-- Toast Messages -->
         {% if messages %}
         <div class="message-container">
             {% for message in messages %}
