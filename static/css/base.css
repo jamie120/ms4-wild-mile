@@ -846,6 +846,8 @@ hr.bag-break {
 .carousel {
     width: 100% !important;
     height: 100% !important;
+    display: flex;
+    align-items: center;
 }
 
 
