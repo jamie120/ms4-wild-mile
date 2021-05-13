@@ -60,7 +60,6 @@ def remove_saved_listing(request, conversion_id):
     saved_listings = SavedListings.objects.all().filter(user=profile)
     for listing in saved_listings:
         if listing.conversion.id == int(conversion_id):
-            print('true')
             listing.delete()
 
     saved_listings = SavedListings.objects.all().filter(user=profile)
