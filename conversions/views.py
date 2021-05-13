@@ -191,8 +191,9 @@ def edit_conversion(request, conversion_id):
                         pic = PostImage.objects.get(id=data[index].id)
                         pic.delete()
                     else:
+                        image_index = request.POST.get(f'form-{index}-id')
                         pic = PostImage(conversion=post_form, image=f.cleaned_data.get('image'))
-                        d = PostImage.objects.get(id=data[index].id)  # get slide id which was uploaded
+                        d = PostImage.objects.get(id=image_index)  # get slide id which was uploaded
                         d.image = pic.image  # changing the database title with new title
                         d.save()
             messages.success(request, f'Succesfully updated listing : {conversion.listing_title}')
